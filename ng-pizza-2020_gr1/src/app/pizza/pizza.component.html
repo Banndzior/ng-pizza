@@ -1,0 +1,10 @@
+<ul>
+    <li *ngFor="let pizza of pizzas">
+        {{ pizza.name }}
+        <img [src]="pizza.photoUrl" height="100px" />
+        <a (click)="removePizza()">usun</a>
+        <a (click)="modifyPizza()">ustaw obrazek</a>
+    </li>
+</ul>
+
+<button (click)="addPizza()">Dodaj pizze</button>
