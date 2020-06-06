@@ -43,15 +43,4 @@ export class PizzaComponent implements OnInit {
       description: '...'
     }).subscribe(() => this.ngOnInit());
   }
-
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(
-      () => this.ngOnInit(),
-      (error) => console.error(error));
-  }
-
-  modifyPizza() {
-    // ? update obrazka
-  }
-
 }

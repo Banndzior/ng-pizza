@@ -1,22 +1,6 @@
 <ul>
     <li *ngFor="let pizza of pizzas">
-        <!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
-        <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-        {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
-        <br />
-        <!-- {{ getShortName(pizza.name) }}
-        <br />
-        {{ pizza.name | dots:0:10 }}
-        <br /> -->
-        <div>
-            {{ pizza.description }}
-        </div>
-        <!-- TODO 5: Dodaj pole opis -->
-        <img [src]="pizza.photoUrl" height="100px" />
-        <br />
-        <a href="#" (click)="removePizza(pizza)">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-        <br />
-        <a href="#" (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+        <app-pizza-item [pizza]="pizza"></app-pizza-item>
     </li>
     <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
