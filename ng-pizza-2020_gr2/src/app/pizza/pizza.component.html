@@ -9,6 +9,9 @@
         {{ pizza.name | dots:0:10 }}
         <br /> -->
         <!-- TODO 5: Dodaj pole opis -->
+        <div>
+            {{pizza.description}}
+        </div>
         <img [src]="pizza.photoUrl" height="50px">
         <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
         <!-- TODO 12: Obsłuż metode POST z Pizza API -->
