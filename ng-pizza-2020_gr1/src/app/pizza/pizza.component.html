@@ -13,8 +13,10 @@
         </div>
         <!-- TODO 5: Dodaj pole opis -->
         <img [src]="pizza.photoUrl" height="100px" />
-        <a (click)="removePizza()">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-        <a (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+        <br />
+        <a href="#" (click)="removePizza(pizza)">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
+        <br />
+        <a href="#" (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
     </li>
     <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>

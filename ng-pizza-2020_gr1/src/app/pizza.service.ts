@@ -20,6 +20,6 @@ export class PizzaService {
   }
 
   removePizza(pizza: Pizza) {
-    // return this.http.delete()
+    return this.http.delete(`${this.url}/api/pizzas/${pizza.id}`);
   }
 }
