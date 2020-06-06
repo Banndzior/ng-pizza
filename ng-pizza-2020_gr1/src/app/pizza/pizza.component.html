@@ -8,6 +8,9 @@
         <br />
         {{ pizza.name | dots:0:10 }}
         <br /> -->
+        <div>
+            {{ pizza.description }}
+        </div>
         <!-- TODO 5: Dodaj pole opis -->
         <img [src]="pizza.photoUrl" height="100px" />
         <a (click)="removePizza()">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
