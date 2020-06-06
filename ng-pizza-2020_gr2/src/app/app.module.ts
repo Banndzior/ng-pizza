@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { HttpClientModule } from '@angular/common/http';
 
+// TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
+
 @NgModule({
   declarations: [
     AppComponent,
