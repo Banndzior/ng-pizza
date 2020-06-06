@@ -2,7 +2,7 @@
 <ul>
     <li *ngFor="let pizza of pizzas">
         <!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
-        <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+        <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
         {{ (pizza.name | slice:0:20) + (pizza.name.length > 20 ? "..." : "") }}
         <br/>
         <p>{{pizza.description}}</p>>

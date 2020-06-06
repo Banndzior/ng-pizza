@@ -5,7 +5,9 @@ import { Routes, RouterModule } from '@angular/router';
 // TODO 7: Stworz routing dla pizzy po jej id/nazwie
 // TODO 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy
 
-const routes: Routes = [];
+const routes: Routes = [
+ //  {path: "", redirectTo: "pizza"}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
