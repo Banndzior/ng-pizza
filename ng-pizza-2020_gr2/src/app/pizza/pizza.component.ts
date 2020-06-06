@@ -44,7 +44,9 @@ export class PizzaComponent implements OnInit {
   }
 
   removePizza(pizzaId: number) {
- // ... http.delete
+    this.pizzaSvc.removePizza(pizzaId).subscribe(
+      () => this.ngOnInit(),
+      (error) => console.error(error));
   }
 
   updatePizza(pizzaId: number) {
