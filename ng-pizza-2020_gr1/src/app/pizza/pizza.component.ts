@@ -1,37 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { PizzaService } from '../pizza.service';
-import { Pizza } from '../pizza';
+import { Component, OnInit } from "@angular/core";
+import { PizzaService } from "../pizza.service";
+import { Pizza } from "../pizza";
 
 @Component({
-  selector: 'app-pizza',
-  templateUrl: './pizza.component.html',
-  styleUrls: ['./pizza.component.css']
+  selector: "app-pizza",
+  templateUrl: "./pizza.component.html",
+  styleUrls: ["./pizza.component.css"],
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
-  constructor(private pizzaSvc: PizzaService) { }
+  constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
-    this.pizzaSvc.getPizzas().subscribe(response => {
+    this.pizzaSvc.getPizzas().subscribe((response) => {
       console.log(response);
       this.pizzas = response.value;
     });
   }
 
   addPizza() {
-    this.pizzaSvc.addPizza({
-      name: 'Kamila Pizza',
-      description: '...'
-    }).subscribe(() => this.ngOnInit());
+    this.pizzaSvc
+      .addPizza({
+        name: "Kamila Pizza",
+        description: "...",
+      })
+      .subscribe(() => this.ngOnInit());
   }
 
-  removePizza() {
-    // ? usuwac
+  removePizza(id: number) {
+    this.pizzaSvc.removePizza(id).subscribe(() => this.ngOnInit());
   }
 
   modifyPizza() {
     // ? update obrazka
   }
-
 }
