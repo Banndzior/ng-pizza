@@ -18,8 +18,7 @@ import { SlicePipe } from '@angular/common';
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
-    ThreeDotsPipe,
-    PizzaNothingComponent
+    ThreeDotsPipe
   ],
   imports: [
     BrowserModule,

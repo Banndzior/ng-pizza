@@ -45,7 +45,7 @@ export class PizzaComponent implements OnInit {
   }
 
   removePizza() {
-    // ? usuwac
+    // ...
   }
 
   modifyPizza() {
