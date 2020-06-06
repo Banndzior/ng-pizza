@@ -3,10 +3,12 @@
 npm i
 ng serve -o
 
-• Wykłady: https://github.com/Banndzior/ng-2019
-• Przykład pipe & directive: https://github.com/Banndzior/ng-pokedex
-• Formularze: https://github.com/Banndzior/ng-form
+# Materiały
 
+* Wykłady: https://github.com/Banndzior/ng-2019
+* Przykład pipe & directive: https://github.com/Banndzior/ng-pokedex
+* Formularze: https://github.com/Banndzior/ng-form
+* API: https://ng-pizza.azurewebsites.net/index.html
 
 # NgPizza
 
