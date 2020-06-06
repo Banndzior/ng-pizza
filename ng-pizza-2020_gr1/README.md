@@ -1,3 +1,13 @@
+# Uruchomienie
+
+npm i
+ng serve -o
+
+• Wykłady: https://github.com/Banndzior/ng-2019
+• Przykład pipe & directive: https://github.com/Banndzior/ng-pokedex
+• Formularze: https://github.com/Banndzior/ng-form
+
+
 # NgPizza
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
