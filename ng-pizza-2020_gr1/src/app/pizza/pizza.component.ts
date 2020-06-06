@@ -16,6 +16,7 @@ export class PizzaComponent implements OnInit {
     this.pizzaSvc.getPizzas().subscribe(response => {
       console.log(response);
       this.pizzas = response.value;
+      console.log(this.pizzas);
     });
   }
 
