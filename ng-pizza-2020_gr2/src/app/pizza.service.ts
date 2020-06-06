@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PizzaService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>('https://ng-pizza.azurewebsites.net/api/pizzas');
@@ -15,5 +15,8 @@ export class PizzaService {
 
   addPizza(pizza: Pizza) {
     return this.http.post<Pizza>('https://ng-pizza.azurewebsites.net/api/pizzas', pizza);
+  }
+  removePizza(pizzaId: number) {
+    return this.http.delete<Pizza>(`https://ng-pizza.azurewebsites.net/api/pizzas/${pizzaId}`);
   }
 }

@@ -33,7 +33,8 @@ export class PizzaComponent implements OnInit {
   }
 
   removePizza(pizzaId: number) {
- // ... http.delete
+    // ... http.delete
+    // this.pizzaSvc, this.removePizza(pizzaId).subscribe(response => { console.log(response); })
   }
 
   updatePizza(pizzaId: number) {
