@@ -32,10 +32,20 @@ export class PizzaComponent implements OnInit {
       })
       .subscribe(() => this.ngOnInit());
   }
+
+  removePizza(id: number) {
+    this.pizzaSvc.removePizza(id).subscribe((response) => {
+      this.ngOnInit();
+    });
+  }
+
+  updatePizza(id: number, pizza: Pizza) {
+    // this.pizzaSvc.updatePizza(id, pizza).su
+  }
 }
 
-@Pipe({ name: "dots" })
-export class ThreeDotsPipe implements PipeTransform {
+@Pipe({ name: "truncateString" })
+export class TruncateStringPipe implements PipeTransform {
   constructor() {}
 
   transform(value: string): string {

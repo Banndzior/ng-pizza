@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { PizzaComponent, ThreeDotsPipe } from "./pizza/pizza.component";
+import { PizzaComponent, TruncateStringPipe } from "./pizza/pizza.component";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 
@@ -16,7 +16,7 @@ import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
-    ThreeDotsPipe,
+    TruncateStringPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
