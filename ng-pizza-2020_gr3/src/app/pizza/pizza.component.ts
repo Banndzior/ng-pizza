@@ -13,6 +13,10 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
+    this.getPizza();
+  }
+
+  getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
         console.log(response);
@@ -31,5 +35,13 @@ export class PizzaComponent implements OnInit {
         description: " Salami, salad XD",
       })
       .subscribe(() => this.ngOnInit());
+  }
+  removePizza(pizza: Pizza) {
+    this.pizzaSvc.removePizza(pizza).subscribe(
+      () => this.getPizza(),
+      (error) => {
+        console.log("jest blad", error);
+      }
+    );
   }
 }

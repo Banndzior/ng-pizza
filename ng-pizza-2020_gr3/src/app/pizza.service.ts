@@ -18,4 +18,7 @@ export class PizzaService {
   addPizza(newPizza: Pizza) {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, newPizza);
   }
+  removePizza(pizza: Pizza) {
+    return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
+  }
 }
