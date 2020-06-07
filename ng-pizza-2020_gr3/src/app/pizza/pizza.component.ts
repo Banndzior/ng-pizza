@@ -2,14 +2,9 @@ import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 
-@Component({
-  selector: "app-pizza",
-  templateUrl: "./pizza.component.html",
-  styleUrls: ["./pizza.component.css"],
-})
+
 
 @Pipe({name: "dots"})
-
 export class ThreeDotsPipe implements PipeTransform {
  constructor(){}
   transform(value: string): string {
@@ -22,7 +17,11 @@ export class ThreeDotsPipe implements PipeTransform {
   }
 }
 
-
+@Component({
+  selector: "app-pizza",
+  templateUrl: "./pizza.component.html",
+  styleUrls: ["./pizza.component.css"],
+})
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 

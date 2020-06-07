@@ -11,8 +11,7 @@ import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
 
 @NgModule({
-  declarations: [AppComponent, 
-    PizzaComponent, PizzaItemComponent, PizzaEditorComponent, ThreeDotsPipe],
+  declarations: [AppComponent, PizzaComponent, PizzaItemComponent, PizzaEditorComponent, ThreeDotsPipe],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
