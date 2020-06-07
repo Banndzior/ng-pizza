@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 
@@ -7,6 +7,22 @@ import { Pizza } from "../pizza";
   templateUrl: "./pizza.component.html",
   styleUrls: ["./pizza.component.css"],
 })
+
+@Pipe({name: "dots"})
+
+export class ThreeDotsPipe implements PipeTransform {
+ constructor(){}
+  transform(value: string): string {
+    if(value.length>10){
+      return value.substring(0,10) + '...';
+    }
+   else{
+     return value;
+   }
+  }
+}
+
+
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
@@ -32,4 +48,5 @@ export class PizzaComponent implements OnInit {
       })
       .subscribe(() => this.ngOnInit());
   }
+  
 }
