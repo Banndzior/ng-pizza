@@ -9,6 +9,7 @@
     <br />
     <img src="{{ item.photoUrl }}" height="100px" />
     <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
+    <button (click)="removePizza(item.id)">Usuń pizze</button>
     <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
   </li>
 </ul>
