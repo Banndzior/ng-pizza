@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { PizzaService } from '../pizza.service';
-import { Pizza } from '../pizza';
+import { Component, OnInit } from "@angular/core";
+import { PizzaService } from "../pizza.service";
+import { Pizza } from "../pizza";
 
 @Component({
-  selector: 'app-pizza',
-  templateUrl: './pizza.component.html',
-  styleUrls: ['./pizza.component.css'],
+  selector: "app-pizza",
+  templateUrl: "./pizza.component.html",
+  styleUrls: ["./pizza.component.css"],
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
@@ -23,7 +23,7 @@ export class PizzaComponent implements OnInit {
         this.pizzas = response.value;
       },
       (error) => {
-        console.log('jest blad', error);
+        console.log("jest blad", error);
       }
     );
   }
@@ -31,15 +31,9 @@ export class PizzaComponent implements OnInit {
   addPizza() {
     this.pizzaSvc
       .addPizza({
-        name: 'Margehrita',
-        description: ' Salami, salad XD',
+        name: "Margehrita",
+        description: " Salami, salad XD",
       })
       .subscribe(() => this.getPizza());
-  }
-
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(() => this.getPizza(), (error) => {
-      console.log('jest blad', error);
-    });
   }
 }
