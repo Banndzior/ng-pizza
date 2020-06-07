@@ -1,6 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+
+@Pipe({ name: "dots" })
+export class ThreeDotsPipe implements PipeTransform {
+  constructor() {}
+
+  transform(value: string): string {
+    return value.length > 10 ? value.substring(0, 10) + "..." : value;
+  }
+}
 
 @Component({
   selector: "app-pizza",
