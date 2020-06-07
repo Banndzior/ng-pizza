@@ -1,12 +1,7 @@
 <ul>
   <li *ngFor="let item of pizzas">
+    {{ item.id }}
     <app-pizza-item [pizza]="item"></app-pizza-item>
-    <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
-    <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…")
-      https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-
-    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
-    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
   </li>
 </ul>
 <!-- TODO 11: Dodajemy komponent stronnicowania -->

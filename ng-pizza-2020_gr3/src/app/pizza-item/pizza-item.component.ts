@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+import { isNullOrUndefined } from 'util';
 
 @Component({
   selector: "app-pizza-item",
@@ -14,11 +15,13 @@ export class PizzaItemComponent implements OnInit {
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get("id");
+    const id = this.route.snapshot.paramMap.get('id');
 
-    this.pizzaSvc
-      .getPizza(parseInt(id, 10))
-      .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
+    if (!isNullOrUndefined(id)) {
+      this.pizzaSvc
+        .getPizza(parseInt(id, 10))
+        .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
+    }
   }
 
   removePizza(pizza: Pizza) {
