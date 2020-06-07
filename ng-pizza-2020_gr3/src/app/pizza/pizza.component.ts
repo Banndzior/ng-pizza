@@ -13,6 +13,10 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
+    this.getPizza();
+  }
+
+  getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
         console.log(response);
@@ -32,13 +36,26 @@ export class PizzaComponent implements OnInit {
       })
       .subscribe(() => this.ngOnInit());
   }
+
+  removePizza(pizza: Pizza) {
+    this.pizzaSvc.removePizza(pizza).subscribe(
+      () => this.getPizza(),
+      (error) => {
+        console.log("jest blad", error);
+      }
+    );
+  }
 }
 
 @Pipe({ name: "dots" })
 export class ThreeDotsPipe implements PipeTransform {
   constructor() {}
 
-  transform(value: any): string {
-    return value + "...";
+  transform(value: string): string {
+    let returnedString = value;
+    if (value.length > 10) {
+      returnedString = value.substring(0, 10) + "...";
+    }
+    return returnedString;
   }
 }

@@ -2,12 +2,14 @@
   <li *ngFor="let item of pizzas">
     <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
     <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+    {{ item.name | dots }}
     {{ (item.name | slice: 0:10) + (item.name.length > 10 ? "..." : "") }}
     <br />
     <code>{{ item.description }}</code>
 
     <br />
     <img src="{{ item.photoUrl }}" height="100px" />
+    <a href="#" (click)="removePizza(item)">usun</a>
     <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
     <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
   </li>
