@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 
@@ -31,5 +31,14 @@ export class PizzaComponent implements OnInit {
         description: " Salami, salad XD",
       })
       .subscribe(() => this.ngOnInit());
+  }
+}
+
+@Pipe({ name: "dots" })
+export class ThreeDotsPipe implements PipeTransform {
+  constructor() {}
+
+  transform(value: any): string {
+    return value + "...";
   }
 }
