@@ -5,6 +5,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { PizzaComponent } from "./pizza/pizza.component";
 
+// TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
+
 @NgModule({
   declarations: [AppComponent, PizzaComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
