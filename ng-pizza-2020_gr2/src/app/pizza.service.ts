@@ -7,24 +7,24 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class PizzaService {
+  private apiUrl = "https://ng-pizza.azurewebsites.net";
   constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(
-      "https://ng-pizza.azurewebsites.net/api/pizzas"
-    );
+    return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas`);
+  }
+
+  getPizza(pizzaId: Pizza): Observable<Pizza> {
+    return this.http.get<Pizza>(`${this.apiUrl}/api/pizzas`);
   }
 
   addPizza(pizza: Pizza) {
-    return this.http.post<Pizza>(
-      "https://ng-pizza.azurewebsites.net/api/pizzas",
-      pizza
-    );
+    return this.http.post<Pizza>(`${this.apiUrl}/api/pizzas`, pizza);
   }
 
   removePizza(pizzaId: number) {
     return this.http.delete<Pizza>(
-      `https://ng-pizza.azurewebsites.net/api/pizzas/${pizzaId}`
+      `${this.apiUrl}/api/pizzas/api/pizzas/${pizzaId}`
     );
   }
 }
