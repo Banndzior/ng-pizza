@@ -1,27 +1,27 @@
 <ul>
-    <li *ngFor="let pizza of pizzas">
-        <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
-        <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-        {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
-        <br />
-        <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
+  <li *ngFor="let pizza of pizzas">
+    <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
+    <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+    {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
+    <br />
+    <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
         <br />
         {{ pizza.name | dots:0:10 }}
         <br /> -->
-        <!-- TODO 5: Dodaj pole opis -->
-        <div>
-            {{pizza.description}}
-        </div>
-        <img [src]="pizza.photoUrl" height="50px">
-        <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-        
-        <br />
-        <a>ustaw obrazek</a>
-        <!-- TODO 12: Obsłuż metode PUT/update z Pizza API -->
-        <br />
-        <a href="#" (click)="removePizza(pizza.id)">usun</a>
-    </li>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+    <!-- TODO 5: Dodaj pole opis -->
+    <div>
+      {{ pizza.description }}
+    </div>
+    <img [src]="pizza.photoUrl" height="50px" />
+    <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
+
+    <br />
+    <a>ustaw obrazek</a>
+    <!-- TODO 12: Obsłuż metode PUT/update z Pizza API -->
+    <br />
+    <a href="#" (click)="removePizza(pizza.id)">usun</a>
+  </li>
+  <!-- TODO 11: Dodajemy komponent stronicowania -->
 </ul>
 
 <!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
