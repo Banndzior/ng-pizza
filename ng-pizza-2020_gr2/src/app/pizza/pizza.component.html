@@ -3,13 +3,18 @@
     <!-- TODO: Wydziel zawartosc html do komponentu pizza-item -->
     <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
     {{ pizza.name | dots }}
-    <!-- TODO 5: Dodaj pole opis -->
-
+    <br />
+    <!-- DONE 5: Dodaj pole opis -->
+    <div>
+      {{ pizza.description }}
+    </div>
     <img [src]="pizza.photoUrl" height="50px" />
-    <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
+    <br />
+    <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
     <!-- TODO 12: Obsłuż metode POST z Pizza API -->
     <a>ustaw obrazek</a>
-    <a (click)="removePizza(pizza.id)">usun</a>
+    <br />
+    <a href="#" (click)="removePizza(pizza.id)">usun</a>
   </li>
   <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
