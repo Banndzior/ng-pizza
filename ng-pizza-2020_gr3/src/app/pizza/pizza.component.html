@@ -1,16 +1,7 @@
 <ul>
   <li *ngFor="let item of pizzas">
     <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
-    <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-    {{ item.name | dots }}
-    <br />
-    <code>{{ item.description }}</code>
-
-    <br />
-    <img src="{{ item.photoUrl }}" height="100px" />
-    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
-    <button (click)="removePizza(item.id)">Usuń pizze</button>
-    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
+    <app-pizza-item [pizza]="item"></app-pizza-item>
   </li>
 </ul>
 <!-- TODO 11: Dodajemy komponent stronnicowania -->

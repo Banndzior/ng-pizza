@@ -22,6 +22,12 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
+    this.getPizzas();
+
+    this.pizzaSvc.onPizzaChange.subscribe(() => this.getPizzas());
+  }
+
+  getPizzas() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
         console.log(response);
@@ -36,14 +42,9 @@ export class PizzaComponent implements OnInit {
   addPizza() {
     this.pizzaSvc
       .addPizza({
-        name: "Margehrita",
+        name: "123Margehrita",
         description: " Salami, salad XD",
       })
-      .subscribe(() => this.ngOnInit());
-  }
-
-  removePizza(id) {
-    console.log(id);
-    this.pizzaSvc.removePizza(id).subscribe(() => this.ngOnInit());
+      .subscribe(() => this.getPizzas());
   }
 }
