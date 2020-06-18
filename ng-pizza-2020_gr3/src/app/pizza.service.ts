@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
-import { Observable, Subject } from "rxjs";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -25,5 +25,9 @@ export class PizzaService {
 
   removePizza(pizza: Pizza) {
     return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
+  }
+
+  getUrlPattern() {
+    return `(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?`;
   }
 }
