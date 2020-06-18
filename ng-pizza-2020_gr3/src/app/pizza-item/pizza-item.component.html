@@ -1,1 +1,11 @@
-<p>pizza-item works!</p>
+<div *ngIf="pizza">
+  <p>
+    {{ pizza.name }}
+  </p>
+  <br />
+  <code>{{ pizza.description }}</code>
+  <br />
+  <img src="{{ pizza.photoUrl }}" height="100px" />
+  <br />
+  <button (click)="removePizza(pizza)">Usuń pizzunie ;(</button>
+</div>
