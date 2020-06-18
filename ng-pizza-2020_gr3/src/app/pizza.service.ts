@@ -27,6 +27,10 @@ export class PizzaService {
     return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
   }
 
+  editPizza(pizza: Pizza) {
+    return this.http.put<Pizza>(`${this.url}/api/pizzas/${pizza.id}`, pizza);
+  }
+
   getUrlPattern() {
     return `(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?`;
   }

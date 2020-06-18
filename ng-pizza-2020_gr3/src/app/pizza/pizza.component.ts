@@ -19,7 +19,6 @@ export class PizzaComponent implements OnInit {
   getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
-        console.log(response);
         this.pizzas = response.value;
       },
       (error) => {
@@ -27,22 +26,4 @@ export class PizzaComponent implements OnInit {
       }
     );
   }
-
-  // addPizza() {
-  //   this.pizzaSvc
-  //     .addPizza({
-  //       name: "Margehrita",
-  //       description: " Salami, salad XD",
-  //     })
-  //     .subscribe(() => this.ngOnInit());
-  // }
-
-  // removePizza(pizza: Pizza) {
-  //   this.pizzaSvc.removePizza(pizza).subscribe(
-  //     () => this.getPizza(),
-  //     (error) => {
-  //       console.log("jest blad", error);
-  //     }
-  //   );
-  // }
 }

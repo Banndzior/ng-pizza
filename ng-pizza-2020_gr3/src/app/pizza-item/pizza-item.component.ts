@@ -21,7 +21,6 @@ export class PizzaItemComponent implements OnInit {
     const id = this.route.snapshot.params["id"];
 
     this.pizzaService.getPizza(+id).subscribe((pizzaResponse) => {
-      console.log(pizzaResponse);
       return (this.pizza = pizzaResponse);
     });
   }
@@ -31,5 +30,9 @@ export class PizzaItemComponent implements OnInit {
       console.log(`usunieto pizze ${pizza.id}`);
       this.router.navigate([""]);
     });
+  }
+
+  editPizza(pizza: Pizza) {
+    this.router.navigate([`pizza/${pizza.id}/edit`]);
   }
 }
