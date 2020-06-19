@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import {Pizza} from '../pizza';
 
 @Component({
   selector: 'app-pizza-editor',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pizza-editor.component.css']
 })
 export class PizzaEditorComponent implements OnInit {
+  pizza: Pizza = {
+    name: 'Kamila Pizza',
+    description: '...'
+  };
+  @Output()
+  addPizza = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  add () {
+    this.addPizza.emit(this.pizza);
   }
 
 }

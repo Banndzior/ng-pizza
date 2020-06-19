@@ -1,6 +1,12 @@
-    TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
-    {{ pizza.name | slice:0:20 }}
-    <!-- TODO 5: Dodaj pole opis -->
-    <img [src]="pizza.photoUrl" height="100px" />
-    <a (click)="removePizza()">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-    <a (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API
+<div class="container">
+  <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+  <a [routerLink]="['./', pizza.id, pizza.name]" >
+    <h3>{{ pizza.name | dots:15}}</h3>
+  </a>
+    <h6>{{ pizza.id }}</h6>
+    <!-- DONE 5: Dodaj pole opis -->
+    <div class="decs">{{ pizza.description }}</div>
+  <img [src]="pizza.photoUrl" height="100px" />
+  <a (click)="remove()" class="button" >usun</a> <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+  <a (click)="modify()" class="button">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+</div>

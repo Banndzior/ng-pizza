@@ -6,6 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
+import {SlicePipe} from '@angular/common';
+import { DotsPipe } from './dots.pipe';
+import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -14,14 +17,16 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
   declarations: [
     AppComponent,
     PizzaComponent,
-    PizzaItemComponent
+    PizzaItemComponent,
+    PizzaEditorComponent,
+    DotsPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SlicePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
