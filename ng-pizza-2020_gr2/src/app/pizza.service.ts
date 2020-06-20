@@ -16,4 +16,6 @@ export class PizzaService {
   addPizza(pizza: Pizza) {
     return this.http.post<Pizza>('https://ng-pizza.azurewebsites.net/api/pizzas', pizza);
   }
+
+  removePizza()
 }
