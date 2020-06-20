@@ -25,21 +25,14 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) { }
 
   ngOnInit() {
+    this.loadPizzas();
+    this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
+  }
+
+  loadPizzas() {
     this.pizzaSvc.getPizzas().subscribe(response => {
       console.log(response);
       this.pizzas = response.value;
-    });
-  }
-
-  addPizza() {
-    this.pizzaSvc.addPizza({
-      name: 'testPizza',
-      description: 'testtest'
-    }).subscribe(_ => {
-      this.pizzaSvc.getPizzas().subscribe(response => {
-        console.log(response);
-        this.pizzas = response.value;
-      });
     });
   }
 

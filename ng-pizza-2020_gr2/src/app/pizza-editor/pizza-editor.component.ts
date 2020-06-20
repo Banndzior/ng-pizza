@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PizzaService } from '../pizza.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-pizza-editor',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzaEditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pizzaSvc: PizzaService) { }
 
   ngOnInit() {
+  }
+
+  addPizza(form: NgForm) {
+    this.pizzaSvc.addPizza({
+      name: form.value.name,
+      description: 'testtest'
+    }).subscribe(_ => {
+      this.pizzaSvc.onChange.emit();
+    });
   }
 
 }
