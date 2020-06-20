@@ -1,7 +1,11 @@
 <!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 <form #myForm="ngForm" (ngSubmit)="addPizza(myForm)">
-  <input name="name" type="text" ngModel required />
-  <input name="description" type="text" ngModel required />
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text" ngModel required />
+  <label for="description">Description</label>
+  <input id="description" name="description" type="text" ngModel required />
+  <label for="img">img URL</label>
+  <input id="img" name="img" type="text" ngModel required />
   <button>Dodaj pizze</button>
 </form>

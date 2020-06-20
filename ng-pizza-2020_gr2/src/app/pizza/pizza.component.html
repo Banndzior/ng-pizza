@@ -1,5 +1,10 @@
 <ul>
-  <li *ngFor="let pizza of pizzas">
+  <li
+    *ngFor="
+      let pizza of pizzas
+        | paginate: { itemsPerPage: 5, currentPage: pageIndex }
+    "
+  >
     <!-- TODO: Wydziel zawartosc html do komponentu pizza-item -->
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
     {{ pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "") }}
@@ -18,3 +23,6 @@
 </ul>
 
 <app-pizza-editor></app-pizza-editor>
+<div class="has-text-centered">
+  <pagination-controls (pageChange)="pageIndex = $event"></pagination-controls>
+</div>

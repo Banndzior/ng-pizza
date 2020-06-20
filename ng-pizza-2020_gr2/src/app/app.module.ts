@@ -7,7 +7,7 @@ import { PizzaComponent } from "./pizza/pizza.component";
 import { HttpClientModule } from "@angular/common/http";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
-
+import { NgxPaginationModule } from "ngx-pagination";
 import { FormsModule } from "@angular/forms";
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
@@ -20,7 +20,13 @@ import { FormsModule } from "@angular/forms";
     PizzaItemComponent,
     PizzaEditorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -11,6 +11,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  pageIndex: number = 1;
 
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 

@@ -14,7 +14,11 @@ export class PizzaEditorComponent implements OnInit {
 
   addPizza(form: NgForm) {
     this.pizzaSvc
-      .addPizza({ name: form.value.name, description: form.value.description })
+      .addPizza({
+        name: form.value.name,
+        description: form.value.description,
+        photoUrl: form.value.img,
+      })
       .subscribe((_) => {
         this.pizzaSvc.onChange.emit();
       });
