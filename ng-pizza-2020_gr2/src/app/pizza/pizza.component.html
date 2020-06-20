@@ -12,11 +12,9 @@
     <!-- TODO 12: Obsłuż metode POST z Pizza API -->
     <a>ustaw obrazek</a>
     <br />
-    <a href="#" (click)="removePizza(pizza.id)">usun</a>
+    <button (click)="removePizza(pizza.id)">usun</button>
   </li>
   <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
 
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>
+<app-pizza-editor></app-pizza-editor>

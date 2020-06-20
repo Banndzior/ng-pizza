@@ -8,6 +8,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 
+import { FormsModule } from "@angular/forms";
+
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
 
@@ -18,7 +20,7 @@ import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
     PizzaItemComponent,
     PizzaEditorComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

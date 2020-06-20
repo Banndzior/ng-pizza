@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 @Component({
   selector: "app-pizza",
@@ -9,28 +10,24 @@ import { Pizza } from "../pizza";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
+  name: string;
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
-    this.pizzaSvc.getPizzas().subscribe((response) => {
-      console.log(response);
-      this.pizzas = response.value;
-    });
+    this.name = this.route.snapshot.paramMap.get("name");
+
+    this.loadPizzas();
+
+    this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
   }
 
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "testPizza",
-        description: "testtest",
-      })
-      .subscribe((_) => {
-        this.pizzaSvc.getPizzas().subscribe((response) => {
-          console.log(response);
-          this.pizzas = response.value;
-        });
-      });
+  loadPizzas() {
+    this.pizzaSvc.getPizzas().subscribe((response) => {
+      this.pizzas = this.name
+        ? response.value.filter((pizza) => pizza.name.includes(this.name))
+        : response.value;
+    });
   }
 
   removePizza(pizzaId: number) {
