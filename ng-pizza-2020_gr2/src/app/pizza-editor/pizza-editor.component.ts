@@ -16,7 +16,7 @@ export class PizzaEditorComponent implements OnInit {
     this.pizzaSvc
       .addPizza({
         name: form.value.name,
-        description: "testtest",
+        description: "czy działa ok?",
       })
       .subscribe((_) => {
         this.pizzaSvc.onChange.emit();

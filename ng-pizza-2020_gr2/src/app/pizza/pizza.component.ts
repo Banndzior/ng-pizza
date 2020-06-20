@@ -2,6 +2,7 @@ import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 import { SlicePipe } from "@angular/common";
+import { ActivatedRoute } from "@angular/router";
 
 @Pipe({ name: "dots" })
 export class ThreeDotsPipe implements PipeTransform {
@@ -22,18 +23,22 @@ export class ThreeDotsPipe implements PipeTransform {
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
-
-  constructor(private pizzaSvc: PizzaService) {}
+  name: string;
+  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
+    this.name = this.route.snapshot.paramMap.get("name");
+    console.log(this.name);
+
     this.loadPizzas();
     this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
   }
 
   loadPizzas() {
     this.pizzaSvc.getPizzas().subscribe((response) => {
-      console.log(response);
-      this.pizzas = response.value;
+      this.pizzas = response.value.filter(
+        (pizza) => pizza.name.includes(this.name) || !this.name
+      );
     });
   }
 
