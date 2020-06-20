@@ -1,4 +1,6 @@
 <ul>
+  <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+
   <li *ngFor="let pizza of pizzas">
     <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
@@ -24,7 +26,7 @@
   <!-- TODO 11: Dodajemy komponent stronicowania -->
 </ul>
 
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 8: Przenies obsługe przycisku add pizza do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 <!-- https://github.com/Banndzior/ng-form/tree/master/ng-fb-form_gr2/src/app/registration -->
 <button (click)="addPizza()">Dodaj pizze</button>
