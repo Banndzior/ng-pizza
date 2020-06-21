@@ -8,10 +8,10 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 // TODO 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy
 
 const routes: Routes = [
-  { path: 'pizzas', component: PizzaComponent, pathMatch: 'full'},
-  { path: 'pizzas/:id', component: PizzaItemComponent, pathMatch: 'full'},
-  { path: '', redirectTo: 'pizzas', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pizzas', pathMatch: 'full' }
+  { path: '', redirectTo: 'pizza', pathMatch: 'full' },
+  { path: 'pizzas', component: PizzaComponent },
+  { path: 'pizzas/:id', component: PizzaItemComponent },
+  { path: '**', redirectTo: 'pizzas' }
 ];
 
 @NgModule({
