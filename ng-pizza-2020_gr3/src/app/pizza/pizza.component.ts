@@ -45,13 +45,4 @@ export class PizzaComponent implements OnInit {
       }
     );
   }
-
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "123Margehrita",
-        description: " Salami, salad XD",
-      })
-      .subscribe(() => this.getPizzas());
-  }
 }
