@@ -7,7 +7,7 @@
     <!-- TODO 5: Dodaj pole opis -->
     <div>{{ pizza.description }}</div>
     <img [src]="pizza.photoUrl" height="100px" />
-    <a (click)="removePizza()">usun</a>
+    <button (click)="removePizza(pizza)">usun</button>
     <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
     <a (click)="modifyPizza()">ustaw obrazek</a>
     <!-- TODO 12: Obsłuż metode POST z Pizza API -->
@@ -15,6 +15,4 @@
   <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
 
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>
+<app-pizza-editor></app-pizza-editor>

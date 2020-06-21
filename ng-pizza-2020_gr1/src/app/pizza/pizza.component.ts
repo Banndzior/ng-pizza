@@ -35,19 +35,15 @@ export class PizzaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getPizza();
+    this.pizzaSvc.onChange.subscribe(() => this.getPizza());
+  }
+
+  getPizza() {
     this.pizzaSvc.getPizzas().subscribe((response) => {
       console.log(response);
       this.pizzas = response.value;
     });
-  }
-
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "Kamila Pizza",
-        description: "...",
-      })
-      .subscribe(() => this.ngOnInit());
   }
 
   removePizza(pizza) {
