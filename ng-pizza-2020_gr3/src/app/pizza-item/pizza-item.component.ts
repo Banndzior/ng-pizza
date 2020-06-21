@@ -27,11 +27,9 @@ export class PizzaItemComponent implements OnInit {
   removePizza(pizza: Pizza) {
     this.pizzaSvc
       .removePizza(pizza)
-      .subscribe
-      // () => this.getPizza(),
-      // (error) => {
-      //   console.log("jest blad", error);
-      // }
-      ();
+      .subscribe(
+      (res) => {
+        console.log(res);
+      });
   }
 }
