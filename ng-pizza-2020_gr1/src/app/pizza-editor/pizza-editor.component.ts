@@ -10,6 +10,12 @@ export class PizzaEditorComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  addPizza() {
+    this.pizzaSvc.addPizza({
+      name: 'Kamila Pizza',
+      description: '...'
+    }).subscribe(() => this.ngOnInit());
+  }
 }

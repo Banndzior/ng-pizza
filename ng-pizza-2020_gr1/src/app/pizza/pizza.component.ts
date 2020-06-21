@@ -19,15 +19,10 @@ export class PizzaComponent implements OnInit {
     });
   }
 
-  addPizza() {
-    this.pizzaSvc.addPizza({
-      name: 'Kamila Pizza',
-      description: '...'
-    }).subscribe(() => this.ngOnInit());
-  }
 
-  removePizza() {
-    // ? usuwac
+
+  removePizza(pizza) {
+    this.pizzaSvc.removePizza(pizza).subscribe(() => this.ngOnInit());
   }
 
   modifyPizza() {
