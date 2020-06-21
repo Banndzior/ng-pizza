@@ -1,4 +1,4 @@
-<!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+<!-- TODO 15: Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo) -->
 <ul>
   <li *ngFor="let item of pizzas">
     <!-- <app-pizza-item [pizza]="item"></app-pizza-item> -->
@@ -16,7 +16,11 @@
     <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
   </li>
 </ul>
-<!-- TODO 11: Dodajemy komponent stronnicowania -->
+<!-- TODO 11: Dodajemy komponent stronicowania: /api/pizzas?limit=10&offset=0
+  https://jasonwatmore.com/post/2019/06/18/angular-8-simple-pagination-example
+  http://michaelbromley.github.io/ngx-pagination/#/basic
+  https://ng-bootstrap.github.io/#/components/pagination/overview
+  -->
 
 <!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
