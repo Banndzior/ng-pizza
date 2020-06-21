@@ -44,10 +44,6 @@ export class PizzaComponent implements OnInit {
         console.log("jest blad", error);
       }
     );
-<<<<<<< HEAD
-=======
-
->>>>>>> aa5f3f177ac1ec23041adb40ea3826d345b40ca1
     return false;
   }
 }
