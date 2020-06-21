@@ -1,0 +1,30 @@
+div {
+  border: 2px solid lightblue;
+  padding: 20px;
+  margin: 10px;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  border: 1px solid lightsalmon;
+  width: 150px;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  color: black;
+  transition: 0.3s;
+}
+
+a:hover {
+  background-color: lightsalmon;
+  color: white;
+}
+
+h3 {
+  margin: 10px;
+}
+
+p {
+  margin: 20px 10px;
+}
