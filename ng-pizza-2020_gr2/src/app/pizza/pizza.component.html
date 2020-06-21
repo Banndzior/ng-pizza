@@ -1,11 +1,20 @@
 <ul>
     <li *ngFor="let pizza of pizzas">
+        <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
+        <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
         {{ pizza.name }}
-        
+        <!-- TODO 4: Dodaj pole opis -->
         <img [src]="pizza.photoUrl" height="50px">
     </li>
+    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
     <a>ustaw obrazek</a>
+    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
     <a (click)="removePizza(pizza.id)">usun</a>
+    <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
 
 <button (click)="addPizza()">Dodaj pizze</button>
+
+
+<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->

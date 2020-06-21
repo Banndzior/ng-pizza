@@ -1,13 +1,13 @@
-import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import { PizzaResponse, Pizza } from "./pizza";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { PizzaResponse, Pizza } from './pizza';
+import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class PizzaService {
-  private url: string = "https://ng-pizza.azurewebsites.net";
+  private url = 'https://ng-pizza.azurewebsites.net';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +15,15 @@ export class PizzaService {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
   }
 
+  getPizza(pizzaId: number): Observable<Pizza> {
+    return this.http.get<Pizza>(`${this.url}/api/pizzas/${pizzaId}`);
+  }
+
   addPizza(newPizza: Pizza) {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, newPizza);
+  }
+
+  removePizza(pizza: Pizza) {
+    return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
   }
 }
