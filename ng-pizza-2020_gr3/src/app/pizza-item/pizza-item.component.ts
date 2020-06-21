@@ -18,11 +18,13 @@ export class PizzaItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = this.route.snapshot.params["id"];
+    if (this.route.snapshot.params["id"]) {
+      const id = this.route.snapshot.params["id"];
 
-    this.pizzaService.getPizza(+id).subscribe((pizzaResponse) => {
-      return (this.pizza = pizzaResponse);
-    });
+      this.pizzaService.getPizza(+id).subscribe((pizzaResponse) => {
+        return (this.pizza = pizzaResponse);
+      });
+    }
   }
 
   removePizza(pizza: Pizza) {

@@ -1,10 +1,11 @@
 <ul>
   <li *ngFor="let pizza of pizzas" [routerLink]="[pizza.id]">
-    <p>
+    <app-pizza-item [pizza]="pizza"></app-pizza-item>
+    <!-- <p>
       {{ (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "") }}
     </p>
     <p>{{ pizza.description }} {{ pizza.id }}</p>
-    <br />
+    <br /> -->
     <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
   </li>
 </ul>
