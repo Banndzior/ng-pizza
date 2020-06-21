@@ -2,8 +2,12 @@
     <li *ngFor="let pizza of pizzas">
         <app-pizza-item [pizza]="pizza"></app-pizza-item>
     </li>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
 </ul>
+
+<!-- TODO 11: Dodajemy komponent stronnicowania:
+    https://jasonwatmore.com/post/2019/06/18/angular-8-simple-pagination-example
+    http://michaelbromley.github.io/ngx-pagination/#/basic
+    https://ng-bootstrap.github.io/#/components/pagination/overview -->
 
 <!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
