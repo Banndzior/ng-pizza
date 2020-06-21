@@ -1,6 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+import { Router, NavigationEnd } from "@angular/router";
 
 @Pipe({ name: "dots" })
 export class ThreeDotsPipe implements PipeTransform {
@@ -19,7 +20,13 @@ export class ThreeDotsPipe implements PipeTransform {
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private pizzaSvc: PizzaService, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getPizzas();
+      }
+    });
+  }
 
   ngOnInit() {
     this.getPizzas();
@@ -34,7 +41,7 @@ export class PizzaComponent implements OnInit {
         this.pizzas = response.value;
       },
       (error) => {
-        console.log("jest blad", error);
+        console.log("Get pizza error", error);
       }
     );
   }
