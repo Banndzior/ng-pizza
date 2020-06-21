@@ -30,6 +30,7 @@ export class PizzaItemComponent implements OnInit {
       .subscribe(
       (res) => {
         console.log(res);
+        this.ngOnInit();
       });
   }
 }
