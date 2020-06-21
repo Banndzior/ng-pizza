@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+import {Router} from "@angular/router";
 
 @Component({
   selector: "app-pizza",
@@ -10,16 +11,25 @@ import { Pizza } from "../pizza";
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private pizzaSvc: PizzaService, private router: Router) {
+    this.router.events.subscribe();
+  }
 
   ngOnInit() {
     this.getPizza();
+    this.pizzaSvc.pizzaEmitter.subscribe((msg) => {
+      this.onPizzaChange();
+      });
+  }
+
+  onPizzaChange(){
+    this.ngOnInit();
   }
 
   getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
-        console.log(response);
+        this.pizzaSvc.pizzaList = response.value;
         this.pizzas = response.value;
       },
       (error) => {

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PizzaResponse, Pizza } from './pizza';
 import { Observable } from 'rxjs';
+import { EventEmitter } from '@angular/core';
+// import { Pizza } from "../pizza";
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +11,12 @@ import { Observable } from 'rxjs';
 export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
 
+  pizzaEmitter = new EventEmitter();
+  getPizzaEmitter = new EventEmitter();
+
   constructor(private http: HttpClient) {}
+
+   pizzaList = [];
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
@@ -24,6 +31,7 @@ export class PizzaService {
   }
 
   removePizza(pizza: Pizza) {
+    this.pizzaEmitter.emit("pizza list changed");
     return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
   }
 }

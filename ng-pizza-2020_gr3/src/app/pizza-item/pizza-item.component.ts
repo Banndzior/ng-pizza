@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 import { isNullOrUndefined } from 'util';
@@ -12,7 +12,10 @@ import { isNullOrUndefined } from 'util';
 export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
 
-  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router,
+    private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -29,6 +32,7 @@ export class PizzaItemComponent implements OnInit {
       .removePizza(pizza)
       .subscribe(
       (res) => {
+        // this.router.navigate(['pizza']);
         console.log(res);
         this.ngOnInit();
       });

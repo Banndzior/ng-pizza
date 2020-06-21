@@ -1,1 +1,11 @@
-<p>pizza-editor works!</p>
+<label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+
+  <label>
+    Description:
+    <input type="text" [formControl]="description">
+  </label>
+
+<button (click)="addPizza()">Dodaj pizze</button>
