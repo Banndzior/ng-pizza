@@ -1,2 +1,8 @@
-<p *ngIf="pizza">{{pizza.name}}</p>
+{{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
+<br />
+<code>{{ pizza.description }}</code>
+<br />
+<img src="{{ pizza.photoUrl }}" height="100px" />
+<a (click)="removePizza(pizza)">usun</a>
+
 <p *ngIf="pizza == null">Brak takiej pizzy</p>

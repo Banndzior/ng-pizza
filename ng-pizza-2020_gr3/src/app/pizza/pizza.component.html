@@ -1,22 +1,9 @@
 <ul>
   <li *ngFor="let item of pizzas">
-    <!-- <app-pizza-item [pizza]="item"></app-pizza-item> -->
 
-    <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
-    <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…")
-      https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-    {{ (item.name | slice:0:10) + (item.name.length > 10 ? "..." : "") }}
-    <br />
-    <code>{{ item.description }}</code>
-    <br />
-    <img src="{{ item.photoUrl }}" height="100px" />
-    <a href="#" (click)="removePizza(item)">usun</a>
-    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
-    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
-  </li>
+      <app-pizza-item [pizza]="item" ></app-pizza-item>
+      {{item.id}}
+    </li>
 </ul>
+<app-pizza-editor ></app-pizza-editor>
 <!-- TODO 11: Dodajemy komponent stronnicowania -->
-
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>

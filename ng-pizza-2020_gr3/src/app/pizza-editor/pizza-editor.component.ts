@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PizzaService } from '../pizza.service';
+import { Router } from '@angular/router';
+import { Pizza } from '../pizza';
 
 @Component({
   selector: 'app-pizza-editor',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pizza-editor.component.css']
 })
 export class PizzaEditorComponent implements OnInit {
-
-  constructor() { }
+  @Input() item: Pizza;
+  constructor(private router: Router, private pizzaSvc: PizzaService) { }
 
   ngOnInit() {
   }
-
+  addPizza() {
+    this.pizzaSvc
+      .addPizza({
+        name: 'Margehrita',
+        description: ' Salami',
+      })
+      .subscribe(() => this.router.navigate(['pizza']));
+  }
 }

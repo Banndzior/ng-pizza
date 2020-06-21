@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-pizza',
@@ -10,10 +11,19 @@ import { Pizza } from '../pizza';
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private pizzaSvc: PizzaService, private router: Router) {
+    this.router.events.subscribe((event) => {
+      if(event instanceof NavigationEnd) {
+        this.getPizza();
+      }
+    });
+  }
 
   ngOnInit() {
-    this.getPizza();
+
+    this.pizzaSvc.onPizzaChange.subscribe(()=>{
+      this.getPizza();
+    })
   }
 
   getPizza() {
@@ -28,18 +38,8 @@ export class PizzaComponent implements OnInit {
     );
   }
 
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: 'Margehrita',
-        description: ' Salami, salad XD',
-      })
-      .subscribe(() => this.getPizza());
-  }
+ 
 
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(() => this.getPizza(), (error) => {
-      console.log('jest blad', error);
-    });
-  }
+ 
+
 }
