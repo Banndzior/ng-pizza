@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PizzaResponse, Pizza } from './pizza';
 import { Observable } from 'rxjs';
+import { EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
+  public onChange = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 

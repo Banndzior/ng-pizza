@@ -9,6 +9,7 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import {SlicePipe} from '@angular/common';
 import { DotsPipe } from './dots.pipe';
 import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
+import {FormsModule} from '@angular/forms';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -24,7 +25,8 @@ import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [SlicePipe],
   bootstrap: [AppComponent]
