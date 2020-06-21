@@ -3,7 +3,7 @@
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
     {{ (pizza.name | slice: 0:20) + (pizza.name.length > 20 ? "..." : "") }}
     <!-- TODO 5: Dodaj pole opis -->
-    <img [src]="pizza.photoUrl" height="100px" />
+    <img *ngIf="pizza && pizza.photoUrl" [src]="pizza.photoUrl" height="100px" />
     <a (click)="removePizza()">usun</a>
     <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
     <a (click)="modifyPizza()">ustaw obrazek</a>

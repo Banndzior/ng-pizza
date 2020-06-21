@@ -1,12 +1,12 @@
 <ul>
   <li *ngFor="let pizza of pizzas">
     <!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
-    <app-pizza-item></app-pizza-item>
+    <!-- <app-pizza-item></app-pizza-item> -->
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
-    {{ (pizza.name | slice: 0:20) + (pizza.name.length > 20 ? "..." : "") }}
+    {{ (pizza?.name | slice: 0:20) + (pizza?.name?.length > 20 ? "..." : "") }}
     <!-- TODO 5: Dodaj pole opis -->
     <div>{{ pizza.description }}</div>
-    <img [src]="pizza.photoUrl" height="100px" />
+    <img *ngIf="pizza && pizza.photoUrl" [src]="pizza.photoUrl" height="100px" />
     <button (click)="removePizza(pizza)">usun</button>
     <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
     <a (click)="modifyPizza()">ustaw obrazek</a>
