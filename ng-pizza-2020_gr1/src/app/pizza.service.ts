@@ -18,4 +18,8 @@ export class PizzaService {
   addPizza(pizza: Pizza): Observable<Pizza> {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, pizza);
   }
+
+  removePizza(pizza: Pizza) {
+    return this.http.delete(`${this.url}/api/pizzas/${pizza.id}`);
+  }
 }

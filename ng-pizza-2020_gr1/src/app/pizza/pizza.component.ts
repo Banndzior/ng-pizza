@@ -1,6 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
+import { SlicePipe } from '@angular/common';
+
+@Pipe({ name: 'dots' })
+export class ThreeDotsPipe implements PipeTransform {
+  constructor(private slice: SlicePipe) {
+  }
+
+  transform(value: any, start: number, end?: number): string {
+    return this.slice.transform(value, start, end) + (value.length > (end) ? '...' : '');
+  }
+}
 
 @Component({
   selector: 'app-pizza',
@@ -11,6 +22,13 @@ export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
 
   constructor(private pizzaSvc: PizzaService) { }
+
+  getShortName(pizzaName: string, length = 10) {
+    if (pizzaName) {
+      return pizzaName.substr(0, length) + (pizzaName.length > length ? '...' : '');
+    }
+    return '';
+  }
 
   ngOnInit() {
     this.pizzaSvc.getPizzas().subscribe(response => {
@@ -25,13 +43,4 @@ export class PizzaComponent implements OnInit {
       description: '...'
     }).subscribe(() => this.ngOnInit());
   }
-
-  removePizza() {
-    // ? usuwac
-  }
-
-  modifyPizza() {
-    // ? update obrazka
-  }
-
 }
