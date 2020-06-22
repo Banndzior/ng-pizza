@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Pizza } from "../pizza";
 import { PizzaService } from "../pizza.service";
 import { ActivatedRoute, Router } from "@angular/router";
+import { isNullOrUndefined } from "util";
 
 @Component({
   selector: "app-pizza-item",
@@ -10,6 +11,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
+  id: string;
 
   constructor(
     private pizzaService: PizzaService,
@@ -18,19 +20,18 @@ export class PizzaItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    if (this.route.snapshot.params["id"]) {
-      const id = this.route.snapshot.params["id"];
-
-      this.pizzaService.getPizza(+id).subscribe((pizzaResponse) => {
-        return (this.pizza = pizzaResponse);
-      });
+    this.id = this.route.snapshot.paramMap.get("id");
+    if (!isNullOrUndefined(this.id)) {
+      this.pizzaService
+        .getPizza(+this.id)
+        .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
     }
   }
 
   removePizza(pizza: Pizza) {
     this.pizzaService.removePizza(pizza).subscribe(() => {
+      this.router.navigate(["pizza"]);
       console.log(`usunieto pizze ${pizza.id}`);
-      this.router.navigate([""]);
     });
   }
 

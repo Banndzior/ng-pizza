@@ -7,6 +7,7 @@ import { PizzaComponent } from "./pizza/pizza.component";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

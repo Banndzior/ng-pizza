@@ -1,13 +1,19 @@
 <div *ngIf="pizza">
   <p>
     {{ pizza.name }}
+    {{ pizza.id }}
   </p>
   <br />
   <code>{{ pizza.description }}</code>
   <br />
+  <img
+    *ngIf="!pizza.photoUrl"
+    src="assets/pizzaPlaceholder.png"
+    height="100px"
+  />
   <img src="{{ pizza.photoUrl }}" height="100px" />
   <br />
-  <button (click)="editPizza(pizza)">Edytuj</button>
+  <!-- <button (click)="editPizza(pizza)">Edytuj</button> -->
   <br />
 
   <button (click)="removePizza(pizza)">Usuń pizzunie ;(</button>

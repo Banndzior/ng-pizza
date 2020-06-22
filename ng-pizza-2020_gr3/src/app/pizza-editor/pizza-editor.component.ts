@@ -40,7 +40,7 @@ export class PizzaEditorComponent implements OnInit {
   addPizza() {
     this.newPizza = this.pizzaForm.value;
     this.pizzaService.addPizza(this.newPizza).subscribe(() => {
-      this.router.navigate([""]);
+      this.router.navigate(["pizza"]);
     });
   }
 
