@@ -1,7 +1,7 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 
 @Injectable({
   providedIn: "root",
@@ -12,6 +12,10 @@ export class PizzaService {
   constructor(private http: HttpClient) {}
 
   public onPizzaChange: EventEmitter<any> = new EventEmitter<any>();
+
+  getPizzaList(): Observable<Pizza[]> {
+    return this.http.get<Pizza[]>(`${this.url}/api/pizzas`);
+  }
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);

@@ -5,11 +5,10 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { isNullOrUndefined } from "util";
 
 @Component({
-  selector: "app-pizza-item",
-  templateUrl: "./pizza-item.component.html",
-  styleUrls: ["./pizza-item.component.css"],
+  selector: "app-pizza-details",
+  templateUrl: "./pizza-details.component.html",
 })
-export class PizzaItemComponent implements OnInit {
+export class PizzaDetailsComponent implements OnInit {
   @Input() pizza: Pizza;
   id: string;
 
@@ -21,6 +20,7 @@ export class PizzaItemComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id");
+
     if (!isNullOrUndefined(this.id)) {
       this.pizzaService
         .getPizza(+this.id)
