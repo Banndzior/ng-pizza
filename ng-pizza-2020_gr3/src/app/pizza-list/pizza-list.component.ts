@@ -3,17 +3,21 @@ import { Pizza } from "../pizza";
 import { ActivatedRoute } from "@angular/router";
 import { PageEvent } from "@angular/material/paginator";
 
+// [routerLink]="[pizza.id]"
+
 @Component({
   selector: "app-pizza-list",
   template: `
     <section class="pizza-list">
       <app-pizza-list-item
         *ngFor="let pizza of pizzas"
-        [routerLink]="[pizza.id]"
         [pizza]="pizza"
+        (click)="select(pizza, pizzaItem)"
+        #pizzaItem
       ></app-pizza-list-item>
     </section>
     <mat-paginator
+      class="paginator"
       [pageIndex]="0"
       [pageSize]="pageSize"
       [length]="length"
@@ -29,6 +33,10 @@ import { PageEvent } from "@angular/material/paginator";
         max-width: 1310px;
         margin: 25px auto;
       }
+      .paginator {
+        width: 1280px;
+        margin: 0 auto;
+      }
     `,
   ],
 })
@@ -36,9 +44,9 @@ export class PizzaListComponent implements OnInit {
   pizzas: Pizza[];
   pageSize = 5;
   length = this.route.snapshot.data["pizzas"].value.length;
-
   first: number = 0;
   last: number = 5;
+  selectedPizza: Pizza;
 
   constructor(private route: ActivatedRoute) {}
 
@@ -57,5 +65,12 @@ export class PizzaListComponent implements OnInit {
     this.first = event.pageSize * event.pageIndex;
     this.last = event.pageSize * event.pageIndex + this.pageSize;
     this.getList();
+  }
+
+  select(pizza, pizzaItem) {
+    this.selectedPizza = pizza;
+    pizzaItem.selected = !pizzaItem.selected;
+
+    console.log(this.selectedPizza);
   }
 }

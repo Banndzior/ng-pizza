@@ -4,7 +4,7 @@ import { Pizza } from "../pizza";
 @Component({
   selector: "app-pizza-list-item",
   template: `
-    <mat-card class="card" *ngIf="pizza">
+    <mat-card class="card" *ngIf="pizza" [ngClass]="{ selected: selected }">
       <mat-card-header>
         <mat-card-title>{{ pizza.name }}</mat-card-title>
         <mat-card-subtitle
@@ -41,6 +41,9 @@ import { Pizza } from "../pizza";
         width: 200px;
         height: 350px;
         margin: 15px;
+        cursor: pointer;
+        user-select: none;
+        transition: 0.3s;
       }
       .id {
         position: absolute;
@@ -57,13 +60,20 @@ import { Pizza } from "../pizza";
         height: 232px;
         object-fit: cover;
       }
+      .selected {
+        background-color: #67c767;
+      }
     `,
   ],
 })
 export class PizzaListItemComponent implements OnInit {
   @Input() pizza: Pizza;
 
+  selected;
+
   constructor() {}
 
   ngOnInit() {}
+
+  checkSelection() {}
 }
