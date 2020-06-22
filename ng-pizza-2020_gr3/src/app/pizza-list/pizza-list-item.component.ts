@@ -74,6 +74,4 @@ export class PizzaListItemComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
-
-  checkSelection() {}
 }
