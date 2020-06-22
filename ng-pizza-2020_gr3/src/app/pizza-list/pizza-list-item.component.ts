@@ -4,24 +4,61 @@ import { Pizza } from "../pizza";
 @Component({
   selector: "app-pizza-list-item",
   template: `
-    <div *ngIf="pizza">
-      <p>
-        {{ pizza.name }}
-        {{ pizza.id }}
-      </p>
-      <br />
-      <code>{{ pizza.description }}</code>
-      <br />
-      <img
-        *ngIf="!pizza.photoUrl"
-        src="assets/pizzaPlaceholder.png"
-        height="100px"
-      />
-      <img src="{{ pizza.photoUrl }}" height="100px" />
-      <br />
-    </div>
+    <mat-card class="card" *ngIf="pizza">
+      <mat-card-header>
+        <mat-card-title>{{ pizza.name }}</mat-card-title>
+        <mat-card-subtitle
+          >{{
+            (pizza.description | slice: 0:20) +
+              (pizza.description.length > 20 ? "..." : "")
+          }}
+        </mat-card-subtitle>
+      </mat-card-header>
+      <div class="card-image">
+        <img
+          *ngIf="pizza.photoUrl"
+          src="{{ pizza.photoUrl }}"
+          alt="pizza photo"
+        />
+        <img
+          *ngIf="!pizza.photoUrl"
+          src="assets/pizzaPlaceholder.png"
+          alt="pizza placeholder photo"
+        />
+      </div>
+
+      <mat-card-footer>
+        <p class="id">
+          Pizza id: #<b>{{ pizza.id }}</b>
+        </p>
+      </mat-card-footer>
+    </mat-card>
   `,
-  styles: [],
+  styles: [
+    `
+      .card {
+        position: relative;
+        width: 200px;
+        height: 350px;
+        margin: 15px;
+      }
+      .id {
+        position: absolute;
+        bottom: 0;
+        right: 10px;
+      }
+
+      .card-image {
+        margin: -16px;
+        margin-top: 10px;
+      }
+      .card-image img {
+        width: 232px;
+        height: 232px;
+        object-fit: cover;
+      }
+    `,
+  ],
 })
 export class PizzaListItemComponent implements OnInit {
   @Input() pizza: Pizza;
