@@ -1,1 +1,47 @@
+<form 
+#myForm="ngForm"
+[ngFormOptions] = "{updateOn: 'submit'}"
+(ngSubmit) = "register($event, myForm)"
+>
+<fieldset>
+    <legend>Dodaj pizze</legend>
+    <label>
+        Nazwa:
+    </label>
+    <input type="text"
+        name="name"
+        #name="ngModel"
+        ngModel
+        required
+        minlength="3" />
+    <!-- <div class="error"
+        *ngIf="myForm.controls.firstName?.errors?.required">
+        Pole jest wymagane
+    </div> -->
+    <div class="error"
+        *ngIf="name.hasError('required') && name.touched">
+        Pole jest wymagane
+    </div>
+    <br />
+    <label>
+        Url do zdjęcia:
+    </label>
+    <input type="text"
+        name="imageUrl"
+        ngModel
+        required
+        minlength="3" />
+    <br />
+    <label>
+        Opis:
+    </label>
+    <input type="text" name="description"
+        ngModel
+        description />
+    <br />
+    <button (click)="register()">Zapisz pizzę</button>
+</fieldset>
 <button (click)="addPizza()">Dodaj pizze</button>
+</form>
+
+
