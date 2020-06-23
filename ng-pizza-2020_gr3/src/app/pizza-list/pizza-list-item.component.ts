@@ -6,7 +6,9 @@ import { Pizza } from "../pizza";
   template: `
     <mat-card class="card" *ngIf="pizza" [class.selected]="selected === pizza">
       <mat-card-header>
-        <mat-card-title>{{ pizza.name }}</mat-card-title>
+        <mat-card-title>{{
+          (pizza.name | slice: 0:15) + (pizza.name.length > 15 ? "..." : "")
+        }}</mat-card-title>
         <mat-card-subtitle
           >{{
             (pizza.description | slice: 0:20) +
