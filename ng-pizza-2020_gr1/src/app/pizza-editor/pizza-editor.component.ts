@@ -1,26 +1,26 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import {Pizza} from '../pizza';
+import { Component, OnInit } from "@angular/core";
+import { PizzaService } from "../pizza.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-pizza-editor',
-  templateUrl: './pizza-editor.component.html',
-  styleUrls: ['./pizza-editor.component.css']
+  selector: "app-pizza-editor",
+  templateUrl: "./pizza-editor.component.html",
+  styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
-  pizza: Pizza = {
-    name: 'Kamila Pizza',
-    description: '...'
-  };
-  @Output()
-  addPizza = new EventEmitter();
+  constructor(private pizzaSvc: PizzaService) {}
 
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  addPizza(formValue: any, pizzaForm: NgForm) {
+    if(pizzaForm.valid) {
+      this.pizzaSvc
+      .addPizza({
+        name: formValue.pizzaName,
+        description: formValue.description,
+        photoUrl: formValue.imageUrl,
+      })
+      .subscribe(() => this.pizzaSvc.onChange.emit());
+    }
   }
-
-  add () {
-    this.addPizza.emit(this.pizza);
-  }
-
 }
