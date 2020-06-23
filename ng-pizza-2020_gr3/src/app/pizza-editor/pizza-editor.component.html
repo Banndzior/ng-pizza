@@ -1,99 +1,105 @@
 <div class="container">
   <div [routerLink]="['pizza']" class="close">x</div>
-  <form
-    [formGroup]="pizzaForm"
-    (ngSubmit)="addPizza(pizzaForm.value)"
-    novalidate
-  >
-    <label for="name"
-      >Nazwa pizzy:
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.name) &&
-          pizzaForm.controls.name.errors.required
-        "
-        >Pole wymagane</em
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Dodaj/edytuj pizze</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form
+        [formGroup]="pizzaForm"
+        (ngSubmit)="addPizza(pizzaForm.value)"
+        novalidate
       >
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.name) &&
-          pizzaForm.controls.name.errors.minlength
-        "
-        >Nazwa musi mieć minimum 5 znaków</em
-      >
-    </label>
-    <input
-      formControlName="name"
-      id="name"
-      type="text"
-      placeholder="wpisz nazwę pizzy"
-      [ngClass]="{
-        error: checkValidation(pizzaForm.controls.name)
-      }"
-    />
+        <mat-form-field appearance="outline">
+          <mat-label>Nazwa</mat-label>
+          <input
+            matInput
+            formControlName="name"
+            placeholder="wpisz nazwę pizzy"
+          />
+          <mat-hint>Wpisz tu nazwę pizzy (minimum 5 znaków)</mat-hint>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.name) &&
+              pizzaForm.controls.name.errors.required
+            "
+          >
+            Pole wymagane
+          </mat-error>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.name) &&
+              pizzaForm.controls.name.errors.minlength
+            "
+          >
+            Nazwa musi mieć minimum 5 znaków
+          </mat-error>
+        </mat-form-field>
 
-    <label for="description"
-      >Opis:
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.description) &&
-          pizzaForm.controls.description.errors.required
-        "
-        >Pole wymagane</em
-      >
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.description) &&
-          pizzaForm.controls.description.errors.minlength
-        "
-        >Opis musi zawierać minimum 10 znaków</em
-      ></label
-    >
-    <textarea
-      [ngClass]="{
-        error:
-          pizzaForm.controls.description?.invalid &&
-          pizzaForm.controls.description?.touched
-      }"
-      rows="6"
-      formControlName="description"
-      id="description"
-      placeholder="opisz tą pyszniutką pizzunię"
-    ></textarea>
-    <label for="photoUrl"
-      >Url obrazka:
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.photoUrl) &&
-          pizzaForm.controls.photoUrl.errors.required
-        "
-        >Pole wymagane</em
-      >
-      <em
-        *ngIf="
-          checkValidation(pizzaForm.controls.photoUrl) &&
-          pizzaForm.controls.photoUrl.errors.pattern
-        "
-        >Wpisz poprawny adres URL (np. http://example.com)</em
-      ></label
-    >
-    <input
-      [ngClass]="{
-        error:
-          pizzaForm.controls.photoUrl?.invalid &&
-          pizzaForm.controls.photoUrl?.touched
-      }"
-      formControlName="photoUrl"
-      id="photoUrl"
-      type="text"
-      placeholder="podaj url obrazka"
-    />
-    <button
-      [disabled]="pizzaForm.invalid"
-      [ngClass]="{ active: pizzaForm.valid }"
-      type="submit"
-    >
-      Dodaj pizze
-    </button>
-  </form>
+        <mat-form-field appearance="outline">
+          <mat-label>Opis</mat-label>
+          <textarea
+            rows="6"
+            matInput
+            formControlName="description"
+            placeholder="opisz tą pyszniutką pizzunię"
+          ></textarea>
+          <mat-hint>Opis (minimum 10 znaków)</mat-hint>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.description) &&
+              pizzaForm.controls.description.errors.required
+            "
+          >
+            Pole wymagane
+          </mat-error>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.description) &&
+              pizzaForm.controls.description.errors.minlength
+            "
+          >
+            Opis musi mieć minimum 10 znaków
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Url zdjęcia</mat-label>
+          <input
+            matInput
+            formControlName="photoUrl"
+            placeholder="podaj url zdjęcia"
+          />
+          <mat-hint>Url zdjęcia (w prawidłowym formacie!)</mat-hint>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.photoUrl) &&
+              pizzaForm.controls.photoUrl.errors.required
+            "
+          >
+            Pole wymagane
+          </mat-error>
+          <mat-error
+            *ngIf="
+              checkValidation(pizzaForm.controls.photoUrl) &&
+              pizzaForm.controls.photoUrl.errors.pattern
+            "
+          >
+            Wpisz poprawny adres URL (np. http://example.com)
+          </mat-error>
+        </mat-form-field>
+        <mat-card-actions align="center">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="pizzaForm.invalid"
+            [ngClass]="{ active: pizzaForm.valid }"
+            type="submit"
+          >
+            Dodaj pizze
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
