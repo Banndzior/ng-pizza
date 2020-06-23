@@ -1,0 +1,32 @@
+1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+
+2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
+
+3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…")
+
+5: Obsłuż metode DELETE z Pizza API
+TODO 5+: Obsłuż metode PUT/update z Pizza API
+
+6: Stworz routing dla listy pizz: pizza component (/pizza)
+6+: Stworz routing dla pizzy po jej id/nazwie (/pizza/:id)
+https://github.com/Banndzior/ng-routing/blob/master/ng-routing_gr2/src/app/app-routing.module.ts
+
+7: Wydziel zawartosc html do komponentu pizza-item
+
+8: Przenies obsługe przycisku do komponentu pizza-editor
+
+9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji
+
+TODO 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy (pizza/search/:name)
+
+11: Dodajemy komponent stronicowania: /api/pizzas?limit=10&offset=0
+https://jasonwatmore.com/post/2019/06/18/angular-8-simple-pagination-example
+http://michaelbromley.github.io/ngx-pagination/#/basic
+https://ng-bootstrap.github.io/#/components/pagination/overview
+
+13: Przygotowac styl/layout strony (kafelki pizzy jak przy pokemonach):
+    bootstrap, material design, flex/grid system. Podobne jak ng-pokedex
+
+TODO 14: Stworzyc komponent nagłowek z nawigacja (home, pizza, search pizza, komentarze)
+
+15: Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo)
