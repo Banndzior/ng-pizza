@@ -25,6 +25,7 @@ import { Component, OnInit } from "@angular/core";
             Home
           </button>
         </span>
+        <!-- <app-search-bar></app-search-bar> -->
       </div>
     </mat-toolbar>
   `,
@@ -33,6 +34,8 @@ import { Component, OnInit } from "@angular/core";
       .container {
         margin: 0 auto;
         width: 1280px;
+        display: flex;
+        justify-content: space-between;
       }
       .navbar {
         box-shadow: 0px 2px 20px black;
