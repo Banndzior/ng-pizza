@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Pizza } from "../pizza";
 
+// [ngClass]="{ selected: selected }"
 @Component({
   selector: "app-pizza-list-item",
   template: `
-    <mat-card class="card" *ngIf="pizza" [ngClass]="{ selected: selected }">
+    <mat-card class="card" *ngIf="pizza" [class.selected]="selected === pizza">
       <mat-card-header>
         <mat-card-title>{{ pizza.name }}</mat-card-title>
         <mat-card-subtitle
@@ -68,8 +69,7 @@ import { Pizza } from "../pizza";
 })
 export class PizzaListItemComponent implements OnInit {
   @Input() pizza: Pizza;
-
-  selected;
+  @Input() selected;
 
   constructor() {}
 

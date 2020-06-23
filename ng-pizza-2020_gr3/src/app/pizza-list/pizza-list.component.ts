@@ -12,8 +12,8 @@ import { PageEvent } from "@angular/material/paginator";
       <app-pizza-list-item
         *ngFor="let pizza of pizzas"
         [pizza]="pizza"
-        (click)="select(pizza, pizzaItem)"
-        #pizzaItem
+        (click)="select(pizza)"
+        [selected]="selectedPizza"
       ></app-pizza-list-item>
     </section>
     <mat-paginator
@@ -68,8 +68,11 @@ export class PizzaListComponent implements OnInit {
   }
 
   select(pizza, pizzaItem) {
-    this.selectedPizza = pizza;
-    pizzaItem.selected = !pizzaItem.selected;
+    if (this.selectedPizza && pizza.id === this.selectedPizza.id) {
+      this.selectedPizza = null;
+    } else {
+      this.selectedPizza = pizza;
+    }
 
     console.log(this.selectedPizza);
   }
