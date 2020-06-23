@@ -36,6 +36,7 @@ import { PageEvent } from "@angular/material/paginator";
       .paginator {
         width: 1280px;
         margin: 0 auto;
+        border-radius: 6px;
       }
     `,
   ],
