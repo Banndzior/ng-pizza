@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Pizza } from "../pizza";
 
-// [ngClass]="{ selected: selected }"
 @Component({
   selector: "app-pizza-list-item",
   template: `
@@ -17,14 +16,9 @@ import { Pizza } from "../pizza";
       </mat-card-header>
       <div class="card-image">
         <img
-          *ngIf="pizza.photoUrl"
-          src="{{ pizza.photoUrl }}"
+          [src]="pizza.photoUrl"
           alt="pizza photo"
-        />
-        <img
-          *ngIf="!pizza.photoUrl"
-          src="assets/pizzaPlaceholder.png"
-          alt="pizza placeholder photo"
+          (error)="errorHandler($event)"
         />
       </div>
 
@@ -70,6 +64,15 @@ import { Pizza } from "../pizza";
 export class PizzaListItemComponent implements OnInit {
   @Input() pizza: Pizza;
   @Input() selected;
+
+  errorHandler(event) {
+    if (event) {
+      console.warn(
+        `No image provided or invalid image url ${this.pizza.photoUrl}\nReplaced by placeholder image`
+      );
+      this.pizza.photoUrl = "assets/pizzaPlaceholder.png";
+    }
+  }
 
   constructor() {}
 
