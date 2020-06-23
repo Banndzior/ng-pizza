@@ -16,23 +16,3 @@ mat-form-field {
 button {
   font-size: 18px;
 }
-
-.close {
-  position: absolute;
-  right: 0;
-  top: -30px;
-  width: 25px;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background-color: lightgray;
-  user-select: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.close:hover {
-  background-color: gray;
-}
