@@ -8,19 +8,20 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
-  constructor(private pizzaSvc: PizzaService) {}
-
-  ngOnInit() {}
+  constructor(private pizzaSvc: PizzaService) { }
+  ngOnInit() { }
 
   addPizza(formValue: any, pizzaForm: NgForm) {
-    if(pizzaForm.valid) {
+    if (pizzaForm.valid) {
       this.pizzaSvc
-      .addPizza({
-        name: formValue.pizzaName,
-        description: formValue.description,
-        photoUrl: formValue.imageUrl,
-      })
-      .subscribe(() => this.pizzaSvc.onChange.emit());
+        .addPizza({
+          name: formValue.pizzaName,
+          description: formValue.description,
+          photoUrl: formValue.imageUrl,
+        })
+        .subscribe(() => this.pizzaSvc.onChange.emit());
     }
+
+
   }
 }

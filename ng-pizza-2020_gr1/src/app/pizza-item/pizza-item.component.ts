@@ -15,7 +15,7 @@ export class PizzaItemComponent implements OnInit {
   @Output()
   removePizza = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, private service: PizzaService) {}
+  constructor(private route: ActivatedRoute, private service: PizzaService) { }
 
   ngOnInit() {
     // const id = parseFloat(this.route.snapshot.paramMap.get("id"));
