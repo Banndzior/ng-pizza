@@ -17,10 +17,6 @@ export class PizzaService {
     return this.http.get<Pizza[]>(`${this.url}/api/pizzas`);
   }
 
-  getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
-  }
-
   getPizza(id): Observable<any> {
     return this.http.get<any>(`${this.url}/api/pizzas/${id}`);
   }
