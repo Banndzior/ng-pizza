@@ -1,17 +1,12 @@
-<div class="container">
-  <ul>
-    <li *ngFor="let pizza of pizzas">
-        <app-pizza-item
-          [pizza]="pizza"
-          (removePizza)="removePizza($event)"
-        >
-        </app-pizza-item>
-      <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
-    </li>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
-  </ul>
-  <!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-  <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-  <app-pizza-editor ></app-pizza-editor>
+<!-- 11: Dodajemy komponent stronnicowania -->
+<!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+<div class="container" >
+  <div class="row">
+    <div *ngFor="let pizza of pizzas | paginate: config" class="col-sm-4">
+      <app-pizza-item [pizza]="pizza" ></app-pizza-item>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
 </div>
+<app-pizza-editor ></app-pizza-editor>
 

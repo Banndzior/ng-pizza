@@ -1,12 +1,19 @@
-<div class="container">
-  <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
-  <a [routerLink]="['./', pizza.id, pizza.name]" >
-    <h3>{{ pizza?.name | dots:15}}</h3>
+<!-- 3: Wydziel zawartosc html do komponentu pizza-item -->
+<!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+<!-- 5: Dodaj pole opis -->
+<!-- 6: Obsłuż metode DELETE z Pizza API -->
+
+<div class="card item">
+  <a [routerLink]="['./', pizza.id]" >
+    <img [src]="pizza.photoUrl" (error)="onError()"  class="card-img-top" >
   </a>
+  <h3 class="card-title text-center card-header">{{ pizza?.name | dots:15}}</h3>
+  <div class="card-body">
     <h6>{{ pizza?.id }}</h6>
-    <!-- DONE 5: Dodaj pole opis -->
-    <div class="decs">{{ pizza.description }}</div>
-  <img *ngIf="pizza" [src]="pizza.photoUrl" height="100px" />
-  <a (click)="remove()" class="button" >usun</a> <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
-  <a (click)="modify()" class="button">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+    <p class="card-text">{{ pizza.description | dots: 100 }}</p>
+  </div>
+  <span class="card-footer d-flex justify-content-around">
+      <a (click)="remove()" class="text-monospace text-secondary">usun</a>
+      <a (click)="modify()" class="text-monospace text-secondary">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+    </span>
 </div>

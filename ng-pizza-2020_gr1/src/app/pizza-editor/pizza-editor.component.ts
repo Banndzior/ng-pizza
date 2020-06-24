@@ -3,24 +3,37 @@ import { PizzaService } from "../pizza.service";
 import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: "app-pizza-editor",
-  templateUrl: "./pizza-editor.component.html",
-  styleUrls: ["./pizza-editor.component.css"],
+  selector: 'app-pizza-editor',
+  templateUrl: './pizza-editor.component.html',
+  styles: [`
+   .item {
+     margin: 16px;
+     padding: 8px;
+   }
+   .custom-form {
+      margin: 20px;
+      padding: 10px;
+    }
+   .custom-button {
+      margin: 32px;
+      padding: 16px;
+    }
+  `]
 })
 export class PizzaEditorComponent implements OnInit {
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor( private pizzaSvc: PizzaService ) {}
 
   ngOnInit() {}
 
   addPizza(formValue: any, pizzaForm: NgForm) {
-    if(pizzaForm.valid) {
+    if (pizzaForm.valid) {
       this.pizzaSvc
-      .addPizza({
-        name: formValue.pizzaName,
-        description: formValue.description,
-        photoUrl: formValue.imageUrl,
-      })
-      .subscribe(() => this.pizzaSvc.onChange.emit());
+        .addPizza({
+          name: formValue.pizzaName,
+          description: formValue.description,
+          photoUrl: formValue.imageUrl,
+        })
+        .subscribe(() => this.pizzaSvc.onChange.emit() );
     }
   }
 }

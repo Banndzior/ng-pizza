@@ -6,44 +6,54 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-pizza',
   templateUrl: './pizza.component.html',
-  styleUrls: ['./pizza.component.css']
+  styles: []
 })
 
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  config: any;
 
-  constructor( private pizzaSvc: PizzaService, private route: ActivatedRoute) { }
-
-
-  ngOnInit() {
-    this.name = this.route.snapshot.paramMap.get("name");
-    this.getPizza();
-    this.pizzaSvc.onChange.subscribe(()=>{
-      this.getPizza();
-      
-    })
+  constructor(
+    private pizzaSvc: PizzaService,
+    private route: ActivatedRoute
+  ) {
+    this.config = {
+      itemsPerPage: 2,
+      currentPage: 1,
+      totalItems: 1
+    };
   }
 
-  getPizza(){
-    this.pizzaSvc.getPizzas().subscribe(response => {
-      
-      if(this.name){
+  ngOnInit() {
+    this.name = this.route.snapshot.paramMap.get('name');
+    this.getPizzas();
+    this.setTotalItems();
+    this.pizzaSvc.onChange.subscribe(() => {
+      this.getPizzas();
+      this.setTotalItems();
+    });
+  }
+
+  getPizzas() {
+    this.pizzaSvc.getPizzas(this.config.currentPage, this.config.itemsPerPage).subscribe(response => {
+      console.log(response)
+      if (this.name) {
         this.pizzas = response.value;
-        this.pizzas = this.pizzas.filter( pizza => pizza.name.includes(this.name));
+        this.pizzas = this.pizzas.filter( pizza => pizza.name.toLowerCase().includes(this.name.toLowerCase()) );
       } else {
         this.pizzas = response.value;
       }
     });
   }
 
-  addPizza(pizza: Pizza) {
-    this.pizzaSvc.addPizza(pizza).subscribe(() => this.ngOnInit());
+  setTotalItems() {
+    this.pizzaSvc.getAllPizzas().subscribe( response => this.config.totalItems = response.value.length-2 );
+    console.log(this.config);
   }
 
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(() => {
-      this.ngOnInit();
-    });
+  pageChanged(event){
+    this.config.currentPage = event;
+    this.getPizzas();
   }
 }

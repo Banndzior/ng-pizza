@@ -10,9 +10,11 @@ import {SlicePipe} from '@angular/common';
 import { DotsPipe } from './dots.pipe';
 import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
 import {FormsModule} from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NavComponent } from './nav/nav.component';
 
-// DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
-// DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
+// 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+//  2: Dodaj komponent PizzaEditor za pomoca Angular CLI
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import {FormsModule} from '@angular/forms';
     PizzaItemComponent,
     PizzaEditorComponent,
     DotsPipe,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [SlicePipe],
   bootstrap: [AppComponent]

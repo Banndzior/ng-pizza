@@ -13,7 +13,12 @@ export class PizzaService {
 
   constructor(private http: HttpClient) { }
 
-  getPizzas(): Observable<PizzaResponse> {
+  getPizzas(pageIndex: number, pageSize: number): Observable<PizzaResponse> {
+    const offset = pageIndex * pageSize;
+    return this.http.get<PizzaResponse>(`${this.url}/api/pizzas?offset=${offset}&limit=${pageSize}`);
+  }
+
+  getAllPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
   }
 
