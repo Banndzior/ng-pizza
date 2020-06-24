@@ -3,6 +3,7 @@ import { Pizza } from "../pizza";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { PizzaService } from "../pizza.service";
 import { Router } from "@angular/router";
+import { CommonService } from "../shared/common.service";
 
 @Component({
   selector: "app-pizza-editor",
@@ -10,7 +11,11 @@ import { Router } from "@angular/router";
   styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
-  constructor(private pizzaService: PizzaService, private router: Router) {}
+  constructor(
+    private pizzaService: PizzaService,
+    private router: Router,
+    private btnStatus: CommonService
+  ) {}
 
   newPizza: Pizza;
 
@@ -39,8 +44,10 @@ export class PizzaEditorComponent implements OnInit {
 
   addPizza() {
     this.newPizza = this.pizzaForm.value;
+
     this.pizzaService.addPizza(this.newPizza).subscribe(() => {
       this.router.navigate(["pizza"]);
+      this.btnStatus.changeBtnStatus(false);
     });
   }
 

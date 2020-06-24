@@ -1,13 +1,14 @@
 import { Component, OnInit } from "@angular/core";
+import { CommonService } from "../shared/common.service";
 
 @Component({
   selector: "app-navbar",
   template: `
     <mat-toolbar color="primary" class="navbar">
       <div class="container">
-        <span [hidden]="hidden">
+        <span [hidden]="status">
           <button
-            (click)="hidden = true"
+            (click)="changeStatus()"
             mat-raised-button
             color="link"
             [routerLink]="['pizza/edit']"
@@ -15,9 +16,9 @@ import { Component, OnInit } from "@angular/core";
             Add NEW pizza
           </button>
         </span>
-        <span [hidden]="!hidden">
+        <span [hidden]="!status">
           <button
-            (click)="hidden = false"
+            (click)="changeStatus()"
             mat-raised-button
             color="accent"
             [routerLink]="['pizza']"
@@ -25,7 +26,7 @@ import { Component, OnInit } from "@angular/core";
             Home
           </button>
         </span>
-        <!-- <app-search-bar></app-search-bar> -->
+        <app-search-bar *ngIf="!status"></app-search-bar>
       </div>
     </mat-toolbar>
   `,
@@ -44,9 +45,16 @@ import { Component, OnInit } from "@angular/core";
   ],
 })
 export class NavbarComponent implements OnInit {
-  constructor() {}
+  constructor(private btnStatus: CommonService) {}
 
-  hidden;
+  status: boolean;
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.btnStatus.actualBtnStatus.subscribe(
+      (status) => (this.status = status)
+    );
+  }
+  changeStatus() {
+    this.btnStatus.changeBtnStatus(!this.status);
+  }
 }
