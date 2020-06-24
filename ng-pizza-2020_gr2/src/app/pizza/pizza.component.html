@@ -1,28 +1,44 @@
-<ul>
-  <li
-    *ngFor="
-      let pizza of pizzas
-        | paginate: { itemsPerPage: 5, currentPage: pageIndex }
-    "
-  >
-    <!-- TODO: Wydziel zawartosc html do komponentu pizza-item -->
-    <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-    {{ pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "") }}
-    <!-- TODO 5: Dodaj pole opis -->
-    <div>
-      {{ pizza.description }}
-    </div>
-    <img [src]="pizza.photoUrl" height="50px" />
-    <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-    <!-- TODO 12: Obsłuż metode POST z Pizza API -->
-    <a>ustaw obrazek</a>
-    <br />
-    <button (click)="removePizza(pizza.id)">usun</button>
-  </li>
-  <!-- TODO 11: Dodajemy komponent stronnicowania -->
-</ul>
+<div class="container-column">
+  <ul class="container-row">
+    <li
+      class="card-container"
+      *ngFor="
+        let pizza of pizzas
+          | paginate: { itemsPerPage: 5, currentPage: pageIndex }
+      "
+    >
+      <mat-card class="card-item">
+        <mat-card-header>
+          <mat-card-title>{{
+            pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "")
+          }}</mat-card-title>
+        </mat-card-header>
 
-<app-pizza-editor></app-pizza-editor>
-<div class="has-text-centered">
-  <pagination-controls (pageChange)="pageIndex = $event"></pagination-controls>
+        <img mat-card-image [src]="pizza.photoUrl" alt="Photo of a Shiba Inu" />
+
+        <mat-card-content>
+          <p>
+            {{ pizza.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-stroked-button
+            color="primary"
+            (click)="removePizza(pizza.id)"
+          >
+            Delete
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </li>
+    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+  </ul>
+
+  <div class="has-text-centered">
+    <pagination-controls
+      (pageChange)="pageIndex = $event"
+    ></pagination-controls>
+  </div>
+  <app-pizza-editor></app-pizza-editor>
 </div>
