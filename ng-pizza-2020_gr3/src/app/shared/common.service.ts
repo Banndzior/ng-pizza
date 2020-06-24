@@ -12,13 +12,13 @@ export class CommonService {
 
   changeBtnStatus(status: boolean) {
     this.navBtnStatus.next(status);
-    this.changeOptionsStatus(false);
+    this.changeOptionsStatus(null);
   }
 
   private optionsStatus = new BehaviorSubject<boolean>(false);
   actualOptionsStatus = this.optionsStatus.asObservable();
 
-  changeOptionsStatus(status: boolean) {
-    this.optionsStatus.next(status);
+  changeOptionsStatus(pizza) {
+    this.optionsStatus.next(pizza);
   }
 }
