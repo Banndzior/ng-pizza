@@ -1,28 +1,35 @@
 <form #pizzaForm="ngForm" (ngSubmit)="addPizza(pizzaForm.value, pizzaForm)">
-  <div class="add">
-    <div>
-      <label>Pizza name:</label>
-      <input type="text" name="pizzaName" ngModel #pizzaName="ngModel" required />
-      <div class="error" *ngIf="pizzaName.hasError('required')">
+  <div class="card" style=" padding:20px; margin : 10rem; width :20rem; float:inline-end">
+    <div class="form-group">
+      <label>Pizza name:
+        <input type="text" class="form-control" name="pizzaName" ngModel #pizzaName="ngModel" required />
+      </label>
+      <div class="alert alert-danger" *ngIf="pizzaName.hasError('required')">
         Field is required
       </div>
     </div>
-    <div>
-      <label>Description:</label>
-      <input type="text" name="description" ngModel #description="ngModel" required />
-      <div class="error" *ngIf="description.hasError('required')">
+    <div class="form-group">
+      <label>Description:
+        <textarea type="text" class="form-control" name="description" ngModel #description="ngModel"
+          required></textarea>
+      </label>
+      <div class="alert alert-danger" *ngIf="description.hasError('required')">
         Field is required
       </div>
     </div>
-    <div>
-      <label>Image:</label>
-      <input type="text" name="imageUrl" ngModel #imageUrl="ngModel" required />
-      <div class="error" *ngIf="imageUrl.hasError('required')">
+    <div class="form-group">
+      <label>Image:
+        <input type="text" class="form-control" name="imageUrl" ngModel #imageUrl="ngModel" required />
+      </label>
+      <div class="alert alert-danger" *ngIf="imageUrl.hasError('required')">
         Field is required
       </div>
     </div>
-    <button type="submit" [disabled]="pizzaForm.invalid">
-      Dodaj pizze
+    <button class="btn btn-primary" type="submit" [disabled]="pizzaForm.invalid" style="margin:5px;">
+      Add Pizza
+    </button>
+    <button class="btn btn-secondary" type="submit" [disabled]="pizzaForm.invalid">
+      Reset
     </button>
 
   </div>
