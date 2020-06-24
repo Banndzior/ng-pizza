@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonService } from "../shared/common.service";
 import { PizzaService } from "../pizza.service";
-import { Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
+import { filter } from "rxjs/operators";
 
 @Component({
   selector: "app-navbar",
@@ -31,7 +32,9 @@ import { Router } from "@angular/router";
           </span>
           <span *ngIf="pizza" class="options">
             <span class="label">Options: </span>
-            <button mat-raised-button color="accent">Edit</button>
+            <button mat-raised-button color="accent" (click)="edit(pizza)">
+              Edit
+            </button>
             <button mat-raised-button color="warn" (click)="delete(pizza)">
               Delete
             </button>
@@ -69,17 +72,21 @@ import { Router } from "@angular/router";
 export class NavbarComponent implements OnInit {
   constructor(
     private common: CommonService,
-    private pizzaService: PizzaService,
-    private router: Router
+    private pizzaService: PizzaService
   ) {}
 
   status: boolean;
   pizza;
+  actualPizzaList;
 
   ngOnInit() {
     this.common.actualBtnStatus.subscribe((status) => (this.status = status));
     this.common.actualOptionsStatus.subscribe((pizza) => (this.pizza = pizza));
+    this.common.actualPizzasList.subscribe(
+      (pizzas) => (this.actualPizzaList = pizzas)
+    );
   }
+
   changeStatus() {
     this.common.changeBtnStatus(!this.status);
   }
@@ -87,6 +94,14 @@ export class NavbarComponent implements OnInit {
   delete(pizza) {
     this.pizzaService.removePizza(pizza).subscribe(() => {
       this.common.changeOptionsStatus(null);
+
+      let tempList = this.actualPizzaList.filter((el) => el.id != pizza.id);
+
+      this.common.refreshList(tempList);
     });
+  }
+
+  edit(pizza) {
+    console.log(`Edit pizza: ${pizza}`);
   }
 }

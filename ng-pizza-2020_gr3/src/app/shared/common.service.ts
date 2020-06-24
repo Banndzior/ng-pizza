@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { PizzaService } from "../pizza.service";
 
 @Injectable({
   providedIn: "root",
@@ -20,5 +21,12 @@ export class CommonService {
 
   changeOptionsStatus(pizza) {
     this.optionsStatus.next(pizza);
+  }
+
+  private pizzas = new BehaviorSubject<any>([]);
+  actualPizzasList = this.pizzas.asObservable();
+
+  refreshList(pizzas) {
+    this.pizzas.next(pizzas);
   }
 }

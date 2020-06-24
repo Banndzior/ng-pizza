@@ -11,8 +11,6 @@ export class PizzaService {
 
   constructor(private http: HttpClient) {}
 
-  public onPizzaChange: EventEmitter<any> = new EventEmitter<any>();
-
   getPizzaList(): Observable<Pizza[]> {
     return this.http.get<Pizza[]>(`${this.url}/api/pizzas`);
   }

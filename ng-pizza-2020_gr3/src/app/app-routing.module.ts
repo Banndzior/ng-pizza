@@ -9,7 +9,11 @@ import { PizzaListResolverService } from "./pizza-list/pizza-list-resolver.servi
 // TODO 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy
 
 const routes: Routes = [
-  { path: "", redirectTo: "pizza", pathMatch: "full" },
+  {
+    path: "",
+    redirectTo: "pizza",
+    pathMatch: "full",
+  },
   { path: "pizza/edit", component: PizzaEditorComponent },
   {
     path: "pizza",
@@ -22,7 +26,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: [PizzaListResolverService],
 })
