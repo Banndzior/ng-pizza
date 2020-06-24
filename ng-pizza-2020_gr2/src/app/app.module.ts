@@ -10,6 +10,7 @@ import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { NgxPaginationModule } from "ngx-pagination";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ClickOutsideModule } from "ng-click-outside";
 
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -41,6 +42,7 @@ import { MatCardModule } from "@angular/material/card";
     MatDividerModule,
     MatListModule,
     MatCardModule,
+    ClickOutsideModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

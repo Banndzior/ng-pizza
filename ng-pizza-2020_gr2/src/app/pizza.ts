@@ -10,6 +10,7 @@ export interface Pizza {
   description: string;
   photoUrl?: string;
   createdAt?: Date;
+  active: boolean;
 }
 
 export interface PizzaResponse {

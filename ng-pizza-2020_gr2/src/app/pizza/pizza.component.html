@@ -7,7 +7,12 @@
           | paginate: { itemsPerPage: 5, currentPage: pageIndex }
       "
     >
-      <mat-card class="card-item">
+      <mat-card
+        (clickOutside)="markInactive(pizza)"
+        (click)="markActive(pizza)"
+        [ngClass]="pizza.active ? 'green' : ''"
+        class="card-item"
+      >
         <mat-card-header>
           <mat-card-title>{{
             pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "")

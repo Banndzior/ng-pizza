@@ -38,6 +38,14 @@ export class PizzaComponent implements OnInit {
     );
   }
 
+  markActive(pizza: any) {
+    pizza.active = true;
+  }
+
+  markInactive(pizza: any) {
+    pizza.active = false;
+  }
+
   updatePizza(pizzaId: number) {
     // ... http.put
   }

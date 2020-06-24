@@ -18,6 +18,7 @@ export class PizzaEditorComponent implements OnInit {
         name: form.value.name,
         description: form.value.description,
         photoUrl: form.value.img,
+        active: false,
       })
       .subscribe((_) => {
         this.pizzaSvc.onChange.emit();
