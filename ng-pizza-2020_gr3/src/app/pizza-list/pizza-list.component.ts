@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Pizza } from "../pizza";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router, NavigationEnd } from "@angular/router";
 import { PageEvent } from "@angular/material/paginator";
+import { CommonService } from "../shared/common.service";
 
 // [routerLink]="[pizza.id]"
 
@@ -49,7 +50,17 @@ export class PizzaListComponent implements OnInit {
   last: number = 5;
   selectedPizza: Pizza;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute,
+    private common: CommonService,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.getList();
+      }
+    });
+  }
 
   ngOnInit() {
     this.getList();
@@ -71,8 +82,10 @@ export class PizzaListComponent implements OnInit {
   select(pizza) {
     if (this.selectedPizza && pizza.id === this.selectedPizza.id) {
       this.selectedPizza = null;
+      this.common.changeOptionsStatus(null);
     } else {
       this.selectedPizza = pizza;
+      this.common.changeOptionsStatus(pizza);
     }
 
     console.log(this.selectedPizza);
