@@ -17,6 +17,8 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatInputModule } from "@angular/material/input";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { SearchBarComponent } from "./navbar/search-bar.component";
+import { MatDialogModule } from "@angular/material/dialog";
+import { OptionsComponent } from './pizza-list/options.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { SearchBarComponent } from "./navbar/search-bar.component";
     NavbarComponent,
     PizzaListItemComponent,
     SearchBarComponent,
+    OptionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +44,7 @@ import { SearchBarComponent } from "./navbar/search-bar.component";
     MatPaginatorModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
