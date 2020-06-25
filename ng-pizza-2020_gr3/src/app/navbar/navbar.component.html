@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="navbar">
+  <div class="container">
+    <div>
+      <span [hidden]="status">
+        <button
+          (click)="changeStatus()"
+          mat-raised-button
+          color="link"
+          [routerLink]="['pizza/edit']"
+        >
+          Add NEW pizza
+        </button>
+      </span>
+      <span [hidden]="!status">
+        <button
+          (click)="changeStatus()"
+          mat-raised-button
+          color="accent"
+          [routerLink]="['pizza']"
+        >
+          Home
+        </button>
+      </span>
+    </div>
+
+    <app-search-bar *ngIf="!status"></app-search-bar>
+  </div>
+</mat-toolbar>
