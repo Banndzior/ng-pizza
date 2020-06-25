@@ -1,0 +1,36 @@
+<form #pizzaForm="ngForm" (ngSubmit)="addPizza(pizzaForm.value, pizzaForm)">
+  <div class="card" style=" padding:10px; margin : 5rem; width :20rem; float:right">
+    <div class=" form-group">
+      <label>Pizza name:
+        <input type="text" class="form-control" name="pizzaName" ngModel #pizzaName="ngModel" required />
+      </label>
+      <div class="alert alert-danger" *ngIf="pizzaName.hasError('required')">
+        Field is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description:
+        <textarea type="text" class="form-control" name="description" ngModel #description="ngModel"
+          required></textarea>
+      </label>
+      <div class="alert alert-danger" *ngIf="description.hasError('required')">
+        Field is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Image:
+        <input type="text" class="form-control" name="imageUrl" ngModel #imageUrl="ngModel" required />
+      </label>
+      <div class="alert alert-danger" *ngIf="imageUrl.hasError('required')">
+        Field is required
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="pizzaForm.invalid" style="margin:5px;">
+      Add Pizza
+    </button>
+    <button class="btn btn-secondary" type="reset" [disabled]="pizzaForm.invalid">
+      Reset
+    </button>
+
+  </div>
+</form>

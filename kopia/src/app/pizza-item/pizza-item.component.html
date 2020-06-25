@@ -1,4 +1,4 @@
-<div [className]="onFocus" style="width: 18rem;height: 35rem; margin:15px" (mouseover)='changeFocusIn()'
+<div [className]="onFocus" style="width: 18rem;height: 35rem;" (mouseover)='changeFocusIn()'
   (mouseleave)='changeFocusOut()' (click)='changeFocusDown()'>
   <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
   <img *ngIf="pizza" [src]="pizza.photoUrl" class="card-img-top" style="height: 12rem;" />

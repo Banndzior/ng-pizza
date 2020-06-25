@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { PizzaService } from '../pizza.service';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from "@angular/core";
+import { PizzaService } from "../pizza.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
-  selector: 'app-pizza-editor',
-  templateUrl: './pizza-editor.component.html',
-  styleUrls: ['./pizza-editor.component.css'],
+  selector: "app-pizza-editor",
+  templateUrl: "./pizza-editor.component.html",
+  styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) { }

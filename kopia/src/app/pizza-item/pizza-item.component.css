@@ -23,7 +23,7 @@ a:hover {
   cursor: pointer;
 }
  .onFocus{
-   background-color: rgb(132, 136, 98);
+   background-color: red;
  }
  .downFocus{
    background-color: green;

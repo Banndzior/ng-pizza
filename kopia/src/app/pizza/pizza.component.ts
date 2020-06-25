@@ -17,10 +17,11 @@ export class PizzaComponent implements OnInit {
 
 
   ngOnInit() {
-    this.name = this.route.snapshot.paramMap.get('name');
+    this.name = this.route.snapshot.paramMap.get("name");
     this.getPizza();
     this.pizzaSvc.onChange.subscribe(() => {
       this.getPizza();
+
     })
   }
 
@@ -30,7 +31,7 @@ export class PizzaComponent implements OnInit {
         this.pizzas = response.value;
         this.pizzas = this.pizzas.filter(pizza => pizza.name.includes(this.name));
       } else {
-        // console.log('response dziwne= ' + response.value[0].id)
+        console.log('response = ' + response.value[0].name)
         this.pizzas = response.value;
       }
     });
@@ -41,14 +42,14 @@ export class PizzaComponent implements OnInit {
   // }
 
   removePizza(pizza: Pizza) {
-    console.log('Remove  ' + pizza.name);
+    console.log('Remove' + pizza);
     this.pizzaSvc.removePizza(pizza).subscribe(() => {
       this.ngOnInit();
     });
   }
 
   changePizza(pizza: Pizza) {
-    console.log('Pizzzzzzzza : ' + pizza.photoUrl);
+    console.log('Pizzzzzzzza : ' + pizza);
     this.pizzaSvc.changePizza(pizza).subscribe(() => {
       this.ngOnInit();
     });

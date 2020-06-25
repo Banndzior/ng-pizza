@@ -26,8 +26,8 @@ export class PizzaService {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, pizza);
   }
 
-  changePizza(pizza: Pizza): Observable<Pizza> {
-    console.log('Change pizza przy wysyłce');
+  changePizza(pizza: Pizza) {
+    console.log('Change pizza');
     console.log(pizza.id);
     return this.http.put<Pizza>(`${this.url}/api/pizzas/${pizza.id}`, pizza);
     //return 'put';
