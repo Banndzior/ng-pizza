@@ -1,0 +1,20 @@
+<section class="pizza-list">
+  <app-pizza-list-item
+    *ngFor="let pizza of pizzas"
+    [pizza]="pizza"
+    [selected]="selectedPizza"
+    (click)="select(pizza)"
+  ></app-pizza-list-item>
+</section>
+<mat-paginator
+  class="paginator"
+  [pageIndex]="0"
+  [pageSize]="5"
+  [length]="length"
+  (page)="getNext($event)"
+></mat-paginator>
+<app-options
+  [pizza]="selectedPizza"
+  (deleteEvent)="delete(selectedPizza)"
+  (editEvent)="edit(selectedPizza)"
+></app-options>
