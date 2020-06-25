@@ -42,6 +42,10 @@ import { Pizza } from "../pizza";
         user-select: none;
         transition: 0.3s;
       }
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
       .id {
         position: absolute;
         bottom: 0;
@@ -58,6 +62,7 @@ import { Pizza } from "../pizza";
         object-fit: cover;
       }
       .selected {
+        transform: translateY(-10px);
         background-color: #67c767;
       }
     `,
