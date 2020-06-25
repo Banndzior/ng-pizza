@@ -2,7 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { Pizza } from "../pizza";
 import { PageEvent } from "@angular/material/paginator";
 import { PizzaService } from "../pizza.service";
-
 // [routerLink]="[pizza.id]"
 
 @Component({
@@ -49,6 +48,7 @@ export class PizzaListComponent implements OnInit {
     this.offset = event.pageSize * event.pageIndex;
     this.getPizzaList(this.offset, this.limit);
     this.selectedPizza = null;
+    console.log(event);
   }
 
   select(pizza: Pizza) {
@@ -62,8 +62,5 @@ export class PizzaListComponent implements OnInit {
     this.pizzaService.removePizza(pizza).subscribe(() => {
       this.getPizzaList(this.offset, this.limit);
     });
-  }
-  edit(pizza: Pizza) {
-    console.log(`editing ${pizza.name}`);
   }
 }

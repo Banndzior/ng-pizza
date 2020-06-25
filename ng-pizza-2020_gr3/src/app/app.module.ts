@@ -18,7 +18,7 @@ import { MatInputModule } from "@angular/material/input";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { SearchBarComponent } from "./navbar/search-bar.component";
 import { MatDialogModule } from "@angular/material/dialog";
-import { OptionsComponent } from './pizza-list/options.component';
+import { OptionsComponent } from "./pizza-list/options.component";
 
 @NgModule({
   declarations: [

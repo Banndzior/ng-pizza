@@ -6,8 +6,8 @@ import { Pizza } from "../pizza";
   template: `
     <span *ngIf="pizza" class="options">
       <span class="label">Options: </span>
-      <button mat-raised-button color="accent" (click)="editPizza($event)">
-        Edit
+      <button [routerLink]="[pizza.id]" mat-raised-button color="accent">
+        Details
       </button>
       <button mat-raised-button color="warn" (click)="deletePizza($event)">
         Delete
@@ -32,13 +32,8 @@ export class OptionsComponent {
   @Input() pizza: Pizza;
 
   @Output() deleteEvent = new EventEmitter();
-  @Output() editEvent = new EventEmitter();
 
   deletePizza() {
     this.deleteEvent.emit(this.pizza);
-    console.log("delete");
-  }
-  editPizza() {
-    this.editEvent.emit(this.pizza);
   }
 }
