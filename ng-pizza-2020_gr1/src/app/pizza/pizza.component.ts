@@ -6,13 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-pizza',
   templateUrl: './pizza.component.html',
-  styles: []
+  styles: [``]
 })
 
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
   config: any;
+  markedId: number;
 
   constructor(
     private pizzaSvc: PizzaService,
@@ -33,6 +34,7 @@ export class PizzaComponent implements OnInit {
       this.getPizzas();
       this.setTotalItems();
     });
+    console.log(this.markedId);
   }
 
   getPizzas() {
@@ -49,11 +51,19 @@ export class PizzaComponent implements OnInit {
 
   setTotalItems() {
     this.pizzaSvc.getAllPizzas().subscribe( response => this.config.totalItems = response.value.length-2 );
-    console.log(this.config);
   }
 
   pageChanged(event){
     this.config.currentPage = event;
     this.getPizzas();
+  }
+
+  handleClick(id) {
+    if(id === this.markedId) {
+      this.markedId = 0;
+    } else {
+      this.markedId = id;
+    }
+    console.log(this.markedId);
   }
 }

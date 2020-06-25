@@ -23,7 +23,7 @@ import { NavComponent } from './nav/nav.component';
     PizzaItemComponent,
     PizzaEditorComponent,
     DotsPipe,
-    NavComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

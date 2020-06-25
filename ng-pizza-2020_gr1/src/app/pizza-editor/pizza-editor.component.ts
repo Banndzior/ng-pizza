@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 import { PizzaService } from "../pizza.service";
 import { NgForm } from "@angular/forms";
 
@@ -21,9 +22,26 @@ import { NgForm } from "@angular/forms";
   `]
 })
 export class PizzaEditorComponent implements OnInit {
-  constructor( private pizzaSvc: PizzaService ) {}
+  routeId: number;
+  error = false;
+  done = false;
 
-  ngOnInit() {}
+  constructor(
+    private pizzaSvc: PizzaService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.routeId = Number( this.route.snapshot.paramMap.get('id') );
+  }
+
+  handleSubmit(formValue: any, pizzaForm: NgForm) {
+    if(!this.routeId) {
+      this.addPizza(formValue, pizzaForm);
+    } else {
+      this.editPizza(formValue, pizzaForm);
+    }
+  }
 
   addPizza(formValue: any, pizzaForm: NgForm) {
     if (pizzaForm.valid) {
@@ -34,6 +52,16 @@ export class PizzaEditorComponent implements OnInit {
           photoUrl: formValue.imageUrl,
         })
         .subscribe(() => this.pizzaSvc.onChange.emit() );
+    }
+  }
+
+  editPizza(formValue: any, pizzaForm: NgForm) {
+    if( pizzaForm.valid) {
+      this.pizzaSvc.modifyPizza( this.routeId, { photoUrl: formValue.imageURL })
+        .subscribe(() => {
+          this.error = false;
+          this.done = true;
+        }, error => this.error = true);
     }
   }
 }

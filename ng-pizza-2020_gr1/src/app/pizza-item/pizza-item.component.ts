@@ -6,18 +6,24 @@ import { PizzaService } from '../pizza.service';
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
-  styles: [
-    `
-      .item {
-        height: 500px;
-        margin: 10px 0;
-      }
-    `
-  ]
+  styles: [`
+    .item {
+      height: 500px;
+      margin: 10px 0;
+      max-width: 380px;
+      align-self: center;
+      background-color: white;
+    }
+    .mark {
+      background-color: lightgreen;
+    }
+  `]
 })
 export class PizzaItemComponent implements OnInit {
-  @Input()
-  pizza: Pizza;
+  @Input() pizza: Pizza;
+  @Input() marked: number;
+  // @Output() markedChange = new EventEmitter<number>();
+  routeId: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,16 +31,14 @@ export class PizzaItemComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const id = Number( this.route.snapshot.paramMap.get('id') );
-    id && this.pizzaService.getPizza(id).subscribe(resp => (this.pizza = resp));
+    this.routeId = Number( this.route.snapshot.paramMap.get('id') );
+    this.routeId && this.pizzaService.getPizza(this.routeId).subscribe(resp => {
+      this.pizza = resp;
+    });
   }
 
   remove() {
     this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );
-  }
-
-  modify() {
-    console.log(this.pizzaService.modifyPizza(this.pizza));
   }
 
   onError() {
