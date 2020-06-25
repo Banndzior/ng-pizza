@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Pizza } from "../pizza";
 import { PageEvent } from "@angular/material/paginator";
-import { CommonService } from "../shared/common.service";
 import { PizzaService } from "../pizza.service";
 
 // [routerLink]="[pizza.id]"
@@ -33,10 +32,7 @@ export class PizzaListComponent implements OnInit {
   limit: number = 5;
   length: number;
 
-  constructor(
-    private common: CommonService,
-    private pizzaService: PizzaService
-  ) {}
+  constructor(private pizzaService: PizzaService) {}
 
   ngOnInit() {
     this.getPizzaList(this.offset, this.limit);
@@ -52,24 +48,18 @@ export class PizzaListComponent implements OnInit {
   getNext(event: PageEvent) {
     this.offset = event.pageSize * event.pageIndex;
     this.getPizzaList(this.offset, this.limit);
-
-    this.common.changeOptionsStatus(null);
     this.selectedPizza = null;
   }
 
   select(pizza: Pizza) {
     if (this.selectedPizza && pizza.id === this.selectedPizza.id) {
       this.selectedPizza = null;
-      this.common.changeOptionsStatus(null);
     } else {
       this.selectedPizza = pizza;
-      this.common.changeOptionsStatus(pizza);
     }
   }
   delete(pizza: Pizza) {
     this.pizzaService.removePizza(pizza).subscribe(() => {
-      console.log("deleted");
-      this.common.changeOptionsStatus(null);
       this.getPizzaList(this.offset, this.limit);
     });
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { CommonService } from "../shared/common.service";
-import { PizzaService } from "../pizza.service";
 
 @Component({
   selector: "app-navbar",
@@ -20,22 +19,12 @@ import { PizzaService } from "../pizza.service";
   ],
 })
 export class NavbarComponent implements OnInit {
-  constructor(
-    private common: CommonService,
-    private pizzaService: PizzaService
-  ) {}
+  constructor(private common: CommonService) {}
 
   status: boolean;
-  pizza;
-  actualPizzaList;
-  length;
 
   ngOnInit() {
     this.common.actualBtnStatus.subscribe((status) => (this.status = status));
-    this.common.actualOptionsStatus.subscribe((pizza) => (this.pizza = pizza));
-    this.common.actualPizzasList.subscribe(
-      (pizzas) => (this.actualPizzaList = pizzas)
-    );
   }
 
   changeStatus() {
