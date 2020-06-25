@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Pizza } from "../pizza";
-import { ActivatedRoute, Router } from "@angular/router";
 import { PageEvent } from "@angular/material/paginator";
 import { CommonService } from "../shared/common.service";
 import { PizzaService } from "../pizza.service";
@@ -9,23 +8,7 @@ import { PizzaService } from "../pizza.service";
 
 @Component({
   selector: "app-pizza-list",
-  template: `
-    <section class="pizza-list">
-      <app-pizza-list-item
-        *ngFor="let pizza of pizzas"
-        [pizza]="pizza"
-        [selected]="selectedPizza"
-        (click)="select(pizza)"
-      ></app-pizza-list-item>
-    </section>
-    <mat-paginator
-      class="paginator"
-      [pageIndex]="0"
-      [pageSize]="pageSize"
-      [length]="length"
-      (page)="getNext($event)"
-    ></mat-paginator>
-  `,
+  templateUrl: "pizza-list.component.html",
   styles: [
     `
       .pizza-list {
@@ -45,39 +28,36 @@ import { PizzaService } from "../pizza.service";
 })
 export class PizzaListComponent implements OnInit {
   pizzas: Pizza[];
-  pageSize = 5;
-  length = this.route.snapshot.data["pizzas"].value.length;
-  first: number = 0;
-  last: number = 5;
   selectedPizza: Pizza;
+  offset: number = 0;
+  limit: number = 5;
+  length: number;
 
-  constructor(private route: ActivatedRoute, private common: CommonService) {}
+  constructor(
+    private common: CommonService,
+    private pizzaService: PizzaService
+  ) {}
 
   ngOnInit() {
-    this.getList();
-    this.common.refreshList(this.pizzas);
-    this.common.actualPizzasList.subscribe((list) => {
-      this.pizzas = list;
+    this.getPizzaList(this.offset, this.limit);
+  }
+
+  getPizzaList(offset: number, limit: number) {
+    this.pizzaService.getPizzaList(offset, limit).subscribe((response) => {
+      this.pizzas = response.value;
+      this.length = response.size;
     });
   }
 
-  getList() {
-    this.pizzas = this.route.snapshot.data["pizzas"].value.slice(
-      this.first,
-      this.last
-    );
-    this.common.refreshList(this.pizzas);
-  }
-
   getNext(event: PageEvent) {
-    this.first = event.pageSize * event.pageIndex;
-    this.last = event.pageSize * event.pageIndex + this.pageSize;
-    this.getList();
+    this.offset = event.pageSize * event.pageIndex;
+    this.getPizzaList(this.offset, this.limit);
+
     this.common.changeOptionsStatus(null);
     this.selectedPizza = null;
   }
 
-  select(pizza) {
+  select(pizza: Pizza) {
     if (this.selectedPizza && pizza.id === this.selectedPizza.id) {
       this.selectedPizza = null;
       this.common.changeOptionsStatus(null);
@@ -85,7 +65,15 @@ export class PizzaListComponent implements OnInit {
       this.selectedPizza = pizza;
       this.common.changeOptionsStatus(pizza);
     }
-
-    console.log(this.selectedPizza);
+  }
+  delete(pizza: Pizza) {
+    this.pizzaService.removePizza(pizza).subscribe(() => {
+      console.log("deleted");
+      this.common.changeOptionsStatus(null);
+      this.getPizzaList(this.offset, this.limit);
+    });
+  }
+  edit(pizza: Pizza) {
+    console.log(`editing ${pizza.name}`);
   }
 }
