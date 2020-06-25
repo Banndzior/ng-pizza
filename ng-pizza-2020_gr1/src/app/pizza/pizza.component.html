@@ -1,7 +1,7 @@
 <div class="container">
   <ul>
-    <li *ngFor="let pizza of pizzas" >
-      <app-pizza-item [pizza]="pizza" (removePizza)="removePizza($event)">
+    <li *ngFor="let pizza of pizzas">
+      <app-pizza-item [pizza]="pizza" (removePizza)="removePizza($event)" (changePizza)="changePizza($event)">
       </app-pizza-item>
       <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
     </li>

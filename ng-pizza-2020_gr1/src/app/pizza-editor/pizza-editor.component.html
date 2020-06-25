@@ -1,6 +1,6 @@
 <form #pizzaForm="ngForm" (ngSubmit)="addPizza(pizzaForm.value, pizzaForm)">
-  <div class="card" style=" padding:20px; margin : 10rem; width :20rem; float:inline-end">
-    <div class="form-group">
+  <div class="card" style=" padding:10px; margin : 5rem; width :20rem; float:right">
+    <div class=" form-group">
       <label>Pizza name:
         <input type="text" class="form-control" name="pizzaName" ngModel #pizzaName="ngModel" required />
       </label>
@@ -28,7 +28,7 @@
     <button class="btn btn-primary" type="submit" [disabled]="pizzaForm.invalid" style="margin:5px;">
       Add Pizza
     </button>
-    <button class="btn btn-secondary" type="submit" [disabled]="pizzaForm.invalid">
+    <button class="btn btn-secondary" type="reset" [disabled]="pizzaForm.invalid">
       Reset
     </button>
 
