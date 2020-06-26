@@ -6,7 +6,7 @@
     <h6>{{ pizza?.id }}</h6>
     <!-- DONE 5: Dodaj pole opis -->
     <a [routerLink]="['./', pizza.id, pizza.name]">
-      <h5 (click)="getOnePizza(pizza.id)" class="card-title">{{ pizza?.name | dots:15}}</h5>
+      <h5 class="card-title">{{ pizza?.name | dots:15}}</h5>
     </a>
     <p style="height: 6rem;">{{ pizza.description }}</p>
     <ng-container *ngIf="isVisible">

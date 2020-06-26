@@ -23,9 +23,6 @@ export class PizzaItemComponent implements OnInit {
   @Output()
   changePizza = new EventEmitter();
 
-  @Output()
-  getPizza1 = new EventEmitter();
-
   constructor(private route: ActivatedRoute, private service: PizzaService) { }
 
   ngOnInit() {
@@ -39,6 +36,7 @@ export class PizzaItemComponent implements OnInit {
   }
   remove() {
     this.removePizza.emit(this.pizza);
+    //console.log('aaaaaaaaaaa');
   }
 
   modify() {
@@ -46,8 +44,10 @@ export class PizzaItemComponent implements OnInit {
   }
 
   change() {
+    //console.log('change');
     this.pizza.photoUrl = this.newImage;
     this.newImage = '';
+    //console.log(this.pizza);
     this.changePizza.emit(this.pizza);
   }
 
@@ -66,11 +66,5 @@ export class PizzaItemComponent implements OnInit {
 
   changeFocusDown() {
     (this.onFocus === 'downFocus') ? this.onFocus = 'onFocus' : this.onFocus = 'downFocus';
-  }
-
-
-  getOnePizza(id) {
-    console.log(id);
-    this.getPizza1.emit(id);
   }
 }

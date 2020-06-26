@@ -8,7 +8,6 @@ import { EventEmitter } from '@angular/core';
   providedIn: 'root'
 })
 export class PizzaService {
-
   private url = 'https://ng-pizza.azurewebsites.net';
   public onChange = new EventEmitter();
 
@@ -19,7 +18,8 @@ export class PizzaService {
   }
 
   getPizza(id: number): Observable<Pizza> {
-    return this.http.get<Pizza>(`${this.url}/api/pizzas/` + id);
+    console.log(id);
+    return this.http.get<Pizza>(`${this.url}/api/pizzas/${id}`);
   }
 
   addPizza(pizza: Pizza): Observable<Pizza> {
