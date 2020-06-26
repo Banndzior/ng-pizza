@@ -1,0 +1,48 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer class="example-drawer" #drawer mode="side">
+    <div class="container-column">
+      <button
+        class="example-sidenav-button"
+        routerLink="/"
+        routerLinkActive="active"
+        type="button"
+        mat-button
+      >
+        home page
+      </button>
+      <button
+        routerLink="/pizza"
+        routerLinkActive="active"
+        class="example-sidenav-button"
+        type="button"
+        mat-button
+      >
+        pizza
+      </button>
+      <button
+        routerLink="/pizza/search/vegetariana"
+        routerLinkActive="active"
+        class="example-sidenav-button"
+        type="button"
+        mat-button
+      >
+        pizza search
+      </button>
+      <button
+        routerLink="/comments"
+        routerLinkActive="active"
+        class="example-sidenav-button"
+        type="button"
+        mat-button
+      >
+        comments
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle()">
+      MENU
+    </button>
+  </div>
+</mat-drawer-container>

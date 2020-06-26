@@ -1,49 +1,61 @@
-<div class="container-column">
-  <ul class="container-row">
-    <li
-      class="card-container"
-      *ngFor="
-        let pizza of pizzas
-          | paginate: { itemsPerPage: 5, currentPage: pageIndex }
-      "
-    >
-      <mat-card
-        (clickOutside)="markInactive(pizza)"
-        (click)="markActive(pizza)"
-        [ngClass]="pizza.active ? 'green' : ''"
-        class="card-item"
+<div class="container-space-between">
+  <app-pizza-navbar></app-pizza-navbar>
+
+  <!-- <li *ngFor="let comment of comments">
+    <p>{{ comment.body }}</p>
+  </li> -->
+
+  <div class="container-column">
+    <ul class="container-row">
+      <li
+        class="card-container"
+        *ngFor="
+          let pizza of pizzas
+            | paginate: { itemsPerPage: 5, currentPage: pageIndex }
+        "
       >
-        <mat-card-header>
-          <mat-card-title>{{
-            pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "")
-          }}</mat-card-title>
-        </mat-card-header>
+        <mat-card
+          (clickOutside)="markInactive(pizza)"
+          (click)="markActive(pizza)"
+          [ngClass]="pizza.active ? 'active' : ''"
+          class="card-item"
+        >
+          <mat-card-header class="card-item__header">
+            <mat-card-title>{{
+              pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "")
+            }}</mat-card-title>
+          </mat-card-header>
 
-        <img mat-card-image [src]="pizza.photoUrl" alt="Photo of a Shiba Inu" />
+          <img
+            class="card-item__img"
+            mat-card-image
+            [src]="pizza.photoUrl"
+            alt="Photo of a Shiba Inu"
+          />
 
-        <mat-card-content>
-          <p>
-            {{ pizza.description }}
-          </p>
-        </mat-card-content>
-        <mat-card-actions>
-          <button
-            mat-stroked-button
-            color="primary"
-            (click)="removePizza(pizza.id)"
-          >
-            Delete
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </li>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
-  </ul>
+          <mat-card-content class="card-item__content">
+            <p>
+              {{ pizza.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button
+              mat-stroked-button
+              color="primary"
+              (click)="removePizza(pizza.id)"
+            >
+              Delete
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </li>
+    </ul>
 
-  <div class="has-text-centered">
-    <pagination-controls
-      (pageChange)="pageIndex = $event"
-    ></pagination-controls>
+    <div class="has-text-centered">
+      <pagination-controls
+        (pageChange)="pageIndex = $event"
+      ></pagination-controls>
+    </div>
+    <app-pizza-editor></app-pizza-editor>
   </div>
-  <app-pizza-editor></app-pizza-editor>
 </div>

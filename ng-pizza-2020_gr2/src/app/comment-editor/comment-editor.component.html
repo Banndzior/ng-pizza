@@ -1,0 +1,26 @@
+<form
+  class="container-column"
+  #myCommentForm="ngForm"
+  (ngSubmit)="addComment(myCommentForm)"
+>
+  <div class="container-row">
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input id="name" name="name" type="text" ngModel required matInput />
+    </mat-form-field>
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Comment</mat-label>
+      <input
+        id="comment"
+        name="comment"
+        type="text"
+        ngModel
+        required
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <button class="flexCenter" mat-raised-button color="primary">
+    Add comment
+  </button>
+</form>

@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { PizzaComponent } from "./pizza/pizza.component";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
+import { CommentComponent } from "./comment/comment.component";
 
 // TODO 7: Stworz routing dla listy pizz: pizza component
 // TODO 7+: Stworz routing dla pizzy po jej id/nazwie
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: "pizza", component: PizzaComponent },
   { path: "pizza/search/:name", component: PizzaComponent },
   { path: "pizza/:id", component: PizzaItemComponent },
+  { path: "comments", component: CommentComponent },
   { path: "**", redirectTo: "pizza" },
 ];
 

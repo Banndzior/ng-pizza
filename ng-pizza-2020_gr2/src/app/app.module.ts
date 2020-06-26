@@ -18,6 +18,11 @@ import { MatButtonModule } from "@angular/material/button";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { PizzaNavbarComponent } from './pizza-navbar/pizza-navbar.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentEditorComponent } from './comment-editor/comment-editor.component';
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -28,6 +33,9 @@ import { MatCardModule } from "@angular/material/card";
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
+    PizzaNavbarComponent,
+    CommentComponent,
+    CommentEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +51,8 @@ import { MatCardModule } from "@angular/material/card";
     MatListModule,
     MatCardModule,
     ClickOutsideModule,
+    MatToolbarModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { SearchPipe } from "../search.pipe";
 
 @Component({
   selector: "app-pizza",
@@ -11,12 +12,14 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  id: string;
   pageIndex: number = 1;
 
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get("name");
+    // this.id = this.route.snapshot.paramMap.get("id");
 
     this.loadPizzas();
 
