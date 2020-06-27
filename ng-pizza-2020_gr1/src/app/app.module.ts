@@ -12,6 +12,11 @@ import { DotsPipe } from './dots.pipe';
 import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
 import { FormsModule } from '@angular/forms';
 import { PizzaService } from './pizza.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
+import { HomeComponent } from './home/home.component';
+import { NewComponent } from './new/new.component';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -23,12 +28,19 @@ import { PizzaService } from './pizza.service';
     PizzaItemComponent,
     PizzaEditorComponent,
     DotsPipe,
+    NavbarComponent,
+    HomeComponent,
+    NewComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [SlicePipe, PizzaService],
   bootstrap: [AppComponent]

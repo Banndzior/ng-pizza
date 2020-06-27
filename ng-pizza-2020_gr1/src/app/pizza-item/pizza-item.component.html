@@ -8,7 +8,7 @@
     <a [routerLink]="['./', pizza.id, pizza.name]">
       <h5 (click)="getOnePizza(pizza.id)" class="card-title">{{ pizza?.name | dots:15}}</h5>
     </a>
-    <p style="height: 6rem;">{{ pizza.description }}</p>
+    <p style="height: 6rem;">{{ pizza.description | dots:70 }}</p>
     <ng-container *ngIf="isVisible">
       <label>Put new Image:
         <input [value]="newImage" (input)="typeImage($event)" type="text" class="form-control" />

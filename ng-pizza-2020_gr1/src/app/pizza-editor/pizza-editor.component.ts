@@ -11,6 +11,10 @@ export class PizzaEditorComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) { }
   ngOnInit() { }
 
+  nameForm: string;
+  descriptionForm: string;
+  imageForm: string;
+
   addPizza(formValue: any, pizzaForm: NgForm) {
     if (pizzaForm.valid) {
       this.pizzaSvc
@@ -24,4 +28,10 @@ export class PizzaEditorComponent implements OnInit {
 
 
   }
+  remove() {
+    this.nameForm = '';
+    this.descriptionForm = '';
+    this.imageForm = '';
+  }
+
 }

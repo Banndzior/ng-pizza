@@ -24,6 +24,7 @@ export class PizzaComponent implements OnInit {
     });
   }
 
+
   getPizza() {
 
     this.pizzaSvc.getPizzas().subscribe(response => {
@@ -47,14 +48,14 @@ export class PizzaComponent implements OnInit {
   // }
 
   removePizza(pizza: Pizza) {
-    console.log('Remove  ' + pizza.name);
+    //console.log('Remove  ' + pizza.name);
     this.pizzaSvc.removePizza(pizza).subscribe(() => {
       this.ngOnInit();
     });
   }
 
   changePizza(pizza: Pizza) {
-    console.log('Pizzzzzzzza : ' + pizza.photoUrl);
+    // console.log('Pizzzzzzzza : ' + pizza.photoUrl);
     this.pizzaSvc.changePizza(pizza).subscribe(() => {
       this.ngOnInit();
     });

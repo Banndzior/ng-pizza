@@ -54,14 +54,16 @@ export class PizzaItemComponent implements OnInit {
   changeFocusIn() {
     if (this.onFocus === 'downFocus') {
       this.onFocus = 'downFocus';
-    } else this.onFocus = 'onFocus';
-
+    } else {
+      this.onFocus = 'onFocus';
+    }
   }
   changeFocusOut() {
     if (this.onFocus === 'downFocus') {
       this.onFocus = 'downFocus';
-    } else this.onFocus = 'card';
-
+    } else {
+      this.onFocus = 'card';
+    }
   }
 
   changeFocusDown() {
