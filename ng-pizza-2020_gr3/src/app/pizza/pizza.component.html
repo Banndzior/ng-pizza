@@ -1,21 +1,52 @@
-<ul>
-  <li *ngFor="let item of pizzas">
-    <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
-    <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-    <!-- {{ item.name | dots }} -->
-    {{ (item.name | slice: 0:10) + (item.name.length > 10 ? "..." : "") }}
-    <br />
-    <code>{{ item.description }}</code>
+<!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
+<!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
 
-    <br />
-    <img src="{{ item.photoUrl }}" height="100px" />
-    <a class="pointer" (click)="removePizza(item)">usun</a>
-    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
-    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
-  </li>
-</ul>
+<div class="wrapper">
+  <app-pizza-nav></app-pizza-nav>
+  <div class="container">
+    <div
+      *ngFor="
+        let pizza of pizzas
+          | paginate: { itemsPerPage: 8, currentPage: pageIndex }
+      "
+      class="field"
+      (clickOutside)="inactive(pizza)"
+      (click)="active(pizza)"
+      [ngClass]="pizza.active ? 'active' : ''"
+    >
+      <div class="item">
+        <div>
+          <!-- {{ pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "") }} -->
+          {{ pizza.name | dots }}
+        </div>
+      </div>
+      <img class="item-img" [src]="pizza.photoUrl" alt="Missing photo" />
+      <div class="content">
+        <p>
+          {{
+            pizza.description
+              | slice: 0:30 + (pizza.description.length > 30 ? "..." : "")
+          }}
+        </p>
+      </div>
+      <div class="butt">
+        <button (click)="removePizza(pizza.id)">
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="pages">
+    <pagination-controls
+      (pageChange)="pageIndex = $event"
+    ></pagination-controls>
+  </div>
+  <app-pizza-editor></app-pizza-editor>
+</div>
+
+<!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
+<!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
 <!-- TODO 11: Dodajemy komponent stronnicowania -->
 
 <!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>

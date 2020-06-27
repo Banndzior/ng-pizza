@@ -1,1 +1,28 @@
-<p>pizza-editor works!</p>
+<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+<!-- https://github.com/Banndzior/ng-form/tree/master/ng-fb-form_gr2/src/app/registration -->
+
+<form class="wrapper" #myForm="ngForm" (ngSubmit)="addPizza(myForm)">
+  <div class="container">
+    <div class="form">
+      <label>Name:</label>
+      <br />
+      <input id="name" name="name" type="text" ngModel />
+    </div>
+    <div class="form">
+      <label>Foto:</label>
+      <br />
+      <input id="img" name="img" type="text" ngModel />
+    </div>
+    <div class="form">
+      <label>Description:</label>
+      <br />
+      <input id="description" name="description" type="text" ngModel required />
+    </div>
+  </div>
+  <div>
+    <button class="myButton">
+      Add pizza
+    </button>
+  </div>
+</form>

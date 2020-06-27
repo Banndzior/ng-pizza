@@ -7,4 +7,5 @@ export interface Pizza {
   name: string;
   description: string;
   photoUrl?: string;
+  active: boolean;
 }

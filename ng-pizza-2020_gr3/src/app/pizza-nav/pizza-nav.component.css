@@ -1,25 +1,28 @@
-.container {
-  margin: 0 auto;
-  padding: 20px;
+.italiano {
+  width: 20%;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* width: 100%; */
+}
+.italiano img {
+  height: 30px;
+  display: inline-block;
 }
 
-.wrapper {
-  margin: 0 auto;
+.containerNav {
+  background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.butt {
+  width: 60%;
+  display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
 }
-
-.form {
-  padding: 5px 20px;
-}
-
 .myButton {
   background-color: #4caf50;
   border: none;

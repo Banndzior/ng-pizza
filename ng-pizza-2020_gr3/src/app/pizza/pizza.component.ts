@@ -1,6 +1,7 @@
 import { Component, OnInit, Pipe, PipeTransform } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 
 @Component({
   selector: "app-pizza",
@@ -9,42 +10,42 @@ import { Pizza } from "../pizza";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
+  name: string;
+  id: string;
+  pageIndex: number = 1;
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
-    this.getPizza();
+    this.name = this.route.snapshot.paramMap.get("name");
+    // this.id = this.route.snapshot.paramMap.get("id");
+
+    this.getPizzas();
+
+    this.pizzaSvc.onChange.subscribe(() => this.getPizzas());
   }
 
-  getPizza() {
-    this.pizzaSvc.getPizzas().subscribe(
-      (response) => {
-        console.log(response);
-        this.pizzas = response.value;
-      },
-      (error) => {
-        console.log("jest blad", error);
-      }
+  getPizzas() {
+    this.pizzaSvc.getPizzas().subscribe((response) => {
+      this.pizzas = this.name
+        ? response.value.filter((pizza) => pizza.name.includes(this.name))
+        : response.value;
+    });
+  }
+
+  removePizza(pizzaId: number) {
+    this.pizzaSvc.removePizza(pizzaId).subscribe(
+      () => this.ngOnInit(),
+      (error) => console.error(error)
     );
   }
 
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "Margehrita",
-        description: " Salami, salad XD",
-      })
-      .subscribe(() => this.ngOnInit());
+  active(pizza: any) {
+    pizza.active = true;
   }
 
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(
-      () => this.getPizza(),
-      (error) => {
-        console.log("jest blad", error);
-      }
-    );
-    return false;
+  inactive(pizza: any) {
+    pizza.active = false;
   }
 }
 
