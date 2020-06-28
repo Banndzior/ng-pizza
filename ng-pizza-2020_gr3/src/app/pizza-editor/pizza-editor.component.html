@@ -1,6 +1,40 @@
 <!-- TODO 8: * Przenies obsługe przycisku do komponentu pizza-editor -->
 
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis)
+<!-- TODO 9: * Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis)
     w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 
-<button (click)="addPizza()">Dodaj pizze</button>
+<form [formGroup]="myFormGroup" (ngSubmit)="addPizza()">
+  <fieldset>
+    <legend>Dodaj pizzę</legend>
+    <label>
+      Naza:
+    </label>
+    <input type="text" formControlName="pizzaName" />
+    <div class="error" *ngIf="hasError('pizzaName')">
+      Podaj nazwę pizzy
+    </div>
+    <br />
+    <label>
+      Adres obrazka:
+    </label>
+    <input type="text" formControlName="pizzaUrl" />
+    <div class="error" *ngIf="hasError('pizzaUrl')">
+      Podaj URL obrazka
+    </div>
+    <br />
+    <label>
+      Opis pizzy:
+    </label>
+    <input type="text" formControlName="pizzaDescription" />
+    <div class="error" *ngIf="hasError('pizzaDescription')">
+      Podaj opis pizzy
+    </div>
+  </fieldset>
+
+  <button type="submit" [disabled]="myFormGroup.invalid && false">
+    Dodaj pizzę
+  </button>
+  <button type="reset">Wyczyść</button>
+</form>
+
+<!-- <button (click)="addPizza()">Dodaj pizze</button> -->
