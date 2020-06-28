@@ -1,5 +1,6 @@
 <ul>
-  <li *ngFor="let pizza of pizzas">
+
+  <li *ngFor="let pizza of pizzas | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems: total }">
     <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
     {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
@@ -24,5 +25,7 @@
   <!-- TODO 11: Dodajemy komponent stronicowania -->
 
 </ul>
+
+<pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
 
 <app-pizza-editor></app-pizza-editor>

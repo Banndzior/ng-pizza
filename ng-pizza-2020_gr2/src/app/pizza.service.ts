@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { PizzaResponse, Pizza } from './pizza';
 import { Observable } from 'rxjs';
 
@@ -12,8 +12,14 @@ export class PizzaService {
   constructor(private http: HttpClient) { }
   onChange: EventEmitter<any> = new EventEmitter<any>();
 
-  getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas`);
+  getPizzas(pageIndex: number, pageSize: number): Observable<PizzaResponse> {
+    const offset = pageSize * (pageIndex - 1);
+    let params = new HttpParams();
+    params.append('offset', offset.toString());
+    params.append('limit', pageSize.toString());
+
+    // return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas?offset=${offset}&limit=${pageSize}`);
+    return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas`, { params: params });
   }
 
   getPizza(pizzaId: number): Observable<Pizza> {

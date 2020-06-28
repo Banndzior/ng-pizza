@@ -19,8 +19,10 @@ export class ThreeDotsPipe implements PipeTransform {
   styleUrls: ['./pizza.component.css']
 })
 export class PizzaComponent implements OnInit {
-
+  page: number = 1;
+  pageSize = 5;
   pizzas: Pizza[];
+  total: number = 0;
 
   constructor(private pizzaSvc: PizzaService) { }
 
@@ -30,9 +32,10 @@ export class PizzaComponent implements OnInit {
   }
 
   loadPizzas() {
-    this.pizzaSvc.getPizzas().subscribe(response => {
+    this.pizzaSvc.getPizzas(this.page, this.pageSize).subscribe(response => {
       console.log(response);
       this.pizzas = response.value;
+      this.total = response.size;
     });
   }
 
@@ -46,4 +49,8 @@ export class PizzaComponent implements OnInit {
     // ... http.put
   }
 
+  onPageChange(event: number) {
+    this.page = event;
+    this.loadPizzas();
+  }
 }
