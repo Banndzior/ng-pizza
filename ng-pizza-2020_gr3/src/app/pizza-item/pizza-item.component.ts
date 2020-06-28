@@ -21,11 +21,22 @@ export class PizzaItemComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
+    const name = this.route.snapshot.paramMap.get("name");
 
     if (!isNullOrUndefined(id)) {
       this.pizzaSvc
         .getPizza(parseInt(id, 10))
         .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
+    } else if (!isNullOrUndefined(name)) {
+      console.log(name);
+
+      this.pizzaSvc.getPizzas().subscribe((pizzaResponse) => {
+        this.pizza = pizzaResponse.value.find((pizza) => {
+          console.log(pizza.name.toLowerCase(), name);
+
+          return pizza.name.toLowerCase().includes(name.toLowerCase());
+        });
+      });
     }
   }
 
