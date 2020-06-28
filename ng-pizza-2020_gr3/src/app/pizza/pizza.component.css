@@ -1,9 +1,21 @@
 mat-grid-tile{
-    background-color: wheat;
+    background-color: lightyellow;
     padding: 5px;
     margin: 5px;
+    height: 500px;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-weight: 400;
+}
+mat-grid-list{
+    height:100%;
 }
 .grid-layout-custom{
     width: 50vw;
     height: 50vh;
+  }
+  .menu-bar{
+      text-align: center;
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: moccasin;
+    color: tomato;
   }

@@ -1,5 +1,6 @@
 export interface PizzaResponse {
   value: any[];
+  size: number;
 }
 
 export interface Pizza {

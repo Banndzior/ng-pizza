@@ -25,9 +25,12 @@ export class PizzaEditorComponent implements OnInit {
   }
   register(event, myForm: NgForm) {
     if(myForm.valid) {
-      console.log('register', event, myForm);
-
+      console.log('register',  myForm.value);
+      this.pizzaSvc
+      .addPizza(myForm.value)
+      .subscribe(() => this.router.navigate(['pizza']));
     } else {
+      console.log('register',  myForm.value);
       alert('NIE!');
     }
   }

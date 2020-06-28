@@ -16,16 +16,24 @@
   </div>
 </div> -->
 
-<app-pizza-editor ></app-pizza-editor>
+<div class="menu-bar">
 
+  <h1>Menu</h1>
+</div>
 
-<h1>Pizza menu:</h1>
-  <mat-grid-list class="grid-layout-custom" cols="4" rowHeight="2:1" *ngFor="let item of pizzas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+  <mat-grid-list cols="4" rowHeight="2:1" >
+    <mat-grid-tile *ngFor="let item of pizzas ">
+      <!-- | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" -->
       <app-pizza-item [pizza]="item" ></app-pizza-item>
+    </mat-grid-tile>  
+   
   </mat-grid-list>
 
 <ngb-pagination
   [(page)]="page"
   [pageSize]="pageSize"
-  [collectionSize]="pizzas.length"></ngb-pagination>
+  [collectionSize]="totalRows"
+  (pageChange)="onChangePage()"></ngb-pagination>
 <!-- TODO 11: Dodajemy komponent stronnicowania -->
+<!-- <app-pizza-editor ></app-pizza-editor> -->
+

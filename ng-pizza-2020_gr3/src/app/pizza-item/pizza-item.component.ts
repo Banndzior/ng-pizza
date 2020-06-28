@@ -31,7 +31,7 @@ export class PizzaItemComponent implements OnInit {
     this.pizzaSvc
       .removePizza(pizza)
       // .subscribe(() => this.pizzaSvc.onPizzaChange.emit());
-      .subscribe(() => this.router.navigate(['pizza']));
+      .subscribe(() => this.router.navigateByUrl("/pizza"));
   }
 
  

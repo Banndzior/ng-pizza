@@ -5,12 +5,12 @@
         <br />
         <p>{{ pizza.description }}</p>
         <br />
-        <div *ngIf="pizza.photoUrl; then thenBlock else elseBlock"></div>
-            <ng-template #thenBlock> <img src="{{ pizza.photoUrl }}" height="100px" /></ng-template>
-            <ng-template #elseBlock>No image</ng-template>
-      
+        <div *ngIf="pizza.photoUrl!==undefined; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock> <img src="{{ pizza.photoUrl }}" height="100px" /><p>{{pizza.photoUrl}}</p></ng-template>
+            <ng-template #elseBlock><h2>No image</h2></ng-template>
+        
        <br/>
-        <a (click)="removePizza(pizza)">Usuń pizzę</a>
+        <button class="btn btn-danger" (click)="removePizza(pizza)">Usuń pizzę</button>
 
   
 <p *ngIf="pizza == null">Brak takiej pizzy</p>

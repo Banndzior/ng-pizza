@@ -15,6 +15,7 @@ export class PizzaComponent implements OnInit {
   name: string;
   pageSize: number;
   page: number;
+  totalRows: number;
 
   constructor(private pizzaSvc: PizzaService, private route: ActivatedRoute, private router: Router) {
     
@@ -29,25 +30,26 @@ export class PizzaComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params=>this.name=params.name)
-    this.pageSize=5;
+    this.pageSize=4;
     this.page=1;
     if (!isNullOrUndefined(this.name)) {
-      this.pizzaSvc.getPizzas().subscribe((pizzaResponse) => {
+      this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
        return this.pizzas=pizzaResponse.value.filter(el=>el.name===this.name)
       });
     }
     
   }
-  onChangePage(pageOfItems: Array<any>){
-    this.pizzas=pageOfItems;
+  onChangePage(){
+   this.getPizza();
   }
 
 
 
   getPizza() {
-    this.pizzaSvc.getPizzas().subscribe(
+    this.pizzaSvc.getPizzas(this.pageSize, this.page-1).subscribe(
       (response) => {
         this.pizzas = response.value;
+        this.totalRows = response.size;
       },
       (error) => {
         console.log('jest blad', error);
