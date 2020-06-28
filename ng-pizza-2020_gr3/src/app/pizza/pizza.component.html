@@ -1,9 +1,31 @@
-<ul>
+<!-- <ul>
   <li *ngFor="let item of pizzas">
 
       <app-pizza-item [pizza]="item" ></app-pizza-item>
       {{item.id}}
     </li>
-</ul>
+</ul> -->
+
+<!-- <div class="card text-center m-3">
+  <h3 class="card-header">Pizzas menu</h3>
+  <div class="card-body">
+      <div *ngFor="let item of pizzas" class="pagination page-item">{{item.name}}</div>
+  </div>
+  <div class="card-footer pb-0 pt-3">
+      <jw-pagination [items]="pizzas" [pageSize]="4" (changePage)="onChangePage($event)"></jw-pagination>
+  </div>
+</div> -->
+
 <app-pizza-editor ></app-pizza-editor>
+
+
+<h1>Pizza menu:</h1>
+  <mat-grid-list class="grid-layout-custom" cols="4" rowHeight="2:1" *ngFor="let item of pizzas | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <app-pizza-item [pizza]="item" ></app-pizza-item>
+  </mat-grid-list>
+
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="pizzas.length"></ngb-pagination>
 <!-- TODO 11: Dodajemy komponent stronnicowania -->

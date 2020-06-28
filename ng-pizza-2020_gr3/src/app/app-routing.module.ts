@@ -10,7 +10,7 @@ import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pizza', pathMatch: 'full' },
-  {path:"pizza/search/:name"},
+  { path: "pizza/search/:name", component: PizzaComponent},
   { path: 'pizza', component: PizzaComponent },
   { path: 'pizza/:id', component: PizzaItemComponent },
   { path: '**', redirectTo: 'pizza' }

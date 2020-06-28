@@ -1,0 +1,9 @@
+mat-grid-tile{
+    background-color: wheat;
+    padding: 5px;
+    margin: 5px;
+}
+.grid-layout-custom{
+    width: 50vw;
+    height: 50vh;
+  }

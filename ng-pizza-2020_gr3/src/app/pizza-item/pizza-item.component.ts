@@ -13,7 +13,7 @@ export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
 
   id: string;
-
+ 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -21,10 +21,11 @@ export class PizzaItemComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
+    
     if (!isNullOrUndefined(this.id)) {
       this.pizzaSvc.getPizza(parseInt(this.id, 10)).subscribe((pizzaResponse) => this.pizza = pizzaResponse);
     }
-    
+   
   }
   removePizza(pizza: Pizza) {
     this.pizzaSvc

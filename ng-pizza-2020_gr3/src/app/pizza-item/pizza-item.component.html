@@ -1,8 +1,16 @@
-{{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
-<br />
-<code>{{ pizza.description }}</code>
-<br />
-<img src="{{ pizza.photoUrl }}" height="100px" />
-<a (click)="removePizza(pizza)">usun</a>
 
+
+ 
+        <h1>{{pizza.id}} - {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}</h1>
+        <br />
+        <p>{{ pizza.description }}</p>
+        <br />
+        <div *ngIf="pizza.photoUrl; then thenBlock else elseBlock"></div>
+            <ng-template #thenBlock> <img src="{{ pizza.photoUrl }}" height="100px" /></ng-template>
+            <ng-template #elseBlock>No image</ng-template>
+      
+       <br/>
+        <a (click)="removePizza(pizza)">Usuń pizzę</a>
+
+  
 <p *ngIf="pizza == null">Brak takiej pizzy</p>
