@@ -5,7 +5,8 @@
   <div class="card-body">
     <h6>{{ pizza?.id }}</h6>
     <!-- DONE 5: Dodaj pole opis -->
-    <a [routerLink]="['./', pizza.id, pizza.name]">
+    <a [routerLink]="['./', pizza.id]">
+
       <h5 (click)="getOnePizza(pizza.id)" class="card-title">{{ pizza?.name | dots:15}}</h5>
     </a>
     <p style="height: 6rem;">{{ pizza.description | dots:70 }}</p>

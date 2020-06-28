@@ -17,6 +17,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/material';
 import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
+import { SearchComponent } from './search/search.component';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -31,6 +32,7 @@ import { NewComponent } from './new/new.component';
     NavbarComponent,
     HomeComponent,
     NewComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

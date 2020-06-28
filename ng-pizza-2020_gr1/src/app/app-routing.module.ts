@@ -18,7 +18,6 @@ const routes: Routes = [
   { path: 'pizzas/search/:name', component: PizzaComponent },
   { path: '**', redirectTo: 'home' }
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
