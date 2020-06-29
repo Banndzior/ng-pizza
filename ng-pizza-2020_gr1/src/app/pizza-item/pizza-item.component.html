@@ -4,18 +4,24 @@
 <!-- 6: Obsłuż metode DELETE z Pizza API -->
 <!-- 12: Obsłuż metode POST z Pizza API -->
 
-<div  [className]="marked === pizza.id ? 'card item mark' : 'card item'" >
-<!--  <a [routerLink]="['./', pizza.id]" >-->
+<!-- [className]="marked === pizza.id ? 'card item mark' : 'card item'" -->
+<!-- [class.mark]="marked === pizza.id" -->
+<!-- [ngClass]="{ 'mark': marked === pizza.id }" -->
+<div
+  [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'selected' : ''"
+  class="card item">
+    <a [routerLink]="['../']" >..</a>
     <img [src]="pizza.photoUrl" (error)="onError()"  class="card-img-top" height="200">
+     <a [routerLink]="['/pizzas', pizza.id]" >
     <h3 class="card-title text-center card-header">{{ pizza?.name | dots:15}}</h3>
+     </a>
     <div class="card-body">
       <h6>{{ pizza?.id }}</h6>
-      <p class="card-text">{{ pizza.description | dots: 100 }}</p>
+      <p class="card-text" >{{ pizza.description | dots:50 }}</p>
     </div>
-<!--  </a>-->
   <span class="card-footer d-flex justify-content-around">
     <a (click)="remove()" class="text-monospace text-secondary">usun</a>
-    <a [routerLink]="['./edit', pizza.id]" class="text-monospace text-secondary">ustaw obrazek</a>
+    <a [routerLink]="['/pizzas/edit', pizza.id]" class="text-monospace text-secondary">ustaw obrazek</a>
   </span>
 </div>
 

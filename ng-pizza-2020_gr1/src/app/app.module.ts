@@ -12,6 +12,8 @@ import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
 import {FormsModule} from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NavComponent } from './nav/nav.component';
+import { PizzaSearchComponent } from './pizza-search/pizza-search.component';
+import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 
 // 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 //  2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -23,7 +25,9 @@ import { NavComponent } from './nav/nav.component';
     PizzaItemComponent,
     PizzaEditorComponent,
     DotsPipe,
-    NavComponent
+    NavComponent,
+    PizzaSearchComponent,
+    PizzaDetailsComponent,
   ],
   imports: [
     BrowserModule,

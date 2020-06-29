@@ -1,7 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from '@angular/router';
 import { PizzaService } from "../pizza.service";
 import { NgForm } from "@angular/forms";
+
+enum Status {
+  Pending,
+  Success,
+  Error
+}
 
 @Component({
   selector: 'app-pizza-editor',
@@ -22,26 +27,13 @@ import { NgForm } from "@angular/forms";
   `]
 })
 export class PizzaEditorComponent implements OnInit {
-  routeId: number;
-  error = false;
-  done = false;
+  formStatus: Status;
 
   constructor(
-    private pizzaSvc: PizzaService,
-    private route: ActivatedRoute
+    private pizzaSvc: PizzaService
   ) {}
 
-  ngOnInit() {
-    this.routeId = Number( this.route.snapshot.paramMap.get('id') );
-  }
-
-  handleSubmit(formValue: any, pizzaForm: NgForm) {
-    if(!this.routeId) {
-      this.addPizza(formValue, pizzaForm);
-    } else {
-      this.editPizza(formValue, pizzaForm);
-    }
-  }
+  ngOnInit() {}
 
   addPizza(formValue: any, pizzaForm: NgForm) {
     if (pizzaForm.valid) {
@@ -51,17 +43,14 @@ export class PizzaEditorComponent implements OnInit {
           description: formValue.description,
           photoUrl: formValue.imageUrl,
         })
-        .subscribe(() => this.pizzaSvc.onChange.emit() );
-    }
-  }
-
-  editPizza(formValue: any, pizzaForm: NgForm) {
-    if( pizzaForm.valid) {
-      this.pizzaSvc.modifyPizza( this.routeId, { photoUrl: formValue.imageURL })
         .subscribe(() => {
-          this.error = false;
-          this.done = true;
-        }, error => this.error = true);
+            this.pizzaSvc.onChange.emit();
+            this.formStatus = Status.Success;
+          },
+          (e) => {
+            this.formStatus = Status.Error;
+            console.log(e.message);
+        });
     }
   }
 }

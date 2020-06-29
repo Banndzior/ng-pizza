@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-pizza',
@@ -12,45 +11,30 @@ import { ActivatedRoute } from '@angular/router';
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
-  config: any;
-  markedId: number;
+  config = {
+    itemsPerPage: 3,
+    currentPage: 1,
+    totalItems: 1
+  };
+  selectedId = [];
 
   constructor(
-    private pizzaSvc: PizzaService,
-    private route: ActivatedRoute
-  ) {
-    this.config = {
-      itemsPerPage: 2,
-      currentPage: 1,
-      totalItems: 1
-    };
-  }
+    private pizzaSvc: PizzaService
+  ) {}
 
   ngOnInit() {
-    this.name = this.route.snapshot.paramMap.get('name');
     this.getPizzas();
-    this.setTotalItems();
     this.pizzaSvc.onChange.subscribe(() => {
       this.getPizzas();
-      this.setTotalItems();
     });
-    console.log(this.markedId);
   }
 
   getPizzas() {
-    this.pizzaSvc.getPizzas(this.config.currentPage, this.config.itemsPerPage).subscribe(response => {
-      console.log(response)
-      if (this.name) {
-        this.pizzas = response.value;
-        this.pizzas = this.pizzas.filter( pizza => pizza.name.toLowerCase().includes(this.name.toLowerCase()) );
-      } else {
-        this.pizzas = response.value;
-      }
-    });
-  }
-
-  setTotalItems() {
-    this.pizzaSvc.getAllPizzas().subscribe( response => this.config.totalItems = response.value.length-2 );
+    this.pizzaSvc.getPizzas(this.config.currentPage, this.config.itemsPerPage)
+      .subscribe(response => {
+          this.pizzas = response.value;
+          this.config.totalItems = response.size- this.config.itemsPerPage;
+      });
   }
 
   pageChanged(event){
@@ -58,12 +42,12 @@ export class PizzaComponent implements OnInit {
     this.getPizzas();
   }
 
-  handleClick(id) {
-    if(id === this.markedId) {
-      this.markedId = 0;
+  handleClick(id: number) {
+    // this.selectedId = id === this.selectedId ? 0 : id;
+    if(this.selectedId.includes(id)){
+      this.selectedId = this.selectedId.filter( item => item !== id );
     } else {
-      this.markedId = id;
+      this.selectedId.push(id);
     }
-    console.log(this.markedId);
   }
 }

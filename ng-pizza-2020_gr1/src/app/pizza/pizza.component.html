@@ -6,9 +6,8 @@
       *ngFor="let pizza of pizzas | paginate: config" class="col-sm-4" >
       <app-pizza-item
         [pizza]="pizza"
-        [marked]="markedId"
-        (click)="handleClick(pizza.id)"
-        [className]="markedId===pizza.id ? 'marked' : ''" >
+        [selectedId]="selectedId"
+        (click)="handleClick(pizza.id)" >
       </app-pizza-item>
     </div>
   </div>

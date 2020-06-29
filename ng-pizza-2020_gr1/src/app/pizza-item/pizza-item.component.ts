@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 import { Pizza } from '../pizza';
 import { PizzaService } from '../pizza.service';
 
@@ -14,28 +14,20 @@ import { PizzaService } from '../pizza.service';
       align-self: center;
       background-color: white;
     }
-    .mark {
+    .selected {
       background-color: lightgreen;
     }
   `]
 })
 export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
-  @Input() marked: number;
-  // @Output() markedChange = new EventEmitter<number>();
-  routeId: number;
+  @Input() selectedId: [number];
 
   constructor(
-    private route: ActivatedRoute,
     private pizzaService: PizzaService
   ) {}
 
-  ngOnInit() {
-    this.routeId = Number( this.route.snapshot.paramMap.get('id') );
-    this.routeId && this.pizzaService.getPizza(this.routeId).subscribe(resp => {
-      this.pizza = resp;
-    });
-  }
+  ngOnInit() {}
 
   remove() {
     this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );

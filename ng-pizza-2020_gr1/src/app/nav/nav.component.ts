@@ -5,7 +5,8 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <nav class="nav nav-tabs justify-content-end custom-nav">
       <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="/new" class="nav-link">New pizza</a>
+      <a routerLink="pizzas/search/ " class="nav-link">Search pizza</a>
+      <a routerLink="new" class="nav-link">New pizza</a>
     </nav>
   `,
   styles: [`
