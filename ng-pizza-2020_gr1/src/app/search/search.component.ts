@@ -32,12 +32,4 @@ export class SearchComponent implements OnInit {
     this.pizza.photoUrl = '../assets/img/brak_obrazka.png';
   }
 
-  //   remove() {
-  //     this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );
-  //   }
-
-  //   modify(value, form) {
-  //     this.pizzaService.modifyPizza(this.pizza.id, value.photoUrl);
-  //     this.getPizza(this.pizza.id);
-  // }
 }
