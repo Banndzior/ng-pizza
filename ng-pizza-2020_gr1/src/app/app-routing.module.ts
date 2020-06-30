@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
+import { SearchComponent } from './search/search.component';
 import { HomeComponent } from './home/home.component';
+
 
 // DONE 4: Stworz routing dla listy pizz: pizza component
 // TODO 7: Stworz routing dla pizzy po jej id/nazwie
@@ -14,7 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'new', component: PizzaEditorComponent },
   { path: 'pizzas', component: PizzaComponent },
-  { path: 'pizzas/:id', component: PizzaItemComponent },
+  { path: 'pizzas/:id', component: SearchComponent },
   { path: 'pizzas/search/:name', component: PizzaComponent },
   { path: '**', redirectTo: 'home' }
 ];

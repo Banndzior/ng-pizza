@@ -16,6 +16,7 @@ export class PizzaService {
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
+
   }
 
   getPizza(id: number): Observable<Pizza> {

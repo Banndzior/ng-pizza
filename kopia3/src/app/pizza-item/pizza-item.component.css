@@ -1,0 +1,30 @@
+.decs {
+  height: 32px;
+  padding: 10px;
+}
+
+.container {
+  margin: 16px;
+  padding: 16px;
+  width: 300px;
+  float:left;
+  border: 1px solid black;
+}
+
+.button {
+  display: block;
+  margin: 16px;
+  padding: 8px;
+  border: 2px solid darksalmon;
+  width: 120px;
+}
+
+a:hover {
+  cursor: pointer;
+}
+ .onFocus{
+   background-color: rgb(132, 136, 98);
+ }
+ .downFocus{
+   background-color: green;
+ }

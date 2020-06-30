@@ -1,0 +1,18 @@
+<div class="container">
+  <div>
+    <input [(ngModel)]="name" />
+    <button (click)="search()">search</button>
+  </div>
+  <ul>
+    <li *ngFor="let pizza of pizzas">
+      <app-pizza-item [pizza]="pizza" (removePizza)="removePizza($event)" (changePizza)="changePizza($event)"
+        (getPizza1)="getPizza1($event)">
+      </app-pizza-item>
+      <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
+    </li>
+    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+  </ul>
+  <!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+  <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+  <!--<app-pizza-editor></app-pizza-editor> -->
+</div>

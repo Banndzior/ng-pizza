@@ -18,6 +18,7 @@ import { MatToolbarModule, MatButtonModule, MatIconModule } from '@angular/mater
 import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { SearchComponent } from './search/search.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -42,7 +43,8 @@ import { SearchComponent } from './search/search.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgxPaginationModule
   ],
   providers: [SlicePipe, PizzaService],
   bootstrap: [AppComponent]

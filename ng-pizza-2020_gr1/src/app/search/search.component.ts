@@ -1,31 +1,43 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Pizza } from '../pizza';
-import { PizzaService } from '../pizza.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from "@angular/router";
+import { PizzaService } from "../pizza.service";
+import { Pizza } from "../pizza";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css']
+  styles: [``]
 })
 export class SearchComponent implements OnInit {
+  pizza: Pizza;
 
-  search: string;
-
+  constructor(
+    private route: ActivatedRoute,
+    private pizzaService: PizzaService
+  ) { }
 
   ngOnInit() {
-
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.getPizza(id);
   }
 
-  constructor(private service: PizzaService) { }
+  getPizza(id) {
+    this.pizzaService.getPizza(id).subscribe(resp => {
+      this.pizza = resp;
+    });
+  }
 
-  // search_id(event) {
-  //   this.search = event.target.value;
-  //   console.log(this.search);
+  onError() {
+    this.pizza.photoUrl = '../assets/img/brak_obrazka.png';
+  }
+
+  //   remove() {
+  //     this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );
+  //   }
+
+  //   modify(value, form) {
+  //     this.pizzaService.modifyPizza(this.pizza.id, value.photoUrl);
+  //     this.getPizza(this.pizza.id);
   // }
-
-  // @Output()
-  // getPizza1(this.search) = new EventEmitter();
-
-
-
 }

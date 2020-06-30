@@ -12,6 +12,7 @@ export class PizzaItemComponent implements OnInit {
   isVisible = false;
   newImage = '';
   onFocus = 'card';
+  pizzas: Pizza[];
 
   @Input()
   pizza: Pizza;
@@ -26,7 +27,7 @@ export class PizzaItemComponent implements OnInit {
   @Output()
   getPizza1 = new EventEmitter();
 
-  constructor(private route: ActivatedRoute, private service: PizzaService) { }
+  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) { }
 
   ngOnInit() {
     // const id = parseFloat(this.route.snapshot.paramMap.get("id"));
@@ -69,10 +70,17 @@ export class PizzaItemComponent implements OnInit {
   changeFocusDown() {
     (this.onFocus === 'downFocus') ? this.onFocus = 'onFocus' : this.onFocus = 'downFocus';
   }
-
-
-  getOnePizza(id) {
-    console.log(id);
-    this.getPizza1.emit(id);
+  onError() {
+    this.pizza.photoUrl = '../assets/img/brak_obrazka.png';
   }
+
+  // getOnePizza(id) {
+  //   //this.getPizza1.emit(id);
+  //   this.pizzaSvc.getPizza(id).subscribe(response => {
+  //     console.log('getOnePizza id : ' + response.id);
+  //     this.pizzas = [response];
+  //     console.log('coś' + this.pizza.description);
+  //   });
+  //}
+
 }

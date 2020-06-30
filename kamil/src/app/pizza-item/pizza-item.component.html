@@ -1,0 +1,25 @@
+<div [className]="onFocus" style="width: 18rem;height: 35rem; margin:15px" (mouseover)='changeFocusIn()'
+  (mouseleave)='changeFocusOut()' (click)='changeFocusDown()'>
+  <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+  <img *ngIf="pizza" [src]="pizza.photoUrl" class="card-img-top" style="height: 12rem;" />
+  <div class="card-body">
+    <h6>{{ pizza?.id }}</h6>
+    <!-- DONE 5: Dodaj pole opis -->
+    <a [routerLink]="['./pizza/', pizza.id]">
+
+      <h5 (click)="getOnePizza(pizza.id)" class="card-title">{{ pizza?.name | dots:15}}</h5>
+    </a>
+    <p style="height: 6rem;">{{ pizza.description | dots:70 }}</p>
+    <ng-container *ngIf="isVisible">
+      <label>Put new Image:
+        <input [value]="newImage" (input)="typeImage($event)" type="text" class="form-control" />
+      </label>
+      <a (click)="change()" class="btn btn-primary" style="margin:10px; background-color : rgb(255, 251, 0);">Change</a>
+    </ng-container>
+
+    <a (click)="remove()" class="btn btn-primary" style="margin:10px">Remove</a>
+    <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+    <a (click)="modify()" class="btn btn-secondary" style="background-color:yellowgreen;">Change Image</a>
+    <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="card-body">
+  <h1>Find pizza</h1>
+  <label>Put Id:
+    <input [value]="newId" (input)="searchId($event)" type="text" class="form-control" />
+  </label>
+  <button (click)=getOnePizza()>Find</button>
+</div>
+<app-pizza-item [pizza]="pizza" (getPizza1)="getPizza1($event)">
+</app-pizza-item>

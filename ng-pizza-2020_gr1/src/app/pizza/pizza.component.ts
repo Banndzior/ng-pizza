@@ -18,6 +18,7 @@ export class PizzaComponent implements OnInit {
 
   ngOnInit() {
     //this.idNumber = this.route.snapshot.paramMap.get('id');
+
     this.getPizza();
     this.pizzaSvc.onChange.subscribe(() => {
       this.getPizza();
@@ -28,26 +29,18 @@ export class PizzaComponent implements OnInit {
   getPizza() {
 
     this.pizzaSvc.getPizzas().subscribe(response => {
-      console.log(response.value);
+      //console.log(response.value);
       if (this.idNumber) {
         this.pizzas = response.value;
         this.pizzas = this.pizzas.filter(pizza => pizza.name.includes(this.idNumber));
       } else {
-        // console.log('response dziwne= ' + response.value[0].id)
+        // console.log( response.value[0].id)
         this.pizzas = response.value;
       }
     });
   }
 
-  getPizza1(event) {
-    this.pizzaSvc.getPizza(event).subscribe(response => {
-      this.pizzas = [response];
-      console.log(this.pizzas);
-    });
-  }
-  // addPizza(pizza: Pizza) {
-  //   this.pizzaSvc.addPizza(pizza).subscribe(() => this.ngOnInit());
-  // }
+
 
   removePizza(pizza: Pizza) {
     // console.log('Remove  ' + pizza.name);

@@ -1,5 +1,12 @@
-<h1>sssssssssssssss</h1>
+<div class="container-sm">
+  <img [src]="pizza.photoUrl" (error)="onError()">
 
-<app-pizza-item [pizza]="pizza" (getPizza1)="getPizza1($event)">
-</app-pizza-item>
+  <h3 class="">{{ pizza?.name}}</h3>
 
+  <div class="card-body">
+    <h6>{{ pizza?.id }}</h6>
+    <p class="">{{ pizza.description }}</p>
+  </div>
+
+
+</div>
