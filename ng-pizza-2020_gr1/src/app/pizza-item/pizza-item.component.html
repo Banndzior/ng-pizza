@@ -1,17 +1,38 @@
-<!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
-<!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-{{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
-<br />
-<!-- {{ getShortName(pizza.name) }}
-<br />
-{{ pizza.name | dots:0:10 }}
-<br /> -->
-<div>
-    {{ pizza.description }}
+<!-- 3: Wydziel zawartosc html do komponentu pizza-item -->
+<!-- 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+<!-- 5: Dodaj pole opis -->
+<!-- 6: Obsłuż metode DELETE z Pizza API -->
+<!-- 12: Obsłuż metode POST z Pizza API -->
+
+<!-- [className]="marked === pizza.id ? 'card item mark' : 'card item'" -->
+<!-- [class.mark]="marked === pizza.id" -->
+<!-- [ngClass]="{ 'mark': marked === pizza.id }" -->
+<div
+  [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'selected' : ''"
+  class="card item"
+>
+  <a [routerLink]="['../']">..</a>
+  <img
+    [src]="pizza.photoUrl"
+    (error)="onError()"
+    class="card-img-top"
+    height="200"
+  />
+  <a [routerLink]="['/pizzas', pizza.id]">
+    <h3 class="card-title text-center card-header">
+      {{ pizza?.name | dots: 15 }}
+    </h3>
+  </a>
+  <div class="card-body">
+    <h6>{{ pizza?.id }}</h6>
+    <p class="card-text">{{ pizza.description | dots: 50 }}</p>
+  </div>
+  <span class="card-footer d-flex justify-content-around">
+    <a (click)="remove()" class="text-monospace text-secondary">Usuń</a>
+    <a
+      [routerLink]="['/pizzas/edit', pizza.id]"
+      class="text-monospace text-secondary"
+      >Ustaw obrazek</a
+    >
+  </span>
 </div>
-<!-- TODO 5: Dodaj pole opis -->
-<img [src]="pizza.photoUrl" height="100px" />
-<br />
-<a href="#" (click)="removePizza(pizza)">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-<br />
-<a href="#" (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->

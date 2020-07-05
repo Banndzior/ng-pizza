@@ -1,28 +1,39 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 import { Pizza } from '../pizza';
 import { PizzaService } from '../pizza.service';
 
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
-  styleUrls: ['./pizza-item.component.css']
+  styles: [`
+    .item {
+      height: 500px;
+      margin: 10px 0;
+      max-width: 380px;
+      align-self: center;
+      background-color: white;
+    }
+    .selected {
+      background-color: lightgreen;
+    }
+  `]
 })
 export class PizzaItemComponent implements OnInit {
-  @Input()
-  pizza: Pizza;
+  @Input() pizza: Pizza;
+  @Input() selectedId: [number];
 
-  constructor(private pizzaSvc: PizzaService) { }
+  constructor(
+    private pizzaService: PizzaService
+  ) { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  remove() {
+    this.pizzaService.removePizza(this.pizza).subscribe(() => this.pizzaService.onChange.emit());
   }
 
-  removePizza(pizza: Pizza) {
-    this.pizzaSvc.removePizza(pizza).subscribe(
-      () => { },
-      (error) => console.error(error));
-  }
-
-  modifyPizza() {
-    // ? update obrazka
+  onError() {
+    this.pizza.photoUrl = '../assets/picture.png';
   }
 }

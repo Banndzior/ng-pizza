@@ -1,1 +1,58 @@
-<p>pizza-editor works!</p>
+<!-- 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+<form
+  #pizzaForm="ngForm"
+  (ngSubmit)="addPizza(pizzaForm.value, pizzaForm)"
+  class="form-group custom-form"
+>
+  <div class="form-group row item">
+    <label class="col-sm-2 col-form-label">Pizza name:</label>
+    <input
+      type="text"
+      name="pizzaName"
+      ngModel
+      #pizzaName="ngModel"
+      required
+      class="col-sm-8"
+    />
+    <!--    <div class="error" *ngIf="pizzaName.hasError('required')">-->
+    <!--      Field is required-->
+    <!--    </div>-->
+  </div>
+  <div class="form-group row item">
+    <label class="col-sm-2 col-form-label">Description:</label>
+    <input
+      type="text"
+      name="description"
+      ngModel
+      #description="ngModel"
+      required
+      class="col-sm-8"
+    />
+    <!--    <div class="error" *ngIf="description.hasError('required')">-->
+    <!--      Field is required-->
+    <!--    </div>-->
+  </div>
+  <div class="form-group row item">
+    <label class="col-sm-2 col-form-label">Image:</label>
+    <input
+      type="text"
+      name="imageUrl"
+      ngModel
+      #imageUrl="ngModel"
+      class="col-sm-8"
+    />
+    <!--    <div class="error" *ngIf="imageUrl.hasError('required')">-->
+    <!--      Field is required-->
+    <!--    </div>-->
+  </div>
+  <button
+    type="submit"
+    class="btn btn-outline-dark col-sm-10"
+    [disabled]="pizzaForm.invalid"
+  >
+    Dodaj pizze
+  </button>
+</form>
+<!--<div *ngIf="status === status.Success">Pizza dodana!</div>-->
+<!--<div *ngIf="status === status.Error">Wystąpił błąd</div>-->

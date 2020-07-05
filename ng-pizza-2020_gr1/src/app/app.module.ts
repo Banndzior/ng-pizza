@@ -4,13 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PizzaComponent, ThreeDotsPipe } from './pizza/pizza.component';
+import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
-import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
 import { SlicePipe } from '@angular/common';
+import { DotsPipe } from './dots.pipe';
+import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
+import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NavComponent } from './nav/nav.component';
+import { PizzaSearchComponent } from './pizza-search/pizza-search.component';
+import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 
-// TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
-// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
+// 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+//  2: Dodaj komponent PizzaEditor za pomoca Angular CLI
 
 @NgModule({
   declarations: [
@@ -18,12 +24,17 @@ import { SlicePipe } from '@angular/common';
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
-    ThreeDotsPipe
+    DotsPipe,
+    NavComponent,
+    PizzaSearchComponent,
+    PizzaDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [SlicePipe],
   bootstrap: [AppComponent]

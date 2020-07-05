@@ -1,46 +1,53 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
-import { SlicePipe } from '@angular/common';
-
-@Pipe({ name: 'dots' })
-export class ThreeDotsPipe implements PipeTransform {
-  constructor(private slice: SlicePipe) {
-  }
-
-  transform(value: any, start: number, end?: number): string {
-    return this.slice.transform(value, start, end) + (value.length > (end) ? '...' : '');
-  }
-}
 
 @Component({
   selector: 'app-pizza',
   templateUrl: './pizza.component.html',
-  styleUrls: ['./pizza.component.css']
+  styles: [``]
 })
+
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
+  name: string;
+  config = {
+    itemsPerPage: 3,
+    currentPage: 1,
+    totalItems: 1
+  };
+  selectedId = [];
 
-  constructor(private pizzaSvc: PizzaService) { }
-
-  getShortName(pizzaName: string, length = 10) {
-    if (pizzaName) {
-      return pizzaName.substr(0, length) + (pizzaName.length > length ? '...' : '');
-    }
-    return '';
-  }
+  constructor(
+    private pizzaSvc: PizzaService
+  ) { }
 
   ngOnInit() {
-    this.pizzaSvc.getPizzas().subscribe(response => {
-      console.log(response);
-      this.pizzas = response.value;
+    this.getPizzas();
+    this.pizzaSvc.onChange.subscribe(() => {
+      this.getPizzas();
     });
   }
 
-  addPizza() {
-    this.pizzaSvc.addPizza({
-      name: 'Kamila Pizza',
-      description: '...'
-    }).subscribe(() => this.ngOnInit());
+  getPizzas() {
+    this.pizzaSvc.getPizzas(this.config.currentPage, this.config.itemsPerPage)
+      .subscribe(response => {
+        this.pizzas = response.value;
+        this.config.totalItems = response.size - this.config.itemsPerPage;
+      });
+  }
+
+  pageChanged(event) {
+    this.config.currentPage = event;
+    this.getPizzas();
+  }
+
+  handleClick(id: number) {
+    // this.selectedId = id === this.selectedId ? 0 : id;
+    if (this.selectedId.includes(id)) {
+      this.selectedId = this.selectedId.filter(item => item !== id);
+    } else {
+      this.selectedId.push(id);
+    }
   }
 }

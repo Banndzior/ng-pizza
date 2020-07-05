@@ -1,14 +1,16 @@
-<ul>
-  <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
-  <li *ngFor="let pizza of pizzas">
-    <app-pizza-item [pizza]="pizza"></app-pizza-item>
-  </li>
-  <!-- TODO 11: Dodajemy komponent stronnicowania 
-    https://jasonwatmore.com/post/2019/06/18/angular-8-simple-pagination-example
-    http://michaelbromley.github.io/ngx-pagination/#/basic
-    https://ng-bootstrap.github.io/#/components/pagination/overview -->
-</ul>
-
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>
+<!-- 11: Dodajemy komponent stronnicowania -->
+<!-- 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+<div class="container">
+  <div class="row">
+    <div *ngFor="let pizza of pizzas | paginate: config" class="col-sm-4">
+      <app-pizza-item
+        [pizza]="pizza"
+        [selectedId]="selectedId"
+        (click)="handleClick(pizza.id)"
+      >
+      </app-pizza-item>
+    </div>
+  </div>
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div>
+<app-pizza-editor></app-pizza-editor>

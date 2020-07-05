@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PizzaComponent } from './pizza/pizza.component';
+import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
+import { PizzaSearchComponent } from "./pizza-search/pizza-search.component";
+import { PizzaDetailsComponent } from "./pizza-details/pizza-details.component";
 
-// Przyklad: https://github.com/Banndzior/ng-routing/blob/master/ng-routing_gr1/src/app/app-routing.module.ts
-// TODO 7: Stworz routing dla listy pizz: pizza component: /pizza
-// TODO 7+: Stworz routing dla pizzy po jej id/nazwie: /pizza/search/marg
-// TODO 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy: /pizza/:id
+// 7: Stworz routing dla listy pizz: pizza component
+// 7+: Stworz routing dla pizzy po jej id/nazwie
+// 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy
 
 const routes: Routes = [
   { path: '', redirectTo: 'pizza', pathMatch: 'full' },
-  { path: 'pizza', component: PizzaComponent },
-  { path: '**', redirectTo: 'pizza' }
+  { path: 'pizzas', component: PizzaComponent },
+  { path: 'pizzas/:id', component: PizzaDetailsComponent },
+  { path: 'pizzas/search/:name', component: PizzaSearchComponent },
+  { path: 'new', component: PizzaEditorComponent },
+  { path: '**', redirectTo: 'pizzas' }
 ];
 
 @NgModule({
