@@ -19,6 +19,7 @@ export class ThreeDotsPipe implements PipeTransform {
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
+  pageOfPizzas: Array<Pizza>;
 
   constructor(private pizzaSvc: PizzaService, private router: Router) {
     this.router.events.subscribe((event) => {
@@ -32,6 +33,11 @@ export class PizzaComponent implements OnInit {
     this.getPizzas();
 
     this.pizzaSvc.onPizzaChange.subscribe(() => this.getPizzas());
+  }
+
+  onChangePage(pageOfPizzas: Array<Pizza>) {
+    // update current page of items
+    this.pageOfPizzas = pageOfPizzas;
   }
 
   getPizzas() {

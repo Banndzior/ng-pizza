@@ -1,15 +1,24 @@
-<div *ngIf="pizza">
-  <p>{{ pizza.id }}</p>
-  <p>{{ pizza.name | dots }}</p>
-  <br />
-  <code>{{ pizza.description }}</code>
-  <br />
-  <img src="{{ pizza.photoUrl }}" height="100px" />
-  <!-- TODO 5: * Obsłuż metode DELETE z Pizza API -->
-  <!-- TODO 5+: Obsłuż metode PUT/Update z Pizza API -->
-  <br />
-  <button (click)="removePizza(pizza)">Usuń pizze</button>
-</div>
-<div *ngIf="pizza == null">
-  <p>Nie znaleziono pizzy</p>
+<div class="card" style="width: 18rem;">
+  <div *ngIf="pizza">
+    <div class="card-header">{{ pizza.id }}</div>
+
+    <div class="card-body">
+      <img
+        class="card-img-top"
+        style="width: auto, height: auto;"
+        src="{{ pizza.photoUrl }}"
+      />
+      <!-- <p>{{ pizza.id }}</p> -->
+      <h5 class="card-title">{{ pizza.name | dots }}</h5>
+      <p class="card-text">{{ pizza.description }}</p>
+      <!-- TODO 5: * Obsłuż metode DELETE z Pizza API -->
+      <!-- TODO 5+: Obsłuż metode PUT/Update z Pizza API -->
+      <button class="btn btn-primary" (click)="removePizza(pizza)">
+        Usuń pizze
+      </button>
+    </div>
+  </div>
+  <div *ngIf="pizza == null">
+    <h4 class="text-danger text-center">Nie znaleziono pizzy</h4>
+  </div>
 </div>

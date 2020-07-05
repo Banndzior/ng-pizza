@@ -10,7 +10,10 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 export class PizzaEditorComponent implements OnInit {
   myFormGroup = new FormGroup({
     pizzaName: new FormControl("", [Validators.required]),
-    pizzaUrl: new FormControl("", [Validators.required]),
+    pizzaUrl: new FormControl(
+      "https://s3.przepisy.pl/przepisy3ii/img/variants/800x0/pizza-grecka.jpg",
+      [Validators.required]
+    ),
     pizzaDescription: new FormControl("", [Validators.required]),
   });
 

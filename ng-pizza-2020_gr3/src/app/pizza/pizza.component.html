@@ -1,10 +1,23 @@
 <!-- TODO 15: Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo) -->
 
 <app-pizza-editor> </app-pizza-editor>
-<ul>
-  <li *ngFor="let item of pizzas">
-    <!-- TODO 7: * Wydziel zawartosc html do komponentu pizza-item -->
-    <app-pizza-item [pizza]="item"></app-pizza-item>
-  </li>
-</ul>
-<!-- TODO 11: Dodajemy komponent stronnicowania -->
+<div class="container">
+  <div class="card-group">
+    <div *ngFor="let pizza of pageOfPizzas">
+      <!-- TODO 7: * Wydziel zawartosc html do komponentu pizza-item -->
+      <app-pizza-item [pizza]="pizza"></app-pizza-item>
+    </div>
+  </div>
+
+  <!-- TODO 11: * Dodajemy komponent stronicowania: /api/pizzas?limit=10&offset=0
+  https://jasonwatmore.com/post/2019/06/18/angular-8-simple-pagination-example
+  http://michaelbromley.github.io/ngx-pagination/#/basic
+  https://ng-bootstrap.github.io/#/components/pagination/overview
+  -->
+  <div class="card-footer pb-0 pt-3">
+    <jw-pagination
+      [items]="pizzas"
+      (changePage)="onChangePage($event)"
+    ></jw-pagination>
+  </div>
+</div>

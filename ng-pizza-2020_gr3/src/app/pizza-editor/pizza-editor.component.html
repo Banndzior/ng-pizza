@@ -2,39 +2,47 @@
 
 <!-- TODO 9: * Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis)
     w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-
-<form [formGroup]="myFormGroup" (ngSubmit)="addPizza()">
+<form
+  class="text-center border border-light p-5"
+  [formGroup]="myFormGroup"
+  (ngSubmit)="addPizza()"
+>
   <fieldset>
-    <legend>Dodaj pizzę</legend>
-    <label>
-      Naza:
-    </label>
-    <input type="text" formControlName="pizzaName" />
-    <div class="error" *ngIf="hasError('pizzaName')">
-      Podaj nazwę pizzy
+    <legend class="h4 mb-4">Dodaj pizzę</legend>
+    <div class="form-group">
+      <label>Nazwa</label>
+      <input type="text" formControlName="pizzaName" class="form-control" />
+      <small class="text-danger" *ngIf="hasError('pizzaName')">
+        Podaj nazwę pizzy
+      </small>
     </div>
-    <br />
-    <label>
-      Adres obrazka:
-    </label>
-    <input type="text" formControlName="pizzaUrl" />
-    <div class="error" *ngIf="hasError('pizzaUrl')">
-      Podaj URL obrazka
+
+    <div class="form-group">
+      <label>Adres obrazka</label>
+      <input type="text" formControlName="pizzaUrl" class="form-control" />
+      <small class="text-danger" *ngIf="hasError('pizzaUrl')">
+        Podaj URL obrazka
+      </small>
     </div>
-    <br />
-    <label>
-      Opis pizzy:
-    </label>
-    <input type="text" formControlName="pizzaDescription" />
-    <div class="error" *ngIf="hasError('pizzaDescription')">
-      Podaj opis pizzy
+
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Opis pizzy</label>
+      <textarea formControlName="pizzaDescription" class="form-control">
+      </textarea>
+      <small class="text-danger" *ngIf="hasError('pizzaDescription')">
+        Podaj opis pizzy
+      </small>
     </div>
   </fieldset>
 
-  <button type="submit" [disabled]="myFormGroup.invalid && false">
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="myFormGroup.invalid && false"
+  >
     Dodaj pizzę
   </button>
-  <button type="reset">Wyczyść</button>
+  <button type="reset" class="btn btn-secondary">Wyczyść</button>
 </form>
 
 <!-- <button (click)="addPizza()">Dodaj pizze</button> -->
