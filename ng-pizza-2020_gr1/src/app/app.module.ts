@@ -4,26 +4,28 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PizzaComponent } from './pizza/pizza.component';
+import { PizzaComponent, ThreeDotsPipe } from './pizza/pizza.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
 import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
+import { SlicePipe } from '@angular/common';
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
-// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
+// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
 
 @NgModule({
   declarations: [
     AppComponent,
     PizzaComponent,
     PizzaItemComponent,
-    PizzaEditorComponent
+    PizzaEditorComponent,
+    ThreeDotsPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [SlicePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

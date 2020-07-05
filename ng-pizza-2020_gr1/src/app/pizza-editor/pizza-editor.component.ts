@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PizzaComponent } from '../pizza/pizza.component';
 
 @Component({
   selector: 'app-pizza-editor',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PizzaEditorComponent implements OnInit {
 
-  constructor() { }
+  constructor(public PizzaComp: PizzaComponent) { }
 
   ngOnInit() {
+    this.PizzaComp.addPizza()
   }
 
 }
