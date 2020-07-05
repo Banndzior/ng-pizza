@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { PizzaResponse, Pizza } from './pizza';
 import { Observable } from 'rxjs';
@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
+  public onChangePizza  = new EventEmitter();
 
   constructor(private http: HttpClient) { }
 
@@ -17,6 +18,10 @@ export class PizzaService {
 
   addPizza(pizza: Pizza): Observable<Pizza> {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, pizza);
+  }
+
+  modifyPizza(pizza: Pizza): Observable<Pizza>{
+    return this.http.put<Pizza>(`${this.url}/api/pizzas/${pizza.id}`, pizza);
   }
 
   removePizza(pizza: Pizza) {
