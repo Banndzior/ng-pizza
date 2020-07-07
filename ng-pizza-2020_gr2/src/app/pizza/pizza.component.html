@@ -20,10 +20,14 @@
           [ngClass]="pizza.active ? 'active' : ''"
           class="card-item"
         >
+          <!-- [class.active]="pizza.active"
+        [ngClass]="{ active: pizza.active }" -->
+
           <mat-card-header class="card-item__header">
-            <mat-card-title>{{
-              pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "")
-            }}</mat-card-title>
+            <mat-card-title>
+              {{ pizza.name | slice: 0:10
+              }}{{ pizza.name.length > 10 ? "..." : "" }}
+            </mat-card-title>
           </mat-card-header>
 
           <img

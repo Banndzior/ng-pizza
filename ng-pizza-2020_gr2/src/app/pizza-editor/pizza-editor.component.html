@@ -5,7 +5,70 @@
   <div class="container-row">
     <mat-form-field class="item" appearance="fill">
       <mat-label>Pizza name</mat-label>
-      <input id="name" name="name" type="text" ngModel required matInput />
+      <input
+        id="name"
+        name="name"
+        type="text"
+        ngModel
+        #pizzaName="ngModel"
+        required
+        matInput
+      />
+    </mat-form-field>
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Description</mat-label>
+      <input
+        id="description"
+        name="description"
+        type="text"
+        ngModel
+        #pizzaDescription="ngModel"
+        required
+        matInput
+      />
+    </mat-form-field>
+
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Pizza image URL</mat-label>
+      <input
+        id="img"
+        name="img"
+        type="text"
+        ngModel
+        #pizzaImgUrl="ngModel"
+        required
+        matInput
+      />
+    </mat-form-field>
+  </div>
+  <button
+    class="flexCenter"
+    mat-raised-button
+    color="primary"
+    [disabled]="myForm.invalid"
+  >
+    Add pizza
+  </button>
+</form>
+
+<!-- <form
+  class="container-column"
+  [formGroup]="myFormGroup"
+  #myForm="ngForm"
+  (ngSubmit)="addPizza(myForm)"
+>
+  <div class="container-row">
+    <mat-form-field class="item" appearance="fill">
+      <mat-label>Pizza name</mat-label>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        ngModel
+        required
+        matInput
+        formControlName="pizzaName"
+      />
     </mat-form-field>
     <mat-form-field class="item" appearance="fill">
       <mat-label>Description</mat-label>
@@ -16,15 +79,29 @@
         ngModel
         required
         matInput
+        formControlName="pizzaDescription"
       />
     </mat-form-field>
 
     <mat-form-field class="item" appearance="fill">
       <mat-label>Pizza image URL</mat-label>
-      <input id="img" name="img" type="text" ngModel required matInput />
+      <input
+        id="img"
+        name="img"
+        type="text"
+        ngModel
+        required
+        matInput
+        formControlName="pizzaImgUrl"
+      />
     </mat-form-field>
   </div>
-  <button class="flexCenter" mat-raised-button color="primary">
+  <button
+    class="flexCenter"
+    mat-raised-button
+    color="primary"
+    [disabled]="myFormGroup.invalid"
+  >
     Add pizza
   </button>
-</form>
+</form> -->

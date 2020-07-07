@@ -11,6 +11,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ClickOutsideModule } from "ng-click-outside";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -20,9 +21,9 @@ import { MatListModule } from "@angular/material/list";
 import { MatCardModule } from "@angular/material/card";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatSidenavModule } from "@angular/material/sidenav";
-import { PizzaNavbarComponent } from './pizza-navbar/pizza-navbar.component';
-import { CommentComponent } from './comment/comment.component';
-import { CommentEditorComponent } from './comment-editor/comment-editor.component';
+import { PizzaNavbarComponent } from "./pizza-navbar/pizza-navbar.component";
+import { CommentComponent } from "./comment/comment.component";
+import { CommentEditorComponent } from "./comment-editor/comment-editor.component";
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -42,6 +43,7 @@ import { CommentEditorComponent } from './comment-editor/comment-editor.componen
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxPaginationModule,
     BrowserAnimationsModule,
     MatFormFieldModule,

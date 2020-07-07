@@ -14,6 +14,7 @@ export class PizzaComponent implements OnInit {
   name: string;
   id: string;
   pageIndex: number = 1;
+  // selectedPizzaId: number = null;
 
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
@@ -27,6 +28,8 @@ export class PizzaComponent implements OnInit {
   }
 
   loadPizzas() {
+    // this.selectedPizzaId = null;
+
     this.pizzaSvc.getPizzas().subscribe((response) => {
       this.pizzas = this.name
         ? response.value.filter((pizza) => pizza.name.includes(this.name))
@@ -43,10 +46,12 @@ export class PizzaComponent implements OnInit {
 
   markActive(pizza: any) {
     pizza.active = true;
+    // this.selectedPizzaId = pizza.id;
   }
 
   markInactive(pizza: any) {
     pizza.active = false;
+    // this.selectedPizzaId = null;
   }
 
   updatePizza(pizzaId: number) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
-import { NgForm } from "@angular/forms";
+
+import { NgForm, FormGroup, FormControl, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-pizza-editor",
@@ -8,6 +9,21 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
+  myFormGroup = new FormGroup({
+    pizzaName: new FormControl("", [
+      Validators.required,
+      Validators.maxLength(15),
+      Validators.minLength(2),
+    ]),
+
+    pizzaDescription: new FormControl("", [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(50),
+    ]),
+
+    pizzaImgUrl: new FormControl("", [Validators.required]),
+  });
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {}
