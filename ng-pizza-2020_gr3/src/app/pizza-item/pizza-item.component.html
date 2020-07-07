@@ -1,6 +1,5 @@
 
 
- 
         <h1>{{pizza.id}} - {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}</h1>
         <br />
         <p>{{ pizza.description }}</p>

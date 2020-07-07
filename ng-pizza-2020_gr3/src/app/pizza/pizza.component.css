@@ -19,3 +19,9 @@ mat-grid-list{
     background-color: moccasin;
     color: tomato;
   }
+  .active{
+    background-color: green;
+  }
+  .inactive{
+    background-color:lightyellow;
+  }

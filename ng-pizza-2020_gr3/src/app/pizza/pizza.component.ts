@@ -18,12 +18,13 @@ export class PizzaComponent implements OnInit {
   totalRows: number;
 
   constructor(private pizzaSvc: PizzaService, private route: ActivatedRoute, private router: Router) {
-    
+    this.pageSize=4;
+    this.page=1;
+    this.totalRows=4
    
     this.router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
         this.getPizza();
-      
       }
     });
   }
@@ -32,10 +33,19 @@ export class PizzaComponent implements OnInit {
     this.route.params.subscribe(params=>this.name=params.name)
     this.pageSize=4;
     this.page=1;
+    this.totalRows=4
     if (!isNullOrUndefined(this.name)) {
       this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
-       return this.pizzas=pizzaResponse.value.filter(el=>el.name===this.name)
+      
+       this.pizzas=pizzaResponse.value.filter(el=>el.name===this.name);
+       this.totalRows=pizzaResponse.size;
+       
       });
+    }else{
+      this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
+        console.log(this.pageSize, this.page)
+        return this.pizzas=pizzaResponse.value;
+       });
     }
     
   }
@@ -43,7 +53,14 @@ export class PizzaComponent implements OnInit {
    this.getPizza();
   }
 
-
+onClickPizza(item:any){
+  if(isNullOrUndefined(item.active)){
+    item.active=true;
+  }else{
+    return !item.active
+  }
+  }
+  
 
   getPizza() {
     this.pizzaSvc.getPizzas(this.pageSize, this.page-1).subscribe(

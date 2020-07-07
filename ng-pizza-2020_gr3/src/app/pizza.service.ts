@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
+    // private url = 'https://localhost:3000';
   public onPizzaChange: EventEmitter<any> = new EventEmitter<any>();
   
   constructor(private http: HttpClient) {}
@@ -15,6 +16,7 @@ export class PizzaService {
   getPizzas(pageSize:number, pageIndex:number): Observable<PizzaResponse> {
     const offset = pageSize*pageIndex;
     const limit = pageSize;
+    
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas?limit=${limit}&offset=${offset}`);
   }
 

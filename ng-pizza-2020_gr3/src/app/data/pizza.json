@@ -1,0 +1,211 @@
+
+         
+                {"api":[
+                {
+            "id": 520,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/520",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/520",
+            "method": "GET"
+        },
+        {
+            "id": 479,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/479",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/479",
+            "method": "GET"
+        },
+        {
+            "id": 472,
+            "name": "Pizzaburger",
+            "description": "2in1",
+            "photoUrl": "https://hmmmkay.com/media/images/20191009/pizza-burger-1570595839-cover-original.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/472",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/472",
+            "method": "GET"
+        },
+        {
+            "id": 521,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/521",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/521",
+            "method": "GET"
+        },
+        {
+            "id": 523,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/523",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/523",
+            "method": "GET"
+        },
+        {
+            "id": 522,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/522",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/522",
+            "method": "GET"
+        },
+        {
+            "id": 529,
+            "name": "123Margehrita",
+            "description": " Salami, salad XD",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/529",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/529",
+            "method": "GET"
+        },
+        {
+            "id": 527,
+            "name": "Testowa pizza",
+            "description": "testowy opis pizzy dłuższy niż wcześniejszy",
+            "photoUrl": "https://s3.przepisy.pl/przepisy3ii/img/variants/800x0/pizza-grecka.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/527",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/527",
+            "method": "GET"
+        },
+        {
+            "id": 526,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/526",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/526",
+            "method": "GET"
+        },
+        {
+            "id": 525,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/525",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/525",
+            "method": "GET"
+        },
+        {
+            "id": 524,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/524",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/524",
+            "method": "GET"
+        },
+        {
+            "id": 514,
+            "name": "Najlepsza pizza na świecie XXXXXXXL",
+            "description": "Trudno jest jednoznacznie odpowiedzieć na pytanie, jaka powinna być dobra pizza. Otóż każdy z nas ma inne gusta i preferencje co do jej smaku. Popularna pizza Hawajska z ananasem uwielbiana przez jednego, niekoniecznie będzie smakować drugiemu. Jednak niezależnie od tego, jakie dodatki do pizzy wybierzemy, istnieje kilka pewnych cech, dzięki którym można poznać, że pizza warta jest konsumpcji. Poniżej przedstawiamy najważniejsze z nich.",
+            "photoUrl": "https://www.mojegotowanie.pl/media/cache/default_view/uploads/media/default/0001/95/pizza.jpeg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/514",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/514",
+            "method": "GET"
+        },
+        {
+            "id": 506,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/506",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/506",
+            "method": "GET"
+        },
+        {
+            "id": 507,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/507",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/507",
+            "method": "GET"
+        },
+        {
+            "id": 508,
+            "name": "Pyszna domowa pizza",
+            "description": "Przepis na łatwe do wyrobienia, miękkie i elastyczne ciasto na pizzę. Prosty sposób przygotowania - pizzę pieczemy w blaszkach / tortownicach. UWAGA: ciasta na pizzę nie wałkujemy lecz rozciągamy palcami - dzięki temu zachowamy strukturę ciasta i po upieczeniu będzie ładnie wyrośnięte.",
+            "photoUrl": "https://www.kwestiasmaku.com/sites/v123.kwestiasmaku.com/files/ciasto_na_pizze_0.jpg",
+            "createdAt": "0001-01-01T00:00:00+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/508",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/508",
+            "method": "GET"
+        },
+        {
+            "id": 537,
+            "name": "string",
+            "description": "string",
+            "photoUrl": "string",
+            "createdAt": "2020-06-28T07:45:45.918+00:00",
+            "self": {
+                "href": "https://ng-pizza.azurewebsites.net/api/pizzas/537",
+                "method": "GET"
+            },
+            "href": "https://ng-pizza.azurewebsites.net/api/pizzas/537",
+            "method": "GET"
+        }]
+    }

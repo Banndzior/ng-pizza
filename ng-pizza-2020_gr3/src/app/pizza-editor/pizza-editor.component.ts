@@ -20,6 +20,7 @@ export class PizzaEditorComponent implements OnInit {
       .addPizza({
         name: 'Margehrita',
         description: ' Salami',
+        active:false
       })
       .subscribe(() => this.router.navigate(['pizza']));
   }

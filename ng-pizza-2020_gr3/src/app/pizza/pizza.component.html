@@ -22,9 +22,17 @@
 </div>
 
   <mat-grid-list cols="4" rowHeight="2:1" >
-    <mat-grid-tile *ngFor="let item of pizzas ">
+    <mat-grid-tile 
+    *ngFor="let item of pizzas "
+    (click)="onClickPizza(item)" 
+        [ngClass]="item.active?'active':'inactive'"
+        [class.active]="item.active"
+    >
       <!-- | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize" -->
-      <app-pizza-item [pizza]="item" ></app-pizza-item>
+      <app-pizza-item 
+        [pizza]="item" 
+        
+      ></app-pizza-item>
     </mat-grid-tile>  
    
   </mat-grid-list>
