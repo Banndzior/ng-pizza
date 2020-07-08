@@ -1,24 +1,30 @@
 <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
 <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-{{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
+{{ (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "") }}
 <br />
 <!-- {{ getShortName(pizza.name) }}
 <br />
 {{ pizza.name | dots:0:10 }}
 <br /> -->
 <div>
-    {{ pizza.description }}
+  {{ pizza.description }}
 </div>
 <!-- DONE 5: Dodaj pole opis -->
 <img [src]="pizza.photoUrl" height="100px" />
 <br />
 <!-- <app-pizza (remove)="removePizza(pizza)"></app-pizza> -->
-<button (click)="removePizza(pizza)">Usuń</button> <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+<button (click)="removePizza(pizza)">Usuń</button>
+<!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
 <br />
 
 <label class="image-upload-container btn btn-bwm">
-    <button (click)="modifyPizza()">Ustaw obrazek</button>
-    <input #imageInput type="file" (change)="modifyPizza(pizza)" accept="image/*">
-    <!-- (change)="processFile(imageInput)"> -->
+  <button (click)="modifyPizza(pizza)">Ustaw obrazek</button>
+  <input
+    #imageInput
+    type="file"
+    (change)="modifyPizza(pizza)"
+    accept="image/*"
+  />
+  <!-- (change)="processFile(imageInput)"> -->
 </label>
 <!-- TODO 12: Obsłuż metode POST z Pizza API -->

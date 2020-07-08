@@ -1,13 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { HttpClientModule } from "@angular/common/http";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { PizzaComponent, ThreeDotsPipe } from './pizza/pizza.component';
-import { PizzaItemComponent } from './pizza-item/pizza-item.component';
-import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
-import { SlicePipe } from '@angular/common';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { PizzaComponent, ThreeDotsPipe } from "./pizza/pizza.component";
+import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
+import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
+import { SlicePipe } from "@angular/common";
+import { PizzaDetailsSearchedComponent } from "./pizza-details-searched/pizza-details-searched.component";
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
@@ -18,14 +19,11 @@ import { SlicePipe } from '@angular/common';
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
-    ThreeDotsPipe
+    ThreeDotsPipe,
+    PizzaDetailsSearchedComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [SlicePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

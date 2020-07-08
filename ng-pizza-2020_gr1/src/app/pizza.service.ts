@@ -1,20 +1,28 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { PizzaResponse, Pizza } from './pizza';
-import { Observable } from 'rxjs';
+import { Injectable, EventEmitter } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { PizzaResponse, Pizza } from "./pizza";
+import { Observable } from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class PizzaService {
-  private url = 'https://ng-pizza.azurewebsites.net';
+  private url = "https://ng-pizza.azurewebsites.net";
 
   public pizzaChange = new EventEmitter();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
+  }
+
+  getPizzaId(id: number): Observable<Pizza> {
+    return this.http.get<Pizza>(`${this.url}/api/pizzas/${id}`);
+  }
+
+  getPizzaName(name: string): Observable<Pizza> {
+    return this.http.get<Pizza>(`${this.url}/api/pizzas/${name}`);
   }
 
   addPizza(pizza: Pizza): Observable<Pizza> {
@@ -26,7 +34,6 @@ export class PizzaService {
   }
 
   modPizza(pizza: Pizza, data: File) {
-    return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, data)
+    return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, data);
   }
-
 }
