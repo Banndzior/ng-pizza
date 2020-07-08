@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
-import { PizzaItemComponent } from '../pizza-item/pizza-item.component';
 
 @Component({
   selector: 'app-pizza-infos',
@@ -48,5 +47,4 @@ export class PizzaInfosComponent implements OnInit {
   onError() {
     this.pizza.photoUrl = '../assets/brak_fotki.png'
   }
-
 }

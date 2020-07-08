@@ -1,9 +1,9 @@
 <div class="pizzaInfos-container">
-    <h2>{{ pizza?.name }}</h2>
+    <h2>pizza {{ pizza.name }}</h2>
     <img [src]="pizza.photoUrl" (error)="onError()" class="pizzaInfos_img" height="150px">
-    <p>{{pizza?.description}}</p>
+    <p>{{ pizza.description }}</p>
     <br />
-    <a (click)="removePizza(pizza)">usun</a> <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+    <a (click)="removePizza(pizza)">usun</a>
     <br /> 
     <a (click)="modifyPizza(pizza)">ustaw obrazek</a> 
 </div>
