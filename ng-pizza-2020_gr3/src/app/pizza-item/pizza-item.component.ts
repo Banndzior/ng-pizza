@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Pizza } from "../pizza";
 import { PizzaService } from "../pizza.service";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -13,11 +13,21 @@ export class PizzaItemComponent implements OnInit {
   @Input()
   pizza: Pizza;
 
+  @Input()
+  selectedPizzaId: number;
+
+  @Output()
+  onSelectionChanged = new EventEmitter();
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private pizzaSvc: PizzaService
   ) {}
+
+  onClick() {
+    this.onSelectionChanged.emit();
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");

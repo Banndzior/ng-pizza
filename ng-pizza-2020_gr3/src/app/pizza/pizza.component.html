@@ -1,11 +1,14 @@
-<!-- TODO 15: Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo) -->
-
 <app-pizza-editor> </app-pizza-editor>
-<div class="container">
+<div class="container-fluid">
   <div class="card-group">
     <div *ngFor="let pizza of pageOfPizzas">
       <!-- TODO 7: * Wydziel zawartosc html do komponentu pizza-item -->
-      <app-pizza-item [pizza]="pizza"></app-pizza-item>
+      <!-- TODO 15: * Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo) -->
+      <app-pizza-item
+        [pizza]="pizza"
+        [selectedPizzaId]="selectedPizzaId"
+        (onSelectionChanged)="setNewSelectedId(pizza.id)"
+      ></app-pizza-item>
     </div>
   </div>
 

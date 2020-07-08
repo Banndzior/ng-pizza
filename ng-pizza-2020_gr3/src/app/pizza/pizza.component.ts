@@ -20,6 +20,7 @@ export class ThreeDotsPipe implements PipeTransform {
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   pageOfPizzas: Array<Pizza>;
+  selectedPizzaId: number;
 
   constructor(private pizzaSvc: PizzaService, private router: Router) {
     this.router.events.subscribe((event) => {
@@ -27,6 +28,12 @@ export class PizzaComponent implements OnInit {
         this.getPizzas();
       }
     });
+
+    this.selectedPizzaId = 0;
+  }
+
+  setNewSelectedId(id) {
+    this.selectedPizzaId = id;
   }
 
   ngOnInit() {
