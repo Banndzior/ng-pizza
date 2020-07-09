@@ -15,11 +15,9 @@
     <a>ustaw obrazek</a>
     <!-- TODO 12: Obsłuż metode PUT/update z Pizza API -->
     <br />
-    <a href="#" (click)="removePizza(pizza.id)">usun</a>
+    <a href="" (click)="removePizza(pizza.id)">usun</a>
   </li>
   <!-- TODO 11: Dodajemy komponent stronicowania -->
 </ul>
 
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>
+<app-pizza-editor></app-pizza-editor>

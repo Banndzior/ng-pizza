@@ -8,6 +8,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { ThreeDotsPipePipe } from "./three-dots-pipe.pipe";
+import { FormsModule } from "@angular/forms";
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -20,7 +21,7 @@ import { ThreeDotsPipePipe } from "./three-dots-pipe.pipe";
     PizzaEditorComponent,
     ThreeDotsPipePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

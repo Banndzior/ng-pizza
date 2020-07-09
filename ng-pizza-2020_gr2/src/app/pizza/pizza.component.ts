@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
-
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 @Component({
   selector: "app-pizza",
   templateUrl: "./pizza.component.html",
@@ -13,24 +13,16 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
+    let name = this.route.snapshot.paramMap.get("name");
+    this.loadPizzas();
+    this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
+  }
+
+  loadPizzas() {
     this.pizzaSvc.getPizzas().subscribe((response) => {
       console.log(response);
       this.pizzas = response.value;
     });
-  }
-
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "testPizza",
-        description: "test-test",
-      })
-      .subscribe((_) => {
-        this.pizzaSvc.getPizzas().subscribe((response) => {
-          console.log(response);
-          this.pizzas = response.value;
-        });
-      });
   }
 
   removePizza(pizzaId: number) {
