@@ -43,7 +43,6 @@ export class PizzaComponent implements OnInit {
   }
 
   handleClick(id: number) {
-    // this.selectedId = id === this.selectedId ? 0 : id;
     if (this.selectedId.includes(id)) {
       this.selectedId = this.selectedId.filter(item => item !== id);
     } else {

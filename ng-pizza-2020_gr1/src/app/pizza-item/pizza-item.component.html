@@ -1,5 +1,5 @@
 <!-- 3: Wydziel zawartosc html do komponentu pizza-item -->
-<!-- 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (20 znaków + "…") -->
+<!-- 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
 <!-- 5: Dodaj pole opis -->
 <!-- 6: Obsłuż metode DELETE z Pizza API -->
 <!-- 12: Obsłuż metode POST z Pizza API -->
@@ -20,7 +20,7 @@
   />
   <a [routerLink]="['/pizzas', pizza.id]">
     <h3 class="card-title text-center card-header">
-      {{ pizza?.name | dots: 15 }}
+      {{ pizza?.name | dots: 10 }}
     </h3>
   </a>
   <div class="card-body">
