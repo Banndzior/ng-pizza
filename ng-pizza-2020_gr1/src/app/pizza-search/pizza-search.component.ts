@@ -52,7 +52,7 @@ export class PizzaSearchComponent implements OnInit {
   }
 
   handleSubmit(value, form){
-    this.router.navigate(['pizzas/search/', value.pizzaName]);
+    this.router.navigate(['search/', value.pizzaName]);
     this.getPizzas();
   }
 }
