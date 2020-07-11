@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../pizza.service';
-import { EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+// import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-pizza-editor',
@@ -9,8 +8,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./pizza-editor.component.css']
 })
 export class PizzaEditorComponent implements OnInit {
-  name = new FormControl('');
-  description = new FormControl('');
+  // name = new FormControl('');
+  // description = new FormControl('');
 
 
   constructor(private pizzaService: PizzaService) { }

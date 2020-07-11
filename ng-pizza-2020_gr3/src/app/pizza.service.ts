@@ -12,11 +12,8 @@ export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
 
   pizzaEmitter = new EventEmitter();
-  getPizzaEmitter = new EventEmitter();
 
   constructor(private http: HttpClient) {}
-
-   pizzaList = [];
 
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);

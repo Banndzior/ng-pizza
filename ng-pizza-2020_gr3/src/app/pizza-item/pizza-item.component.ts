@@ -14,7 +14,6 @@ export class PizzaItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute, 
-    private router: Router,
     private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
@@ -31,10 +30,9 @@ export class PizzaItemComponent implements OnInit {
     this.pizzaSvc
       .removePizza(pizza)
       .subscribe(
-      (res) => {
-        // this.router.navigate(['pizza']);
-        console.log(res);
-        this.ngOnInit();
+      () => {
+
+        this.pizzaSvc.pizzaEmitter.emit();
       });
   }
 }

@@ -18,22 +18,17 @@ export class PizzaComponent implements OnInit {
   ngOnInit() {
     this.getPizza();
     this.pizzaSvc.pizzaEmitter.subscribe((msg) => {
-      this.onPizzaChange();
+     this.getPizza();
       });
-  }
-
-  onPizzaChange(){
-    this.ngOnInit();
   }
 
   getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
-        this.pizzaSvc.pizzaList = response.value;
         this.pizzas = response.value;
       },
       (error) => {
-        console.log("jest blad", error);
+        console.log(error);
       }
     );
   }

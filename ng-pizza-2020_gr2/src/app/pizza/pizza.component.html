@@ -1,20 +1,37 @@
+<h1>PIZZA</h1>
 <ul>
+    <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
     <li *ngFor="let pizza of pizzas">
-        <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
-        <!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-        {{ pizza.name }}
-        <!-- TODO 4: Dodaj pole opis -->
-        <img [src]="pizza.photoUrl" height="50px">
-    </li>
-    <!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
+   <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
+    <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+        
+    <!-- {{ pizza.name }} -->
+    {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
+    <br />
+     <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
+        <br />
+        {{ pizza.name | dots:0:10 }}
+        <br /> -->
+    <!-- TODO 5: Dodaj pole opis -->
+    <div>
+      {{ pizza.description }}
+    </div>
+    <img [src]="pizza.photoUrl" height="50px" />
+    <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
+
+    <br />
     <a>ustaw obrazek</a>
-    <!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
+    <!-- TODO 12: Obsłuż metode PUT/update z Pizza API -->
+    <br />
     <a (click)="removePizza(pizza.id)">usun</a>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+    <!-- <a href="#" (click)="removePizza(pizza.id)">usun</a> -->
+  </li>
+  <!-- TODO 11: Dodajemy komponent stronicowania -->
+
 </ul>
 
 <button (click)="addPizza()">Dodaj pizze</button>
-
-
-<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 8: Przenies obsługe przycisku add pizza do komponentu pizza-editor -->
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+<!-- https://github.com/Banndzior/ng-form/tree/master/ng-fb-form_gr2/src/app/registration -->
+<button (click)="addPizza()">Dodaj pizze</button>
