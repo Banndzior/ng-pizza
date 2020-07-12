@@ -1,11 +1,11 @@
-<label>
-    Name:
-    <input type="text">
-  </label>
 
-  <label>
-    Description:
-    <input type="text" >
-  </label>
+  <form #pizzaEditor="ngForm" (ngSubmit)="addPizza(pizzaEditor)">
+    <label>Picyckowa nazwa</label>
+    <input type="text" ngModel name="name" required/>
+    <label>Picyckowy opis</label>
+    <input type="text" ngModel name="description" required/>
+    <label>Picyckowy obrazek</label>
+    <input type="text" ngModel name="image" required/>
+    <button>Dodaj picyckę</button>
+  </form>
 
-<button (click)="addPizza()">Dodaj pizze</button>

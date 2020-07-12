@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PizzaService } from '../pizza.service';
+import { NgForm }   from '@angular/forms';
 // import { FormControl } from '@angular/forms';
 
 @Component({
@@ -8,14 +9,10 @@ import { PizzaService } from '../pizza.service';
   styleUrls: ['./pizza-editor.component.css']
 })
 export class PizzaEditorComponent implements OnInit {
-  // name = new FormControl('');
-  // description = new FormControl('');
-
 
   constructor(private pizzaService: PizzaService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   getPizza() {
     this.pizzaService.getPizzas().subscribe(
@@ -29,13 +26,13 @@ export class PizzaEditorComponent implements OnInit {
     );
   }
 
-  addPizza() {
+  addPizza(form: NgForm) {
     this.pizzaService
       .addPizza({
-        name: "Margehrita",
-        description: " Salami, salad XD",
+        name: form.value.name,
+        description: form.value.description,
+        photoUrl: form.value.image
       })
       .subscribe(() => this.getPizza());
   }
-
 }
