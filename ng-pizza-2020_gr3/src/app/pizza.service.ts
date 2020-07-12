@@ -14,7 +14,7 @@ export class PizzaService {
   constructor(private http: HttpClient) {}
 
   getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
+    return this.http.get<PizzaResponse>(`${this.url}/api/pizzas?limit=50`);
   }
 
   getPizza(pizzaId: number): Observable<Pizza> {

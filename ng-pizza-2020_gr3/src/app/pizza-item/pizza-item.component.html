@@ -1,28 +1,26 @@
 <div
+  *ngIf="pizza != null"
   class="card"
   style="width: 18rem;"
   (click)="onClick()"
-  [ngClass]="{ selected: selectedPizzaId === pizza.id }"
+  [ngClass]="{ selected: selectedPizzaId === (pizza ? pizza.id : -1) }"
 >
-  <div *ngIf="pizza">
-    <div class="card-header">
-      {{ pizza.id }}
-    </div>
-    <div class="card-body d-flex flex-column">
-      <img
-        class="card-img-top"
-        style="width: auto, height: auto;"
-        src="{{ pizza.photoUrl }}"
-      />
-      <!-- <p>{{ pizza.id }}</p> -->
-      <h5 class="card-title">{{ pizza.name | dots }}</h5>
-      <p class="card-text">{{ pizza.description }}</p>
-      <!-- TODO 5: * Obsłuż metode DELETE z Pizza API -->
-      <!-- TODO 5+: Obsłuż metode PUT/Update z Pizza API -->
-      <button class="btn btn-primary" (click)="removePizza(pizza)">
-        Usuń pizze
-      </button>
-    </div>
+  <div class="card-header">
+    {{ pizza.id }}
+  </div>
+  <div class="card-body d-flex flex-column">
+    <img
+      class="card-img-top"
+      style="width: auto, height: auto;"
+      src="{{ pizza.photoUrl }}"
+    />
+    <!-- <p>{{ pizza.id }}</p> -->
+    <h5 class="card-title">{{ pizza.name | dots }}</h5>
+    <p class="card-text">{{ pizza.description }}</p>
+    <!-- TODO 5: * Obsłuż metode DELETE z Pizza API -->
+    <button class="btn btn-primary" (click)="removePizza(pizza)">
+      Usuń pizze
+    </button>
   </div>
 </div>
 <div *ngIf="pizza == null">

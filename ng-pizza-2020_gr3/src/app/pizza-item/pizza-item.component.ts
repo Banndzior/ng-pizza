@@ -38,8 +38,6 @@ export class PizzaItemComponent implements OnInit {
         .getPizza(parseInt(id, 10))
         .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
     } else if (!isNullOrUndefined(name)) {
-      console.log(name);
-
       this.pizzaSvc.getPizzas().subscribe((pizzaResponse) => {
         this.pizza = pizzaResponse.value.find((pizza) => {
           console.log(pizza.name.toLowerCase(), name);

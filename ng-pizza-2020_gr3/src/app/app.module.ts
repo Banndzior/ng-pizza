@@ -8,6 +8,7 @@ import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { JwPaginationComponent } from "jw-angular-pagination";
+import { PizzaNavigationComponent } from './pizza-navigation/pizza-navigation.component';
 
 // TODO 1: * Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: * Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
@@ -20,6 +21,7 @@ import { JwPaginationComponent } from "jw-angular-pagination";
     PizzaEditorComponent,
     ThreeDotsPipe,
     JwPaginationComponent,
+    PizzaNavigationComponent,
   ],
   imports: [
     BrowserModule,

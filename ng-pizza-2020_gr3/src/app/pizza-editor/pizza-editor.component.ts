@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-pizza-editor",
@@ -17,27 +18,31 @@ export class PizzaEditorComponent implements OnInit {
     pizzaDescription: new FormControl("", [Validators.required]),
   });
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private router: Router, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {}
 
   addPizza() {
     if (this.myFormGroup.valid) {
-      console.log(
-        this.myFormGroup.get("pizzaName").value,
-        this.myFormGroup.get("pizzaUrl").value,
-        this.myFormGroup.get("pizzaDescription").value
-      );
+      // console.log(
+      //   this.myFormGroup.get("pizzaName").value,
+      //   this.myFormGroup.get("pizzaUrl").value,
+      //   this.myFormGroup.get("pizzaDescription").value
+      // );
       this.pizzaSvc
         .addPizza({
           name: this.myFormGroup.get("pizzaName").value,
           description: this.myFormGroup.get("pizzaDescription").value,
           photoUrl: this.myFormGroup.get("pizzaUrl").value,
         })
-        .subscribe((response) => {
-          console.log(response);
-          this.pizzaSvc.onPizzaChange.emit();
+        .subscribe(() => {
+          this.router.navigate(["pizza"]);
+          //this.router.navigateByUrl("/");
         });
+      // .subscribe((response) => {
+      //   console.log(response);
+      //   this.pizzaSvc.onPizzaChange.emit();
+      // });
     }
   }
 
