@@ -9,13 +9,15 @@ import { Pizza } from "../pizza";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
+  pageIndex: number = 0;
+  PizzaEdit = [];
 
   constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
-    this.pizzaSvc.getPizzas().subscribe((response) => {
+    this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
       console.log(response);
-      this.pizzas = response.value;
+      this.pizzas = response;
     });
   }
 
@@ -26,14 +28,14 @@ export class PizzaComponent implements OnInit {
         description: "test-test",
       })
       .subscribe((_) => {
-        this.pizzaSvc.getPizzas().subscribe((response) => {
+        this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
           console.log(response);
-          this.pizzas = response.value;
+          this.pizzas = response;
         });
       });
   }
 
-  removePizza(pizzaId: number) {
+  removePizzaHandler(pizzaId: number) {
     this.pizzaSvc.removePizza(pizzaId).subscribe(
       () => this.ngOnInit(),
       (error) => console.error(error)
@@ -42,5 +44,9 @@ export class PizzaComponent implements OnInit {
 
   updatePizza(pizzaId: number) {
     // ... http.put
+  }
+
+  onEdit(id) {
+    this.edit = !this.edit;
   }
 }

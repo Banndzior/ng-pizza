@@ -1,17 +1,32 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
-import { Observable } from "rxjs";
+import { Observable, from, of } from "rxjs";
+import { map, take } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
 })
 export class PizzaService {
   private apiUrl = "https://ng-pizza.azurewebsites.net";
+  private totalRows = 0;
+
   constructor(private http: HttpClient) {}
 
-  getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas`);
+  getPizzas(pageIndex: number): Observable<Pizza[]> {
+    const limit = 5;
+    const offset = pageIndex * limit;
+
+    return this.http
+      .get<PizzaResponse>(
+        `${this.apiUrl}/api/pizzas?offset=${offset}&limit=${limit}`
+      )
+      .pipe(
+        map((response) => {
+          this.totalRows = response.size;
+          return response.value;
+        })
+      );
   }
 
   getPizza(pizzaId: number): Observable<Pizza> {
@@ -23,8 +38,6 @@ export class PizzaService {
   }
 
   removePizza(pizzaId: number) {
-    return this.http.delete<Pizza>(
-      `${this.apiUrl}/api/pizzas/api/pizzas/${pizzaId}`
-    );
+    return this.http.delete<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
   }
 }
