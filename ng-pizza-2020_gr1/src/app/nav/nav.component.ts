@@ -4,14 +4,15 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-nav',
   template: `
     <nav class="nav nav-tabs justify-content-end custom-nav">
-      <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="search" class="nav-link">Search pizza</a>
-      <a routerLink="new" class="nav-link">New pizza</a>
+      <a routerLink="/" class="nav-link text-reset">Home</a>
+      <a [routerLink]="['/pizzas/search', '']" class="nav-link text-reset">Search pizza</a>
+      <a routerLink="new" class="nav-link text-reset">New pizza</a>
     </nav>
   `,
   styles: [`
     .custom-nav {
-      margin: 20px 0;
+      color: #6c757d;
+      font-weight: 500;
     }
   `]
 })

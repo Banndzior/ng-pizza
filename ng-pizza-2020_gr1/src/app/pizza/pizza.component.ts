@@ -5,7 +5,22 @@ import { Pizza } from '../pizza';
 @Component({
   selector: 'app-pizza',
   templateUrl: './pizza.component.html',
-  styles: [``]
+  styles: [`
+    .custom {
+      margin-top: 3rem;
+    }
+    .list {
+      margin: 0 0 3rem 0;
+    }
+    /deep/.pagination {
+      display: flex;
+      justify-content: center;
+      padding-right: 5rem!important;
+    }
+    /deep/.ngx-pagination .current {
+      background-color: #6c757d!important;
+    }
+  `]
 })
 
 export class PizzaComponent implements OnInit {
@@ -33,18 +48,18 @@ export class PizzaComponent implements OnInit {
     this.pizzaSvc.getPizzas(this.config.currentPage, this.config.itemsPerPage)
       .subscribe(response => {
           this.pizzas = response.value;
-          this.config.totalItems = response.size- this.config.itemsPerPage;
+          this.config.totalItems = response.size;
       });
   }
 
-  pageChanged(event){
+  pageChanged(event) {
     this.config.currentPage = event;
     this.getPizzas();
   }
 
   handleClick(id: number) {
     // this.selectedId = id === this.selectedId ? 0 : id;
-    if(this.selectedId.includes(id)){
+    if (this.selectedId.includes(id)) {
       this.selectedId = this.selectedId.filter( item => item !== id );
     } else {
       this.selectedId.push(id);

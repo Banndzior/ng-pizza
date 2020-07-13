@@ -7,15 +7,13 @@ import { PizzaService } from '../pizza.service';
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
   styles: [`
-    .item {
-      height: 500px;
-      margin: 10px 0;
-      max-width: 380px;
-      align-self: center;
-      background-color: white;
+    a:hover {
+      cursor: pointer;
     }
-    .selected {
-      background-color: lightgreen;
+    .custom {
+      max-width: 18rem;
+      color: #6c757d;
+      margin: 2rem 0;
     }
   `]
 })

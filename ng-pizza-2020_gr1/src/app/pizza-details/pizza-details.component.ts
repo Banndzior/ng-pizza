@@ -1,20 +1,47 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {PizzaService} from "../pizza.service";
-import { Pizza } from "../pizza";
-import {NgForm} from "@angular/forms";
+import {ActivatedRoute, Router} from '@angular/router';
+import {PizzaService} from '../pizza.service';
+import { Pizza } from '../pizza';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-pizza-details',
   templateUrl: './pizza-details.component.html',
-  styles: [``]
+  styles: [`
+    .custom-container {
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding: 5rem 0 8rem 0;
+    }
+    .custom-card {
+      width: 40rem;
+      overflow: hidden;
+    }
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .custom-title {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    .custom-button {
+      margni: 0 2rem 0 1rem;
+    }
+  `]
 })
 export class PizzaDetailsComponent implements OnInit {
   pizza: Pizza;
 
   constructor(
     private route: ActivatedRoute,
-    private pizzaService: PizzaService
+    private pizzaService: PizzaService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -33,7 +60,7 @@ export class PizzaDetailsComponent implements OnInit {
   }
 
   remove() {
-    this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );
+    this.pizzaService.removePizza(this.pizza).subscribe( () => this.router.navigate(['/']) );
   }
 
   modify(value, form) {

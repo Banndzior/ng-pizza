@@ -1,26 +1,33 @@
-<div class="container-sm">
-  <a [routerLink]="['../']" >Go back</a>
-  <img [src]="pizza.photoUrl" (error)="onError()"  class="" height="200">
-  <a [routerLink]="['/pizzas', pizza.id]" >
-    <h3 class="">{{ pizza?.name}}</h3>
-  </a>
-  <div class="card-body">
-    <h6>{{ pizza?.id }}</h6>
-    <p class="" >{{ pizza.description }}</p>
-  </div>
-  <span class="">
-    <a (click)="remove()" class="">usun</a>
-    <a (click)="modify()"  class="">ustaw obrazek</a>
-  </span>
-  <form #modifyForm="ngForm" (ngSubmit)="modify(modifyForm.value, modifyForm)">
-    <div class="form-group row item" >
-      <label class="col-sm-2 col-form-label">Change Photo Url:</label>
-      <input
-        type="text"
-        name="photoUrl"
-        ngModel #photoUrl="ngModel"
-        class="col-sm-8" />
-      <button type="submit" class="btn btn-outline-dark col-sm-1">Ok</button>
+<div class="custom-container">
+  <div class="card text-center custom-card ">
+    <div class="card-header nav">
+      <a [routerLink]="['../']" class="nav-item" >Go back</a>
     </div>
-  </form>
+    <div class="row no-gutters" style="flex-wrap: nowrap">
+      <div class="col-md-4 image-container">
+          <img [src]="pizza?.photoUrl" (error)="onError()" class="card-img">
+      </div>
+      <div class="card-body custom-card-body">
+        <div class="card-title custom-title">{{ pizza?.name}}</div>
+        <div class="card-text">
+        <p >{{ pizza.description }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer ">
+      <form #modifyForm="ngForm" (ngSubmit)="modify(modifyForm.value, modifyForm)" >
+        <div class="form-group row " >
+          <input
+            type="text"
+            name="photoUrl"
+            ngModel #photoUrl="ngModel"
+            class="col-sm-4"
+            placeholder="Edit photo url"
+          />
+          <button type="submit" class="btn btn-outline-dark col-sm-1">Ok</button>
+          <button type="button" (click)="remove()" class="btn btn-outline-dark custom-button">usuń pizzę</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

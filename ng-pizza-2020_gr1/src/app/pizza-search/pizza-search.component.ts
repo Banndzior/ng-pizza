@@ -6,7 +6,18 @@ import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 @Component({
   selector: 'app-pizza-search',
   templateUrl: 'pizza-search.component.html',
-  styles: [``]
+  styles: [`
+    .input-bar {
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      width: 100%;
+      padding: 0.5rem;
+    }
+    .form {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 3rem;
+    }
+  `]
 })
 export class PizzaSearchComponent implements OnInit {
   name = '';
@@ -52,7 +63,7 @@ export class PizzaSearchComponent implements OnInit {
   }
 
   handleSubmit(value, form){
-    this.router.navigate(['search/', value.pizzaName]);
+    this.router.navigate(['pizzas/search/', value.pizzaName]);
     this.getPizzas();
   }
 }

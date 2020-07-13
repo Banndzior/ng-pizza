@@ -6,10 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaItemComponent } from './pizza-item/pizza-item.component';
-import {SlicePipe} from '@angular/common';
+import { SlicePipe } from '@angular/common';
+import { TitleCasePipe } from '@angular/common';
 import { DotsPipe } from './dots.pipe';
-import {PizzaEditorComponent} from './pizza-editor/pizza-editor.component';
-import {FormsModule} from '@angular/forms';
+import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
+import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NavComponent } from './nav/nav.component';
 import { PizzaSearchComponent } from './pizza-search/pizza-search.component';
@@ -36,7 +37,7 @@ import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
     FormsModule,
     NgxPaginationModule
   ],
-  providers: [SlicePipe],
+  providers: [SlicePipe, TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

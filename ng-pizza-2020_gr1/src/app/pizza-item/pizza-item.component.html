@@ -8,20 +8,19 @@
 <!-- [class.mark]="marked === pizza.id" -->
 <!-- [ngClass]="{ 'mark': marked === pizza.id }" -->
 <div
-  [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'selected' : ''"
-  class="card item">
-    <a [routerLink]="['../']" >..</a>
+  [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'bg-warning text-white' : ''"
+  class="card mb-3 custom">
     <img [src]="pizza.photoUrl" (error)="onError()"  class="card-img-top" height="200">
-     <a [routerLink]="['/pizzas', pizza.id]" >
-    <h3 class="card-title text-center card-header">{{ pizza?.name | dots:15}}</h3>
+  <div class="card-body">
+     <a [routerLink]="['/pizzas', pizza.id]" class="text-decoration-none text-reset">
+       <h3 class="card-title">{{ pizza?.name | dots:15}}</h3>
      </a>
-    <div class="card-body">
-      <h6>{{ pizza?.id }}</h6>
+      <span style="font-size: 0.7rem">{{ pizza?.id }}</span>
       <p class="card-text" >{{ pizza.description | dots:50 }}</p>
     </div>
   <span class="card-footer d-flex justify-content-around">
-    <a (click)="remove()" class="text-monospace text-secondary">usun</a>
-    <a [routerLink]="['/pizzas/edit', pizza.id]" class="text-monospace text-secondary">ustaw obrazek</a>
+    <a (click)="remove()" class="text-decoration-none text-reset">usun</a>
+    <a [routerLink]="['/pizzas/', pizza.id]" class="text-decoration-none text-reset">edytuj</a>
   </span>
 </div>
 

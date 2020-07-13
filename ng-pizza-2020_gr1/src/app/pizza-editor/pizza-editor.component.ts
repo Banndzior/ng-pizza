@@ -2,35 +2,36 @@ import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { NgForm } from "@angular/forms";
 
-enum Status {
-  Pending,
-  Success,
-  Error
-}
-
 @Component({
   selector: 'app-pizza-editor',
   templateUrl: './pizza-editor.component.html',
   styles: [`
-   .item {
+    .custom {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #ffe259, #ffa751);
+      padding: 6rem 0 6rem 0;
+    }
+    .custom-card {
+      width: 40rem;
+      background-color: white;
+      z-index: 5;
+    }
+    .item {
      margin: 16px;
      padding: 8px;
-   }
-   .custom-form {
+    }
+    .custom-form {
       margin: 20px;
       padding: 10px;
-    }
-   .custom-button {
-      margin: 32px;
-      padding: 16px;
     }
   `]
 })
 export class PizzaEditorComponent implements OnInit {
-  formStatus: Status;
-
   constructor(
-    private pizzaSvc: PizzaService
+    private pizzaSvc: PizzaService,
   ) {}
 
   ngOnInit() {}
@@ -44,11 +45,11 @@ export class PizzaEditorComponent implements OnInit {
           photoUrl: formValue.imageUrl,
         })
         .subscribe(() => {
-            this.pizzaSvc.onChange.emit();
-            this.formStatus = Status.Success;
+            pizzaForm.reset();
+            alert('Pizza dodana!');
           },
           (e) => {
-            this.formStatus = Status.Error;
+            alert('Wystąpił błąd! Nie udało się dodać pizzy');
             console.log(e.message);
         });
     }
