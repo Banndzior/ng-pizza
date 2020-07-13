@@ -10,8 +10,8 @@ import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { SlicePipe } from "@angular/common";
 
-// TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
-// TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
+// DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
+// DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
 
 @NgModule({
   declarations: [
