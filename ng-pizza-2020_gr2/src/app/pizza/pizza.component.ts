@@ -21,7 +21,7 @@ export class PizzaComponent implements OnInit {
     this.pageSize = 4;
     this.pageIndex = 1;
     this.pizzaSvc
-      .getPizzas(this.pageSize, this.pageIndex - 1)
+      .getPizzas(this.pageSize, this.pageIndex)
       .subscribe((response) => {
         this.pizzas = response.value;
         this.totalPizzas = response.size;
@@ -30,7 +30,7 @@ export class PizzaComponent implements OnInit {
 
   getPizza() {
     this.pizzaSvc
-      .getPizzas(this.pageSize, this.pageIndex - 1)
+      .getPizzas(this.pageSize, this.pageIndex)
       .subscribe((response) => {
         this.pizzas = response.value;
         this.totalPizzas = response.size;
@@ -47,7 +47,7 @@ export class PizzaComponent implements OnInit {
       })
       .subscribe((_) => {
         this.pizzaSvc
-          .getPizzas(this.pageSize, this.pageIndex - 1)
+          .getPizzas(this.pageSize, this.pageIndex)
           .subscribe((response) => {
             console.log(response);
             this.pizzas = response.value;
