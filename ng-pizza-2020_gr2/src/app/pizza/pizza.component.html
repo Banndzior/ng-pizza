@@ -1,4 +1,4 @@
-<h1>PIZZA</h1>
+<h1 class="header">PIZZA ITALIANA</h1>
 <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
 <ul>
   <li *ngFor="let pizza of pizzas">
@@ -8,12 +8,13 @@
       (removePizza)="removePizzaHandler($event)"
     ></app-pizza-item>
   </li>
-  <!-- TODO 11: Dodajemy komponent stronicowania -->
+  <!-- DONE 11: Dodajemy komponent stronicowania -->
 </ul>
 <mat-paginator
-  [length]="pizzas.length"
-  [pageSize]="5"
-  [pageSizeOptions]="[5, 10, 25]"
+  [length]="totalPizzas"
+  [pageSize]="pageSize"
+  [hidePageSize]="true"
+  (page)="pageChangeHandler($event.pageIndex)"
 >
 </mat-paginator>
 <!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->

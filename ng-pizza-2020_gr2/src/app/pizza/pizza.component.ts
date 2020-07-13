@@ -11,15 +11,30 @@ import { Pizza } from "../pizza";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[] = [];
-  pageIndex: number = 0;
+  pageIndex: number;
+  pageSize: number;
+  totalPizzas: number;
 
   constructor(private pizzaSvc: PizzaService, private router: Router) {}
 
   ngOnInit() {
-    this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
-      console.log(response);
-      this.pizzas = response;
-    });
+    this.pageSize = 4;
+    this.pageIndex = 1;
+    this.pizzaSvc
+      .getPizzas(this.pageSize, this.pageIndex - 1)
+      .subscribe((response) => {
+        this.pizzas = response.value;
+        this.totalPizzas = response.size;
+      });
+  }
+
+  getPizza() {
+    this.pizzaSvc
+      .getPizzas(this.pageSize, this.pageIndex - 1)
+      .subscribe((response) => {
+        this.pizzas = response.value;
+        this.totalPizzas = response.size;
+      });
   }
 
   addPizza() {
@@ -31,10 +46,12 @@ export class PizzaComponent implements OnInit {
           "https://www.zywnosc.com.pl/wp-content/uploads/2018/02/pizza-690x460.png",
       })
       .subscribe((_) => {
-        this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
-          console.log(response);
-          this.pizzas = response;
-        });
+        this.pizzaSvc
+          .getPizzas(this.pageSize, this.pageIndex - 1)
+          .subscribe((response) => {
+            console.log(response);
+            this.pizzas = response.value;
+          });
       });
   }
 
@@ -51,5 +68,12 @@ export class PizzaComponent implements OnInit {
 
   editPizzaHandler(pizzaId: number) {
     this.router.navigate(["pizza", pizzaId, "edit"]);
+  }
+
+  pageChangeHandler(pageIndex) {
+    console.log(pageIndex);
+    this.getPizza();
+    this.pageIndex = pageIndex;
+    console.log(this.totalPizzas);
   }
 }

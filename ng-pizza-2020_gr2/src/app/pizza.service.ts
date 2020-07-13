@@ -13,8 +13,8 @@ export class PizzaService {
 
   constructor(private http: HttpClient) {}
 
-  getPizzas(pageIndex: number): Observable<Pizza[]> {
-    const limit = 5;
+  getPizzas(pageSize: number, pageIndex: number): Observable<PizzaResponse> {
+    const limit = pageSize;
     const offset = pageIndex * limit;
 
     return this.http
@@ -24,7 +24,7 @@ export class PizzaService {
       .pipe(
         map((response) => {
           this.totalRows = response.size;
-          return response.value;
+          return response;
         })
       );
   }
