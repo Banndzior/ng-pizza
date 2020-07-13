@@ -1,30 +1,20 @@
-<div class="container-sm">
-  <a [routerLink]="['../']">Go back</a>
-  <img [src]="pizza.photoUrl" (error)="onError()" class="" height="200" />
+<div class="card-item">
+  <a [routerLink]="['../']"> < </a>
+  <img
+    [src]="pizza.photoUrl"
+    (error)="onError()"
+    class="card-img-top"
+    height="200px"
+  />
   <a [routerLink]="['/pizzas', pizza.id]">
-    <h3 class="">{{ pizza?.name }}</h3>
+    <h3 class="card-title">{{ pizza?.name }}</h3>
   </a>
   <div class="card-body">
-    <h6>{{ pizza?.id }}</h6>
-    <p class="">{{ pizza.description }}</p>
-  </div>
-  <span class="">
-    <a (click)="remove()" class="">Usuń</a>
-    <a (click)="modify()" class="">Ustaw obrazek</a>
-  </span>
-  <form #modifyForm="ngForm" (ngSubmit)="modify(modifyForm.value, modifyForm)">
-    <div class="form-group row item">
-      <label class="col-sm-2 col-form-label">Change Photo Url:</label>
-      <input
-        type="text"
-        name="photoUrl"
-        ngModel
-        #photoUrl="ngModel"
-        class="col-sm-8"
-      />
-      <button type="submit" class="btn btn-outline-dark col-sm-1">
-        Zapisz
-      </button>
+    <h6 class="id">
+      Pizza id: #<b>{{ pizza?.id }}</b>
+    </h6>
+    <div class="card-body">
+      <p class="card-text">{{ pizza.description }}</p>
     </div>
-  </form>
+  </div>
 </div>

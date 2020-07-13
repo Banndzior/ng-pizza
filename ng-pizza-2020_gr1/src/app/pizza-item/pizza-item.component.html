@@ -7,32 +7,28 @@
 <!-- [className]="marked === pizza.id ? 'card item mark' : 'card item'" -->
 <!-- [class.mark]="marked === pizza.id" -->
 <!-- [ngClass]="{ 'mark': marked === pizza.id }" -->
+
 <div
   [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'selected' : ''"
-  class="card item"
+  class="card-item"
 >
-  <a [routerLink]="['../']">..</a>
   <img
     [src]="pizza.photoUrl"
     (error)="onError()"
     class="card-img-top"
-    height="200"
+    height="200px"
   />
   <a [routerLink]="['/pizzas', pizza.id]">
-    <h3 class="card-title text-center card-header">
+    <h3 class="card-title">
       {{ pizza?.name | dots: 10 }}
     </h3>
   </a>
+  <h6 class="id">
+    Pizza id: #<b>{{ pizza?.id }}</b>
+  </h6>
   <div class="card-body">
-    <h6>{{ pizza?.id }}</h6>
     <p class="card-text">{{ pizza.description | dots: 50 }}</p>
   </div>
-  <span class="card-footer d-flex justify-content-around">
-    <a (click)="remove()" class="text-monospace text-secondary">Usuń</a>
-    <a
-      [routerLink]="['/pizzas/edit', pizza.id]"
-      class="text-monospace text-secondary"
-      >Ustaw obrazek</a
-    >
-  </span>
+  <div class="button"></div>
+  <a (click)="remove()" class="remove">Usuń</a>
 </div>

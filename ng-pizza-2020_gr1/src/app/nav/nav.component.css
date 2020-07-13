@@ -1,0 +1,37 @@
+.brooklyn {
+  width: 20%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brooklyn img {
+  height: 30px;
+  display: inline-block;
+}
+
+.containerNav {
+  background-color: palevioletred;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.butt {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myButton {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20 px;
+}

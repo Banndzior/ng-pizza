@@ -1,25 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-nav',
-    template: `
-    <nav class="nav nav-tabs justify-content-end custom-nav">
-      <a routerLink="/" class="nav-link">Home</a>
-      <a routerLink="pizzas/search/ " class="nav-link">Search pizza</a>
-      <a routerLink="new" class="nav-link">New pizza</a>
-    </nav>
-  `,
-    styles: [`
-    .custom-nav {
-      margin: 20px 0;
-    }
-  `]
+  selector: 'app-nav',
+  templateUrl: './nav.component.html',
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
 
-    constructor() { }
+  constructor() { }
 
-    ngOnInit() {
-    }
+  ngOnInit() {
+  }
 
 }

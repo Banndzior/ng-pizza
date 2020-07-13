@@ -6,7 +6,7 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 @Component({
     selector: 'app-pizza-search',
     templateUrl: 'pizza-search.component.html',
-    styles: [``]
+    styleUrls: ['pizza-search.component.css']
 })
 export class PizzaSearchComponent implements OnInit {
     name = '';

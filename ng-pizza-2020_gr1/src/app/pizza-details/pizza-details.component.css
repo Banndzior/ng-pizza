@@ -1,3 +1,20 @@
+.remove {
+  text-align: left;
+  font-size: 16px;
+  font-family: Verdana;
+  color: #fff;
+  padding: 20px;
+}
+.card-footer {
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+}
+.container-sm {
+  font-size: 0px;
+  font-family: Verdana;
+  color: lightgrey;
+}
 .card-text {
   background-color: whitesmoke;
   text-align: center;

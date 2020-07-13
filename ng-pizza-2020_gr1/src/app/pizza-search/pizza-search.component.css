@@ -1,0 +1,15 @@
+.container {
+  padding-top: 50px;
+}
+.button {
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  cursor: pointer;
+  margin: 10 px;
+}

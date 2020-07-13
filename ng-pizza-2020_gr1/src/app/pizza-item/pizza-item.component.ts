@@ -6,18 +6,7 @@ import { PizzaService } from '../pizza.service';
 @Component({
   selector: 'app-pizza-item',
   templateUrl: './pizza-item.component.html',
-  styles: [`
-    .item {
-      height: 500px;
-      margin: 10px 0;
-      max-width: 380px;
-      align-self: center;
-      background-color: white;
-    }
-    .selected {
-      background-color: lightgreen;
-    }
-  `]
+  styleUrls: ["./pizza-item.component.css"]
 })
 export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;

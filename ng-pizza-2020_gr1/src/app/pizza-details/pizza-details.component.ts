@@ -7,7 +7,7 @@ import { NgForm } from "@angular/forms";
 @Component({
     selector: 'app-pizza-details',
     templateUrl: './pizza-details.component.html',
-    styles: [``]
+    styleUrls: ['./pizza-details.component.css']
 })
 export class PizzaDetailsComponent implements OnInit {
     pizza: Pizza;
@@ -32,12 +32,4 @@ export class PizzaDetailsComponent implements OnInit {
         this.pizza.photoUrl = '../assets/picture.png';
     }
 
-    remove() {
-        this.pizzaService.removePizza(this.pizza).subscribe(() => this.pizzaService.onChange.emit());
-    }
-
-    modify(value, form) {
-        this.pizzaService.modifyPizza(this.pizza.id, value.photoUrl);
-        this.getPizza(this.pizza.id);
-    }
 }

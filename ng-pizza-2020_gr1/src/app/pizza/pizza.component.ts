@@ -5,7 +5,7 @@ import { Pizza } from '../pizza';
 @Component({
   selector: 'app-pizza',
   templateUrl: './pizza.component.html',
-  styles: [``]
+  styleUrls: ['./pizza.component.css'],
 })
 
 export class PizzaComponent implements OnInit {

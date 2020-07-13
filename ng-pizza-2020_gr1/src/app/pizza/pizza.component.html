@@ -1,7 +1,7 @@
 <!-- 11: Dodajemy komponent stronnicowania -->
 <!-- 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
 <div class="container">
-  <div class="row">
+  <div class="page">
     <div *ngFor="let pizza of pizzas | paginate: config" class="col-sm-4">
       <app-pizza-item
         [pizza]="pizza"
@@ -11,6 +11,9 @@
       </app-pizza-item>
     </div>
   </div>
-  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  <div class="pages">
+    <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+  </div>
 </div>
-<app-pizza-editor></app-pizza-editor>
