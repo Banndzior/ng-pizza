@@ -1,3 +1,6 @@
-<div>
-  <a href="#" (click)="onPizzaRemove()">remove pizza</a>
-</div>
+<form #myForm="ngForm" (ngSubmit)="addPizza(myForm)">
+  <input type="text" ngModel name="name" required />
+  <button (click)="addPizza()">Dodaj pizze</button>
+</form>
+<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->

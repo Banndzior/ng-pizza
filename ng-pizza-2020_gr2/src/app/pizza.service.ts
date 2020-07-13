@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
 import { Observable, from, of } from "rxjs";

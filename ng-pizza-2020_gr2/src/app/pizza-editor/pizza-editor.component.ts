@@ -1,5 +1,7 @@
-import { Component, OnInit, Output } from "@angular/core";
-import { EventEmitter } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { PizzaService } from "../pizza.service";
+import { Pizza } from "../pizza";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-pizza-editor",
@@ -7,13 +9,20 @@ import { EventEmitter } from "@angular/core";
   styleUrls: ["./pizza-editor.component.css"],
 })
 export class PizzaEditorComponent implements OnInit {
-  constructor() {}
+  pizzas: Pizza[];
 
-  @Output() removePizza = new EventEmitter();
+  constructor(private pizzaSvc: PizzaService) {}
 
   ngOnInit() {}
 
-  onPizzaRemove() {
-    this.removePizza.emit();
+  addPizza(form: NgForm) {
+    this.pizzaSvc
+      .addPizza({
+        name: form.value.name,
+        description: "meeeeega",
+      })
+      .subscribe((_) => {
+        this.pizzaSvc.onChange.emit();
+      });
   }
 }

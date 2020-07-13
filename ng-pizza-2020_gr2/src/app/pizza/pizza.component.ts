@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
-
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 @Component({
   selector: "app-pizza",
   templateUrl: "./pizza.component.html",
