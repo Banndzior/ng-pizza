@@ -19,6 +19,7 @@ import { Pizza } from '../pizza';
     }
     /deep/.ngx-pagination .current {
       background-color: #6c757d!important;
+      margin-bottom: 3rem;
     }
   `]
 })

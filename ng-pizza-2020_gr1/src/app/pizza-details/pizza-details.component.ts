@@ -1,39 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PizzaService} from '../pizza.service';
 import { Pizza } from '../pizza';
-import {NgForm} from '@angular/forms';
+
+export enum KeyboardKeys {
+  ArrowRight = 'ArrowRight',
+  ArrowLeft = 'ArrowLeft'
+}
 
 @Component({
   selector: 'app-pizza-details',
   templateUrl: './pizza-details.component.html',
-  styles: [`
-    .custom-container {
-      background: linear-gradient(to right, #ffe259, #ffa751);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-      padding: 5rem 0 8rem 0;
-    }
-    .custom-card {
-      width: 40rem;
-      overflow: hidden;
-    }
-    .image-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .custom-title {
-      font-size: 2rem;
-      font-weight: 500;
-    }
-    .custom-button {
-      margni: 0 2rem 0 1rem;
-    }
-  `]
+  styleUrls: ['./pizza-details.component.css']
 })
 export class PizzaDetailsComponent implements OnInit {
   pizza: Pizza;
@@ -51,6 +29,7 @@ export class PizzaDetailsComponent implements OnInit {
 
   getPizza(id) {
     this.pizzaService.getPizza(id).subscribe(resp => {
+      this.router.navigate(['pizzas/', resp.id]);
       this.pizza = resp;
     });
   }
@@ -64,7 +43,42 @@ export class PizzaDetailsComponent implements OnInit {
   }
 
   modify(value, form) {
-    this.pizzaService.modifyPizza(this.pizza.id, value.photoUrl);
-    this.getPizza(this.pizza.id);
+    this.pizza.photoUrl = value.photoUrl;
+    this.pizzaService.modifyPizza(this.pizza)
+      .subscribe(() => {
+          alert('Obraz zmieniony!');
+          form.reset();
+          this.getPizza(this.pizza.id);
+        },
+        (e) => {
+          alert('Wystąpił błąd! Nie udało się edytować pizzy');
+          console.log(e.message);
+        });
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    if (event.key === KeyboardKeys.ArrowRight) {
+      this.pizzaService.getAllPizzas()
+        .subscribe( (pizzaResponse) => {
+          const pizzas = pizzaResponse.value;
+          const actualIndex = pizzas.findIndex( pizza => pizza.id === this.pizza.id);
+          const nextIndex = (actualIndex + 1 === pizzas.length) ? 0 : actualIndex + 1;
+          setTimeout( () => {
+            this.getPizza(pizzas[nextIndex].id);
+          }, 1000);
+        });
+    }
+    if (event.key === KeyboardKeys.ArrowLeft) {
+      this.pizzaService.getAllPizzas()
+        .subscribe( (pizzaResponse) => {
+          const pizzas = pizzaResponse.value;
+          const actualIndex = pizzas.findIndex( pizza => pizza.id === this.pizza.id);
+          const nextIndex = (actualIndex === 0) ? (pizzas.length - 1) : actualIndex - 1;
+          setTimeout( () => {
+            this.getPizza(pizzas[nextIndex].id);
+          }, 1000);
+        });
+    }
   }
 }

@@ -1,0 +1,28 @@
+.custom-container {
+  background: linear-gradient(to right, #ffe259, #ffa751);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 0 8rem 0;
+}
+.custom-card {
+  width: 40rem;
+  overflow: hidden;
+}
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.custom-title {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.custom-button {
+  margin: 0 1rem 0 7rem;
+}
+.custom-input {
+  margin-left: 3rem;
+}

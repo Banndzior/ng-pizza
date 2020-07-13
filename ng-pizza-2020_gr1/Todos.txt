@@ -5,9 +5,11 @@ TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
 TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…")
 
 TODO 5: Obsłuż metode DELETE z Pizza API
+
 TODO 5+: Obsłuż metode PUT/update z Pizza API
 
 TODO 6: Stworz routing dla listy pizz: pizza component (/pizza)
+
 TODO 6+: Stworz routing dla pizzy po jej id/nazwie (/pizza/:id)
 https://github.com/Banndzior/ng-routing/blob/master/ng-routing_gr2/src/app/app-routing.module.ts
 
@@ -30,3 +32,10 @@ TODO 13: Przygotowac styl/layout strony (kafelki pizzy jak przy pokemonach):
 TODO 14: Stworzyc komponent nagłowek z nawigacja (home, pizza, search pizza, komentarze)
 
 TODO 15: Zrobic zaznaczanie pizzy na liscie kafelkow (wyroznianie kolorem: zielonym tlo)
+
+TODO 16: Nawigacja strzałkami z 1 sek opoznieniem
+
+TODO 17:Sprwadzanie czy pizza istnieje kiedy wchodzimy na adres
+
+TODO 18: Wyswietlanie obrazka pizzy z "google" na podstawie nazwy
+    image dyrektywa

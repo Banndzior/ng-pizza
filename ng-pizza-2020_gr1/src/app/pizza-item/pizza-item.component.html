@@ -13,10 +13,10 @@
     <img [src]="pizza.photoUrl" (error)="onError()"  class="card-img-top" height="200">
   <div class="card-body">
      <a [routerLink]="['/pizzas', pizza.id]" class="text-decoration-none text-reset">
-       <h3 class="card-title">{{ pizza?.name | dots:15}}</h3>
+       <h3 class="card-title">{{ pizza?.name | dots:14}}</h3>
      </a>
       <span style="font-size: 0.7rem">{{ pizza?.id }}</span>
-      <p class="card-text" >{{ pizza.description | dots:50 }}</p>
+      <p class="card-text" >{{ pizza.description | dots:20 }}</p>
     </div>
   <span class="card-footer d-flex justify-content-around">
     <a (click)="remove()" class="text-decoration-none text-reset">usun</a>
