@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+
 import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 
@@ -9,16 +9,19 @@ import { Pizza } from "../pizza";
   styleUrls: ["./pizza-item.component.css"],
 })
 export class PizzaItemComponent implements OnInit {
-  pizzaId: string;
-  pizza: Pizza;
+  @Input() pizza: Pizza;
+  @Output() removePizza = new EventEmitter();
+  @Output() editPizza = new EventEmitter();
 
-  constructor(route: ActivatedRoute, private pizzaSvc: PizzaService) {
-    this.pizzaId = route.snapshot.paramMap.get("id");
+  constructor(private pizzaSvc: PizzaService) {}
+
+  ngOnInit() {}
+
+  editPizzaHandler(id) {
+    this.editPizza.emit(id);
   }
 
-  ngOnInit() {
-    this.pizzaSvc.getPizza(parseInt(this.pizzaId, 10)).subscribe((response) => {
-      this.pizza = response;
-    });
+  removePizzaHandler(id) {
+    this.removePizza.emit(id);
   }
 }

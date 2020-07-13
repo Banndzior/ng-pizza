@@ -1,8 +1,8 @@
-import { Injectable, EventEmitter } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
-import { Observable, from, of } from "rxjs";
-import { map, take } from "rxjs/operators";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: "root",
@@ -39,5 +39,8 @@ export class PizzaService {
 
   removePizza(pizzaId: number) {
     return this.http.delete<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
+  }
+  editPizza(pizza: Pizza) {
+    return this.http.put<Pizza>(`${this.apiUrl}/api/pizzas/${pizza.id}`, pizza);
   }
 }
