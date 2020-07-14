@@ -1,26 +1,34 @@
-<h1 class="header">PIZZA ITALIANA</h1>
-<!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
-<ul>
-  <li *ngFor="let pizza of pizzas">
-    <app-pizza-item
-      [pizza]="pizza"
-      (editPizza)="editPizzaHandler($event)"
-      (removePizza)="removePizzaHandler($event)"
-    ></app-pizza-item>
-  </li>
-  <!-- DONE 11: Dodajemy komponent stronicowania -->
-</ul>
-<mat-paginator
-  [length]="totalPizzas"
-  [pageSize]="pageSize"
-  [hidePageSize]="true"
-  (page)="pageChangeHandler($event.pageIndex)"
->
-</mat-paginator>
-<!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
-<button (click)="addPizza()">Dodaj pizze</button>
+<div class="wrapper">
+  <app-header
+    class="header"
+    (addPizza)="addPizzaHandler()"
+    (searchQuery)="filterPizzas($event)"
+  ></app-header>
+  <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+  <ul>
+    <li *ngFor="let pizza of pizzas | filter: filterQuery">
+      <app-pizza-item
+        [pizza]="pizza"
+        (editPizza)="editPizzaHandler($event)"
+        (removePizza)="removePizzaHandler($event)"
+      ></app-pizza-item>
+    </li>
+    <!-- DONE 11: Dodajemy komponent stronicowania -->
+  </ul>
+  <div class="footer">
+    <mat-paginator
+      class="paginator"
+      [length]="totalPizzas"
+      [pageSize]="pageSize"
+      [hidePageSize]="true"
+      (page)="pageChangeHandler($event.pageIndex)"
+    >
+    </mat-paginator>
+  </div>
+  <!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+  <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 
-<!-- TODO 13: Przygotować styl/layout strony (kafelki pizzy jak przy pokemonacg): bootstrap, material, flex system.  -->
+  <!-- TODO 13: Przygotować styl/layout strony (kafelki pizzy jak przy pokemonacg): bootstrap, material, flex system.  -->
 
-<!-- TODO 14: Stworzyć komponent nagłówek z nawigacją (home, pizza, search pizza (filtrowanie otrzymanych z get'a wyników), komentarze) -->
+  <!-- TODO 14: Stworzyć komponent nagłówek z nawigacją (home, pizza, search pizza (filtrowanie otrzymanych z get'a wyników), komentarze) -->
+</div>

@@ -8,10 +8,12 @@ import { PizzaComponent } from "./pizza/pizza.component";
 import { HttpClientModule } from "@angular/common/http";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
-import { ThreeDotsPipePipe } from "./three-dots-pipe.pipe";
+import { ThreeDotsPipePipe } from "./pipes/three-dots-pipe.pipe";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatCardModule } from "@angular/material/card";
 import { PizzaDetailsComponent } from "./pizza-details/pizza-details.component";
+import { HeaderComponent } from "./header/header.component";
+import { FilterPipe } from "./pipes/filter.pipe";
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -24,6 +26,8 @@ import { PizzaDetailsComponent } from "./pizza-details/pizza-details.component";
     PizzaEditorComponent,
     ThreeDotsPipePipe,
     PizzaDetailsComponent,
+    HeaderComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

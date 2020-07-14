@@ -14,11 +14,12 @@ export class PizzaComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   totalPizzas: number;
+  filterQuery: string | null = "";
 
   constructor(private pizzaSvc: PizzaService, private router: Router) {}
 
   ngOnInit() {
-    this.pageSize = 4;
+    this.pageSize = 6;
     this.pageIndex = 1;
     this.pizzaSvc
       .getPizzas(this.pageSize, this.pageIndex)
@@ -37,7 +38,7 @@ export class PizzaComponent implements OnInit {
       });
   }
 
-  addPizza() {
+  addPizzaHandler() {
     this.pizzaSvc
       .addPizza({
         name: "testPizza",
@@ -62,18 +63,22 @@ export class PizzaComponent implements OnInit {
     );
   }
 
-  updatePizza(pizzaId: number) {
-    // ... http.put
-  }
+  // updatePizza(pizzaId: number) {
+  //   // ... http.put
+  // }
 
   editPizzaHandler(pizzaId: number) {
     this.router.navigate(["pizza", pizzaId, "edit"]);
   }
 
-  pageChangeHandler(pageIndex) {
+  pageChangeHandler(pageIndex: number) {
     console.log(pageIndex);
     this.getPizza();
     this.pageIndex = pageIndex;
     console.log(this.totalPizzas);
+  }
+
+  filterPizzas(searchQuery: string) {
+    this.filterQuery = searchQuery;
   }
 }

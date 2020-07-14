@@ -1,3 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .header {
-  font-size: 48px;
+  width: 100%;
+}
+.paginator {
+  background-color: rgb(59, 59, 59);
+  color: grey;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+}
+li {
+  list-style: none;
+  margin: 10px;
+  flex-basis: auto;
+  width: 300px;
+  height: 400px;
+  overflow: hidden;
+}
+.footer {
+  width: 100%;
 }
