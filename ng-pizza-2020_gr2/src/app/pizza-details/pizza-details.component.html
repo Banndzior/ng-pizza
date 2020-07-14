@@ -1,1 +1,6 @@
-<app-pizza-item [pizza]="pizza"></app-pizza-item>
+<ng-container *ngIf="pizza; else loading">
+  <app-pizza-item [pizza]="pizza"></app-pizza-item>
+</ng-container>
+<ng-template #loading>
+  LOADING...
+</ng-template>

@@ -11,31 +11,21 @@ import { Pizza } from "../pizza";
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[] = [];
-  pageIndex: number;
-  pageSize: number;
+  pageSize: number = 8;
   totalPizzas: number;
   filterQuery: string | null = "";
 
   constructor(private pizzaSvc: PizzaService, private router: Router) {}
 
   ngOnInit() {
-    this.pageSize = 6;
-    this.pageIndex = 1;
-    this.pizzaSvc
-      .getPizzas(this.pageSize, this.pageIndex)
-      .subscribe((response) => {
-        this.pizzas = response.value;
-        this.totalPizzas = response.size;
-      });
+    this.getPizza();
   }
 
-  getPizza() {
-    this.pizzaSvc
-      .getPizzas(this.pageSize, this.pageIndex)
-      .subscribe((response) => {
-        this.pizzas = response.value;
-        this.totalPizzas = response.size;
-      });
+  getPizza(offset = 0) {
+    this.pizzaSvc.getPizzas(this.pageSize, offset).subscribe((response) => {
+      this.pizzas = response.value;
+      this.totalPizzas = response.size;
+    });
   }
 
   addPizzaHandler() {
@@ -46,13 +36,8 @@ export class PizzaComponent implements OnInit {
         photoUrl:
           "https://www.zywnosc.com.pl/wp-content/uploads/2018/02/pizza-690x460.png",
       })
-      .subscribe((_) => {
-        this.pizzaSvc
-          .getPizzas(this.pageSize, this.pageIndex)
-          .subscribe((response) => {
-            console.log(response);
-            this.pizzas = response.value;
-          });
+      .subscribe(() => {
+        this.getPizza();
       });
   }
 
@@ -73,8 +58,7 @@ export class PizzaComponent implements OnInit {
 
   pageChangeHandler(pageIndex: number) {
     console.log(pageIndex);
-    this.getPizza();
-    this.pageIndex = pageIndex;
+    this.getPizza(pageIndex);
     console.log(this.totalPizzas);
   }
 

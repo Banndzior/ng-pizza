@@ -1,3 +1,24 @@
-<div>
-  <a (click)="removePizzaHandler()">remove pizza</a>
+<div class="example-container">
+  <form [formGroup]="form">
+    <mat-form-field appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+      <mat-error>PODAJ NAZWĘ PIZZY KURNA</mat-error>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Image URL</mat-label>
+      <input matInput formControlName="photoUrl" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+      <mat-error>DODAJ OPIS PIZZY ZIOMEK</mat-error>
+    </mat-form-field>
+  </form>
+
+  <button [disabled]="form.invalid" (click)="onSaveHandler()">
+    SAVE NEW PIZZA
+  </button>
 </div>

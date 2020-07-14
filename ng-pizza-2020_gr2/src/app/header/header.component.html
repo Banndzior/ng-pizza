@@ -1,5 +1,6 @@
 <div class="header">
   <h1>PIZZA ITALIANA</h1>
-  <button (click)="addPizzaHandler()">Dodaj pizze</button>
+  <!-- <button (click)="addPizzaHandler()">Dodaj pizze</button> -->
+  <a class="add" [routerLink]="['addPizza']">Add PIZZA</a>
   <input placeholder="search" (input)="onInput($event.target.value)" />
 </div>

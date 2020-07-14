@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { StringDecoder } from "string_decoder";
 
 @Component({
   selector: "app-header",

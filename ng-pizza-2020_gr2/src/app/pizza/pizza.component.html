@@ -1,9 +1,5 @@
 <div class="wrapper">
-  <app-header
-    class="header"
-    (addPizza)="addPizzaHandler()"
-    (searchQuery)="filterPizzas($event)"
-  ></app-header>
+  <app-header class="header" (searchQuery)="filterPizzas($event)"></app-header>
   <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
   <ul>
     <li *ngFor="let pizza of pizzas | filter: filterQuery">
@@ -13,7 +9,6 @@
         (removePizza)="removePizzaHandler($event)"
       ></app-pizza-item>
     </li>
-    <!-- DONE 11: Dodajemy komponent stronicowania -->
   </ul>
   <div class="footer">
     <mat-paginator
@@ -25,8 +20,7 @@
     >
     </mat-paginator>
   </div>
-  <!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
-  <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+  <!-- DONE 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 
   <!-- TODO 13: Przygotować styl/layout strony (kafelki pizzy jak przy pokemonacg): bootstrap, material, flex system.  -->
 

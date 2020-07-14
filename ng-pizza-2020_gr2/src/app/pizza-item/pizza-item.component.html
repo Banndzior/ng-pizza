@@ -1,24 +1,14 @@
 <mat-card class="pizza-card">
   <mat-card-header>
     <mat-card-title>
-      <a [routerLink]="[pizza.id, pizza.name]">
-        {{ pizza.name | dots }}
-      </a>
+      <a [routerLink]="[pizza.id, pizza.name]">{{ pizza.name | dots }}</a>
+      <!-- <p>{{ pizza.id }}</p> -->
     </mat-card-title>
   </mat-card-header>
-  <img
-    mat-card-image
-    [src]="pizza.photoUrl"
-    alt="Photo of a pizza"
-    height="100px"
-    width="100px"
-  />
+  <img mat-card-image [src]="pizza.photoUrl" alt="Photo of a pizza" />
   <mat-card-content>
     <p>
       {{ pizza.description }}
-    </p>
-    <p>
-      {{ pizza.id }}
     </p>
   </mat-card-content>
   <mat-card-actions>
