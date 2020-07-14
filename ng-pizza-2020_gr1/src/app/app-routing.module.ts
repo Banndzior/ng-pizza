@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { GuardGuard } from './guard.guard';
 import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaEditorComponent } from './pizza-editor/pizza-editor.component';
 import { PizzaSearchComponent } from './pizza-search/pizza-search.component';
@@ -10,9 +11,9 @@ import { PizzaDetailsComponent } from './pizza-details/pizza-details.component';
 // 10: Stworz routing dla listy pizz z parametrem nazwa/fragment nazwy
 
 const routes: Routes = [
-  { path: '', redirectTo: 'pizza', pathMatch: 'full' },
+  { path: '', redirectTo: 'pizzas', pathMatch: 'full' },
   { path: 'pizzas', component: PizzaComponent },
-  { path: 'pizzas/:id', component: PizzaDetailsComponent },
+  { path: 'pizzas/:id', canActivate: [GuardGuard], component: PizzaDetailsComponent },
   { path: 'pizzas/search/:name', component: PizzaSearchComponent },
   { path: 'new', component: PizzaEditorComponent },
   { path: '**', redirectTo: 'pizzas' }

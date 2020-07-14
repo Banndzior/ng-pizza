@@ -3,11 +3,6 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PizzaService} from '../pizza.service';
 import { Pizza } from '../pizza';
 
-export enum KeyboardKeys {
-  ArrowRight = 'ArrowRight',
-  ArrowLeft = 'ArrowLeft'
-}
-
 @Component({
   selector: 'app-pizza-details',
   templateUrl: './pizza-details.component.html',
@@ -58,7 +53,7 @@ export class PizzaDetailsComponent implements OnInit {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (event.key === KeyboardKeys.ArrowRight) {
+    if (event.key === 'ArrowRight') {
       this.pizzaService.getAllPizzas()
         .subscribe( (pizzaResponse) => {
           const pizzas = pizzaResponse.value;
@@ -69,7 +64,7 @@ export class PizzaDetailsComponent implements OnInit {
           }, 1000);
         });
     }
-    if (event.key === KeyboardKeys.ArrowLeft) {
+    if (event.key === 'ArrowLeft') {
       this.pizzaService.getAllPizzas()
         .subscribe( (pizzaResponse) => {
           const pizzas = pizzaResponse.value;
