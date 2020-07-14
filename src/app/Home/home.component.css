@@ -1,0 +1,8 @@
+.main-container {
+  background: url("https://static1.bigstockphoto.com/1/4/2/large1500/241403503.jpg")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}

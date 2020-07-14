@@ -1,0 +1,56 @@
+<!-- DONE 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- DONE 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
+<form
+  [formGroup]="pizzaForm"
+  (ngSubmit)="handleSubmit(pizzaForm.value, pizzaForm)"
+>
+  <div>
+    <div class="form-group ml-3 w-75">
+      <label class="font-weight-bold" for="name">Pizza name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+        placeholder="Enter name"
+      />
+    </div>
+    <div class="form-group ml-3 w-75">
+      <label class="font-weight-bold" for="name">Pizza description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        formControlName="description"
+        placeholder="Enter description"
+      />
+    </div>
+    <div class="form-group ml-3 w-75">
+      <label class="font-weight-bold" for="imageUrl">Pizza image</label>
+      <input
+        type="text"
+        class="form-control"
+        id="imageUrl"
+        formControlName="imageUrl"
+        placeholder="Enter image URL"
+      />
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary ml-3 w-75"
+    [disabled]="pizzaForm.invalid"
+    *ngIf="!routeId"
+  >
+    Dodaj pizze
+  </button>
+  <button
+    type="submit"
+    class="btn btn-primary ml-3 w-75"
+    [disabled]="pizzaForm.invalid"
+    *ngIf="routeId"
+  >
+    Edytuj pizze
+  </button>
+</form>

@@ -1,0 +1,18 @@
+<div class="row itemsBlock m-md-5">
+  <app-pizza-item
+    *ngFor="let pizza of pageOfItems"
+    [pizza]="pizza"
+    class="col-md-4 col-sm-6 col-12 pizza-item"
+  >
+  </app-pizza-item>
+</div>
+
+<div class="card-footer">
+  <!--TODO 11- stronnicowanie-->
+  <jw-pagination
+    [pageSize]="pageSize"
+    [items]="items"
+    (changePage)="onChangePage($event)"
+  >
+  </jw-pagination>
+</div>
