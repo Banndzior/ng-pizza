@@ -30,40 +30,42 @@ export class PizzaSearchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        this.name = this.route.snapshot.paramMap.get('name');
-        this.getPizzas();
-        this.pizzaSvc.onChange.subscribe(() => {
+    this.router.events
+      .subscribe(event => {
+        if (event instanceof NavigationEnd) {
+          this.name = this.route.snapshot.paramMap.get('name');
           this.getPizzas();
-        });
-      }
-    })
+        }
+      });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.pizzaSvc.onChange
+      .subscribe(() => {
+        this.getPizzas();
+      });
+  }
 
   getPizzas() {
-    if(this.name) {
-      this.pizzaSvc.getAllPizzas().subscribe( response => {
-        this.pizzas = response.value.filter( pizza => pizza.name.toLowerCase()
-          .includes(this.name.toLowerCase()) );
-      });
+    if (this.name) {
+      this.pizzaSvc.getAllPizzas()
+        .subscribe( response => {
+          this.pizzas = response.value.filter( pizza => pizza.name.toLowerCase().includes(this.name.toLowerCase()) );
+        });
     } else {
      this.pizzaSvc.getAllPizzas().subscribe( resp => this.pizzas = resp.value );
     }
   }
 
   handleClick(id: number) {
-    if(this.selectedId.includes(id)){
+    if (this.selectedId.includes(id)) {
       this.selectedId = this.selectedId.filter( item => item !== id );
     } else {
       this.selectedId.push(id);
     }
   }
 
-  handleSubmit(value, form){
+  handleSubmit(value, form) {
     this.router.navigate(['pizzas/search/', value.pizzaName]);
-    this.getPizzas();
   }
 }

@@ -23,10 +23,11 @@ export class PizzaDetailsComponent implements OnInit {
   }
 
   getPizza(id) {
-    this.pizzaService.getPizza(id).subscribe(resp => {
-      this.router.navigate(['pizzas/', resp.id]);
-      this.pizza = resp;
-    });
+    this.pizzaService.getPizza(id)
+      .subscribe(resp => {
+        this.router.navigate(['pizzas/', resp.id]);
+        this.pizza = resp;
+      });
   }
 
   onError() {
@@ -34,7 +35,8 @@ export class PizzaDetailsComponent implements OnInit {
   }
 
   remove() {
-    this.pizzaService.removePizza(this.pizza).subscribe( () => this.router.navigate(['/']) );
+    this.pizzaService.removePizza(this.pizza)
+      .subscribe( () => this.router.navigate(['/']) );
   }
 
   modify(value, form) {
@@ -52,7 +54,7 @@ export class PizzaDetailsComponent implements OnInit {
   }
 
   @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
+  onKeyClick(event: KeyboardEvent) {
     if (event.key === 'ArrowRight') {
       this.pizzaService.getAllPizzas()
         .subscribe( (pizzaResponse) => {

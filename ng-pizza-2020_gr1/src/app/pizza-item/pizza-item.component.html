@@ -8,7 +8,7 @@
 <!-- [class.mark]="marked === pizza.id" -->
 <!-- [ngClass]="{ 'mark': marked === pizza.id }" -->
 <div
-  [ngClass]="selectedId && selectedId.includes(pizza.id) ? 'bg-warning text-white' : ''"
+  [ngClass]="selectedId.includes(pizza.id) ? 'bg-warning text-white' : ''"
   class="card mb-3 custom">
     <img [src]="pizza.photoUrl" (error)="onError()"  class="card-img-top" height="200">
   <div class="card-body">
