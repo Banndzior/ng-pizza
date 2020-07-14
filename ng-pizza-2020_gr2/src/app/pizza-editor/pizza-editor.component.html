@@ -1,17 +1,17 @@
 <div class="example-container">
   <form [formGroup]="form">
-    <mat-form-field appearance="fill">
+    <mat-form-field class="name" appearance="fill">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name" />
       <mat-error>PODAJ NAZWĘ PIZZY KURNA</mat-error>
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field class="image-url" appearance="fill">
       <mat-label>Image URL</mat-label>
       <input matInput formControlName="photoUrl" />
     </mat-form-field>
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field class="description" appearance="fill">
       <mat-label>Description</mat-label>
       <textarea matInput formControlName="description"></textarea>
       <mat-error>DODAJ OPIS PIZZY ZIOMEK</mat-error>
@@ -19,6 +19,6 @@
   </form>
 
   <button [disabled]="form.invalid" (click)="onSaveHandler()">
-    SAVE NEW PIZZA
+    SAVE PIZZA
   </button>
 </div>

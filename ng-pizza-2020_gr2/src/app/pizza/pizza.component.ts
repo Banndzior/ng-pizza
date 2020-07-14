@@ -52,10 +52,6 @@ export class PizzaComponent implements OnInit {
   //   // ... http.put
   // }
 
-  editPizzaHandler(pizzaId: number) {
-    this.router.navigate(["pizza", pizzaId, "edit"]);
-  }
-
   pageChangeHandler(pageIndex: number) {
     console.log(pageIndex);
     this.getPizza(pageIndex);

@@ -1,0 +1,11 @@
+.mat-card-image {
+  background-size: cover;
+}
+.pizza-img {
+  height: 200px;
+  overflow: hidden;
+}
+.description {
+  height: 18px;
+  overflow: hidden;
+}

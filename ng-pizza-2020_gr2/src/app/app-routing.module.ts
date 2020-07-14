@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: "", redirectTo: "pizza", pathMatch: "full" },
   { path: "pizza", component: PizzaComponent },
   { path: "pizza/addPizza", component: AddPizzaComponent },
-  { path: "pizza/:id/:name", component: PizzaDetailsComponent },
   { path: "pizza/:id/edit", component: EditPizzaComponent },
+  { path: "pizza/:id/:name", component: PizzaDetailsComponent },
   { path: "**", redirectTo: "pizza" },
 ];
 

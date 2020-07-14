@@ -5,8 +5,10 @@
       <!-- <p>{{ pizza.id }}</p> -->
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="pizza.photoUrl" alt="Photo of a pizza" />
-  <mat-card-content>
+  <div mat-card-image class="pizza-img">
+    <img mat-card-image [src]="pizza.photoUrl" alt="Photo of a pizza" />
+  </div>
+  <mat-card-content class="description">
     <p>
       {{ pizza.description }}
     </p>

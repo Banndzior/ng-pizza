@@ -14,7 +14,6 @@ export class AddPizzaComponent implements OnInit {
   ngOnInit() {}
 
   onSaveHandler(newPizza: Pizza) {
-    console.log("send:", newPizza);
     this.pizzaSvc.addPizza(newPizza).subscribe(() => {
       this.router.navigateByUrl("pizza");
     });

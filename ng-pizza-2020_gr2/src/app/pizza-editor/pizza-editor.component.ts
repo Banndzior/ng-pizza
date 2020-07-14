@@ -18,6 +18,7 @@ export class PizzaEditorComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
+      id: [0],
       name: ["", Validators.required],
       photoUrl: [],
       description: ["", Validators.required],
@@ -35,6 +36,5 @@ export class PizzaEditorComponent implements OnInit {
 
   onSaveHandler() {
     this.onSave.emit(this.form.value);
-    console.log(this.form.value);
   }
 }

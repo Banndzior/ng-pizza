@@ -5,7 +5,6 @@
     <li *ngFor="let pizza of pizzas | filter: filterQuery">
       <app-pizza-item
         [pizza]="pizza"
-        (editPizza)="editPizzaHandler($event)"
         (removePizza)="removePizzaHandler($event)"
       ></app-pizza-item>
     </li>
@@ -22,7 +21,7 @@
   </div>
   <!-- DONE 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 
-  <!-- TODO 13: Przygotować styl/layout strony (kafelki pizzy jak przy pokemonacg): bootstrap, material, flex system.  -->
+  <!-- DONE 13: Przygotować styl/layout strony (kafelki pizzy jak przy pokemonacg): bootstrap, material, flex system.  -->
 
   <!-- TODO 14: Stworzyć komponent nagłówek z nawigacją (home, pizza, search pizza (filtrowanie otrzymanych z get'a wyników), komentarze) -->
 </div>

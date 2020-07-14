@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
-
-import { PizzaService } from "../pizza.service";
+import { Router } from "@angular/router";
 import { Pizza } from "../pizza";
 
 @Component({
@@ -11,14 +10,13 @@ import { Pizza } from "../pizza";
 export class PizzaItemComponent implements OnInit {
   @Input() pizza: Pizza;
   @Output() removePizza = new EventEmitter();
-  @Output() editPizza = new EventEmitter();
 
-  constructor(private pizzaSvc: PizzaService) {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  editPizzaHandler(id) {
-    this.editPizza.emit(id);
+  editPizzaHandler(id: number) {
+    this.router.navigateByUrl(`pizza/${id}/edit`);
   }
 
   removePizzaHandler(id) {
