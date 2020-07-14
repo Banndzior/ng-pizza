@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
+import { CommentResponse } from "./comments";
 import { Observable } from "rxjs";
 
 @Injectable({
@@ -22,5 +23,11 @@ export class PizzaService {
 
   removePizza(pizzaId: number) {
     return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizzaId}`);
+  }
+
+  getComments(): Observable<CommentResponse> {
+    return this.http.get<CommentResponse>(
+      "https://ng-pizza.azurewebsites.net/api/comments"
+    );
   }
 }

@@ -1,0 +1,22 @@
+<div class="wrapper">
+  <app-pizza-nav></app-pizza-nav>
+  <div class="container">
+    <div
+      *ngFor="
+        let comment of comments
+          | paginate: { itemsPerPage: 5, currentPage: pageIndex }
+      "
+    >
+      <div class="item">
+        <div>
+          <p>{{ comment.body }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pages">
+    <pagination-controls
+      (pageChange)="pageIndex = $event"
+    ></pagination-controls>
+  </div>
+</div>

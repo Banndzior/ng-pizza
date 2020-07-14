@@ -10,6 +10,7 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { FormsModule } from "@angular/forms";
 import { ClickOutsideModule } from "ng-click-outside";
 import { PizzaNavComponent } from "./pizza-nav/pizza-nav.component";
+import { CommentsComponent } from './comments/comments.component';
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI
@@ -22,6 +23,7 @@ import { PizzaNavComponent } from "./pizza-nav/pizza-nav.component";
     PizzaEditorComponent,
     PizzaNavComponent,
     ThreeDotsPipe,
+    CommentsComponent,
   ],
   imports: [
     BrowserModule,

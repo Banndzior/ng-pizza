@@ -7,7 +7,7 @@
     <div
       *ngFor="
         let pizza of pizzas
-          | paginate: { itemsPerPage: 8, currentPage: pageIndex }
+          | paginate: { itemsPerPage: 10, currentPage: pageIndex }
       "
       class="field"
       (clickOutside)="inactive(pizza)"
@@ -16,7 +16,9 @@
     >
       <div class="item">
         <div>
-          <!-- {{ pizza.name | slice: 0:10 + (pizza.name.length > 10 ? "..." : "") }} -->
+          <!-- {{
+            (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "")
+          }} -->
           {{ pizza.name | dots }}
         </div>
       </div>
@@ -24,8 +26,8 @@
       <div class="content">
         <p>
           {{
-            pizza.description
-              | slice: 0:30 + (pizza.description.length > 30 ? "..." : "")
+            (pizza.description | slice: 0:70) +
+              (pizza.description.length > 70 ? "..." : "")
           }}
         </p>
       </div>
