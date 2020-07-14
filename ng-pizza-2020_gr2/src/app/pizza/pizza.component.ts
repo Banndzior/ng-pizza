@@ -24,6 +24,8 @@ export class ThreeDotsPipe implements PipeTransform {
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  pageIndex: number = 0;
+
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
 
   ngOnInit() {
@@ -35,7 +37,7 @@ export class PizzaComponent implements OnInit {
   }
 
   loadPizzas() {
-    this.pizzaSvc.getPizzas().subscribe((response) => {
+    this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
       this.pizzas = response.value.filter(
         (pizza) => pizza.name.includes(this.name) || !this.name
       );

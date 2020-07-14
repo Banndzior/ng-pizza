@@ -12,8 +12,13 @@ export class PizzaService {
   constructor(private http: HttpClient) {}
   onChange: EventEmitter<any> = new EventEmitter<any>();
 
-  getPizzas(): Observable<PizzaResponse> {
-    return this.http.get<PizzaResponse>(`${this.apiUrl}/api/pizzas`);
+  getPizzas(pageIndex: number): Observable<PizzaResponse> {
+    const limit = 5;
+    const offset = pageIndex * limit;
+
+    return this.http.get<PizzaResponse>(
+      `${this.apiUrl}/api/pizzas?offset=${offset}&limit=${limit}`
+    );
   }
 
   getPizza(pizzaId: number): Observable<Pizza> {

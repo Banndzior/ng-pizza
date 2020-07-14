@@ -17,6 +17,8 @@ export class PizzaEditorComponent implements OnInit {
       .addPizza({
         name: form.value.name,
         description: "czy działa ok?",
+        photoUrl:
+          "https://www.zajadam.pl/wp-content/uploads/2015/02/pizza-ze-szpinakiem-1-654x447.jpg",
       })
       .subscribe((_) => {
         this.pizzaSvc.onChange.emit();
