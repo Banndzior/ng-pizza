@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.cart-item, .filters{
+    font-size: medium;
+}
+
+.product-btn{
+    font-size: 11px;
+    
+}
+.card-body{
+    height: 200px;
+}

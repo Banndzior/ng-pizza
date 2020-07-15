@@ -1,0 +1,228 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Margerrrita",
+      "description": "sos pomidorowy, ser, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/7b4d1905-fe55-11e8-860e-525400080321/10/medium/marga.png",
+      "price": 19
+    },
+    {
+      "id": 2,
+      "name": "Podlaska",
+      "description": "sos pomidorowy, ser mozzarella, szynka, cebula mieszana, pomidor, oregano ",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/9d5bb7a7-fe55-11e8-860e-525400080321/6/medium/podlaska.png",
+      "price": 22
+    },
+    {
+      "id": 3,
+      "name": "Vege Brokuł",
+      "description": "sos pomidorowy, ser mozzarella, brokuł, kukurydza, pomidorki koktajlowe, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/ba97167e-fe55-11e8-860e-525400080321/6/medium/vege-bro.png",
+      "price": 23
+    },
+    {
+      "id": 4,
+      "name": "Salami",
+      "description": "sos pomidorowy, ser mozzarella, salami, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/d2b1a7aa-fe55-11e8-860e-525400080321/6/medium/salami.png",
+      "price": 22
+    },
+    {
+      "id": 5,
+      "name": "Vesuvio",
+      "description": "sos pomidorowy, ser mozzarella, szynka, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/f076f30b-fe55-11e8-860e-525400080321/6/medium/vesuvio.png",
+      "price": 22
+    },
+    {
+      "id": 6,
+      "name": "Kurczak curry",
+      "description": "sos curry, ser mozzarella, curry, grillowany kurczak, ananas, cebula biała",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/2136fd2d-3c0d-11e9-b9db-525400080321/6/medium/kurczak-curry.png",
+      "price": 25
+    },
+    {
+      "id": 7,
+      "name": "Grecka",
+      "description": "sos pomidorowy, ser mozzarella, ser typu feta, pomidor, oliwki zielone, czosnek, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/d055ea9a-3c0d-11e9-b9db-525400080321/6/medium/grecka.png",
+      "price": 22
+    },
+    {
+      "id": 8,
+      "name": "Broccoli",
+      "description": "sos czosnkowo-serowy, ser mozzarella, brokuły, kurczak grill, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/fe6e28cf-3c20-11e9-b9db-525400080321/8/medium/broccoli.png",
+      "price": 25
+    },
+    {
+      "id": 9,
+      "name": "Capriciosa",
+      "description": "sos pomidorowy, ser mozzarella, szynka, pieczarki, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/e18ca029-3c18-11e9-b9db-525400080321/6/medium/capri.png",
+      "price": 23
+    },
+    {
+      "id": 10,
+      "name": "4 pory roku",
+      "description": "sos pomidorowy, ser mozzarella, kiełbasa żywiecka, szynka, pieczarki, papryka konserwowa, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/299ea731-3c19-11e9-b9db-525400080321/6/medium/4pory-roku.png",
+      "price": 23
+    },
+    {
+      "id": 11,
+      "name": "Americana",
+      "description": "sos pomidorowy, ser mozzarella, kurczak grill, kukurydza, papryka konserwowa, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/3df61dd0-3c19-11e9-b9db-525400080321/7/medium/americana.png",
+      "price": 25
+    },
+    {
+      "id": 12,
+      "name": "Diablo",
+      "description": "sos pikantny, ser mozzarella, kiełbasa pepperoni, papryka jalapenos, tabasco, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/53e55621-3c19-11e9-b9db-525400080321/6/medium/diablo.png",
+      "price": 25
+    },
+    {
+      "id": 13,
+      "name": "Wiejska",
+      "description": "sos pomidorowy, ser mozzarella, kiełbasa żywiecka, ogórek kiszony, pomidor, cebula mieszana, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/6b5a5fd3-3c19-11e9-b9db-525400080321/6/medium/wiejska.png",
+      "price": 25
+    },
+    {
+      "id": 14,
+      "name": "Hawajska",
+      "description": "sos pomidorowy, ser mozzarella, szynka, ananas, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/820ce4cd-3c19-11e9-b9db-525400080321/6/medium/hawajska.png",
+      "price": 15
+    },
+    {
+      "id": 15,
+      "name": "Corrida",
+      "description": "sos pomidorowy, ser mozzarella, kiełbasa pepperoni, bekon, cebula czerwona, oregano",
+      "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/aeee4685-3c19-11e9-b9db-525400080321/6/medium/corrida.png",
+      "price": 27
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "cart": [
+    {
+      "product": {
+        "id": 1,
+        "name": "Margerrrita",
+        "description": "sos pomidorowy, ser, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/7b4d1905-fe55-11e8-860e-525400080321/10/medium/marga.png",
+        "price": 19
+      },
+      "id": 1
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Podlaska",
+        "description": "sos pomidorowy, ser mozzarella, szynka, cebula mieszana, pomidor, oregano ",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/9d5bb7a7-fe55-11e8-860e-525400080321/6/medium/podlaska.png",
+        "price": 22
+      },
+      "id": 2
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Vege Brokuł",
+        "description": "sos pomidorowy, ser mozzarella, brokuł, kukurydza, pomidorki koktajlowe, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/ba97167e-fe55-11e8-860e-525400080321/6/medium/vege-bro.png",
+        "price": 23
+      },
+      "id": 3
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Podlaska",
+        "description": "sos pomidorowy, ser mozzarella, szynka, cebula mieszana, pomidor, oregano ",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/9d5bb7a7-fe55-11e8-860e-525400080321/6/medium/podlaska.png",
+        "price": 22
+      },
+      "id": 4
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Vege Brokuł",
+        "description": "sos pomidorowy, ser mozzarella, brokuł, kukurydza, pomidorki koktajlowe, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/ba97167e-fe55-11e8-860e-525400080321/6/medium/vege-bro.png",
+        "price": 23
+      },
+      "id": 5
+    },
+    {
+      "product": {
+        "id": 3,
+        "name": "Vege Brokuł",
+        "description": "sos pomidorowy, ser mozzarella, brokuł, kukurydza, pomidorki koktajlowe, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/ba97167e-fe55-11e8-860e-525400080321/6/medium/vege-bro.png",
+        "price": 23
+      },
+      "id": 6
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Podlaska",
+        "description": "sos pomidorowy, ser mozzarella, szynka, cebula mieszana, pomidor, oregano ",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/9d5bb7a7-fe55-11e8-860e-525400080321/6/medium/podlaska.png",
+        "price": 22
+      },
+      "id": 7
+    },
+    {
+      "product": {
+        "id": 2,
+        "name": "Podlaska",
+        "description": "sos pomidorowy, ser mozzarella, szynka, cebula mieszana, pomidor, oregano ",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/9d5bb7a7-fe55-11e8-860e-525400080321/6/medium/podlaska.png",
+        "price": 22
+      },
+      "id": 8
+    },
+    {
+      "product": {
+        "id": 5,
+        "name": "Vesuvio",
+        "description": "sos pomidorowy, ser mozzarella, szynka, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/f076f30b-fe55-11e8-860e-525400080321/6/medium/vesuvio.png",
+        "price": 22
+      },
+      "id": 9
+    },
+    {
+      "product": {
+        "id": 5,
+        "name": "Vesuvio",
+        "description": "sos pomidorowy, ser mozzarella, szynka, oregano",
+        "imageUrl": "https://cdn.upmenu.com/static/product-images/d9aa8d0c-fdf4-11e8-860e-525400080321/f076f30b-fe55-11e8-860e-525400080321/6/medium/vesuvio.png",
+        "price": 22
+      },
+      "id": 10
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
