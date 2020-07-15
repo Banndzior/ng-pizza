@@ -5,7 +5,7 @@ class="form-group"
 (ngSubmit) = "register($event, myForm)"
 >
 <fieldset>
-    <legend>Dodaj nową pizzę</legend>
+    <legend>Edytuj pizzę</legend>
     <label>
         Nazwa:
   
@@ -14,8 +14,10 @@ class="form-group"
         class="form-control" 
         #name="ngModel"
         ngModel
+        [(ngModel)]="pizza.name"
         required
-        minlength="3" />
+        minlength="3"
+         />
     <!-- <div class="error"
         *ngIf="myForm.controls.firstName?.errors?.required">
         Pole jest wymagane
@@ -31,8 +33,9 @@ class="form-group"
     
     <input type="text"
     class="form-control" 
-        name="imageUrl"
+        name="photoUrl"
         ngModel
+        [(ngModel)]="pizza.photoUrl"
         required
         minlength="3" />
     </label>
@@ -43,18 +46,15 @@ class="form-group"
     <input 
     type="text" 
     name="description"
+    [(ngModel)]="pizza.description"
     class="form-control" 
         ngModel
         description />
     </label>
     <br />
-    <button class="btn btn-primary" (click)="register($event, myForm)">Zapisz pizzę</button>
+    <button class="btn btn-primary" (click)="register()">Zapisz pizzę</button>
 </fieldset>
 
 </form>
-<div class="btn-center">
-
-    <button class="btn btn-success" (click)="addPizza()">Dodaj pizze (random)</button>
-</div>
 
 

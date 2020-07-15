@@ -12,7 +12,7 @@ import { isNullOrUndefined } from 'util';
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
-  name: string;
+  pizzaName: string;
   pageSize: number;
   page: number;
   totalRows: number;
@@ -20,7 +20,8 @@ export class PizzaComponent implements OnInit {
   constructor(private pizzaSvc: PizzaService, private route: ActivatedRoute, private router: Router) {
     this.pageSize=4;
     this.page=1;
-    this.totalRows=4
+    this.totalRows=1;
+    this.pizzaName=undefined;
    
     this.router.events.subscribe((event) => {
       if(event instanceof NavigationEnd) {
@@ -30,43 +31,51 @@ export class PizzaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params=>this.name=params.name)
-    this.pageSize=4;
+    const name=this.route.snapshot.paramMap.get('name');
+   if(name){
     this.page=1;
-    this.totalRows=4
-    if (!isNullOrUndefined(this.name)) {
+    this.totalRows=1;
       this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
-      
-       this.pizzas=pizzaResponse.value.filter(el=>el.name===this.name);
-       this.totalRows=pizzaResponse.size;
-       
+        console.log(pizzaResponse)
+        this.pizzas=pizzaResponse.value.filter(el=>el.name.includes(name))
       });
-    }else{
-      this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
-        console.log(this.pageSize, this.page)
-        return this.pizzas=pizzaResponse.value;
-       });
-    }
+
+   }
+    this.page=1;
+    this.totalRows=4;
+      this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {});
+
     
   }
   onChangePage(){
    this.getPizza();
+    
   }
-
+ 
 onClickPizza(item:any){
-  if(isNullOrUndefined(item.active)){
-    item.active=true;
-  }else{
-    return !item.active
-  }
+    if(isNullOrUndefined(item.active)){
+      item.active=true;
+      
+    }else{
+      item.active=null;
+    }
   }
   
 
-  getPizza() {
+  getPizza(pizzaName?:string) {
+    
     this.pizzaSvc.getPizzas(this.pageSize, this.page-1).subscribe(
       (response) => {
-        this.pizzas = response.value;
+        if(!isNullOrUndefined(pizzaName)){
+          console.log(this.pizzas)
+          this.pizzas = response.value.filter(el=>el.name.includes(this.pizzaName));
+          
         this.totalRows = response.size;
+        }else{
+          this.pizzas = response.value;
+          this.totalRows = response.size;
+        }
+       
       },
       (error) => {
         console.log('jest blad', error);

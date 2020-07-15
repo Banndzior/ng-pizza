@@ -1,5 +1,4 @@
 
-
         <h1>{{pizza.id}} - {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}</h1>
         <br />
         <p>{{ pizza.description }}</p>
@@ -9,6 +8,7 @@
             <ng-template #elseBlock><h2>No image</h2></ng-template>
         
        <br/>
+       <button class="btn btn-success" (click)="editPizza(pizza)">Edytuj pizzę</button>
         <button class="btn btn-danger" (click)="removePizza(pizza)">Usuń pizzę</button>
 
   

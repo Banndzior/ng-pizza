@@ -11,12 +11,14 @@ import { JwPaginationComponent } from 'jw-angular-pagination';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PizzaEditComponent } from './pizza-edit/pizza-edit.component';
+import { CommentsComponent } from './comments/comments.component';
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
 
 @NgModule({
-  declarations: [AppComponent, PizzaComponent, PizzaItemComponent, PizzaEditorComponent, JwPaginationComponent],
+  declarations: [AppComponent, PizzaComponent, PizzaItemComponent, PizzaEditorComponent, JwPaginationComponent, PizzaEditComponent, CommentsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgbModule, BrowserAnimationsModule, MatGridListModule],
   providers: [],
   bootstrap: [AppComponent],

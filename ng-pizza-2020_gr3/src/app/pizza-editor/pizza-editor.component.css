@@ -5,5 +5,5 @@ form{
 btn-center{
     width: 25%;
     margin: 0 auto;
-    align-items: center;
+    text-align: center;
 }

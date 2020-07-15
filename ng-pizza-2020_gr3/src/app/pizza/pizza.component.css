@@ -1,13 +1,24 @@
 mat-grid-tile{
     background-color: lightyellow;
-    padding: 5px;
-    margin: 5px;
+   
     height: 500px;
     font-family: 'Baloo Bhai 2', cursive;
     font-weight: 400;
+    border: 2px solid orangered;
 }
 mat-grid-list{
     height:100%;
+    width:90%;
+    margin:0 auto;
+}
+app-pizza-item{
+  padding: 15px;
+  margin: 25px;
+}
+ngb-pagination{
+  width:90%;
+  margin:0 auto;
+  display: flex;
 }
 .grid-layout-custom{
     width: 50vw;
@@ -19,9 +30,18 @@ mat-grid-list{
     background-color: moccasin;
     color: tomato;
   }
+  #menu{
+    display: inline;
+  }
   .active{
     background-color: green;
   }
   .inactive{
     background-color:lightyellow;
+  }
+  #pagination{
+    float: left;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    
   }

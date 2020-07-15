@@ -32,7 +32,7 @@ export class PizzaEditorComponent implements OnInit {
       .subscribe(() => this.router.navigate(['pizza']));
     } else {
       console.log('register',  myForm.value);
-      alert('NIE!');
+      alert('Brak podstawowych informacji w formularzu!');
     }
   }
 }

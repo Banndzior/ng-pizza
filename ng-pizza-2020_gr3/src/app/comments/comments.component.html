@@ -1,0 +1,9 @@
+<div class="container" >
+    <ul *ngFor="let comment of comments">
+        <li style="list-style-type:none; border:2px solid red; background-color: lightyellow">
+            <h2>{{comment.body}}</h2><br/>
+            <h4>{{comment.createdAt}}</h4>
+        </li>
+    </ul>
+  
+</div>

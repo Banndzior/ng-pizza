@@ -13,12 +13,15 @@
         <li class="nav-item">
             <a class="nav-link" href="/add">Dodaj nową pizzę</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comments">Komentarze</a>
+          </li>
          
       </ul>
-      <form (onSubmit)="submitSearch()"
+      <form (ngSubmit)="submitSearch(searchValue.value)"
             class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <input #searchValue class="form-control mr-sm-2" type="search" placeholder="Search"  aria-label="Search">
+        <button class="btn btn-success searchButton my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </nav>

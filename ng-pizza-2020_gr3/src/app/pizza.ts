@@ -2,6 +2,9 @@ export interface PizzaResponse {
   value: any[];
   size: number;
 } 
+export interface Comment{
+  body: string
+}
 
 export interface Pizza {
   id?: number;

@@ -27,6 +27,9 @@ export class PizzaItemComponent implements OnInit {
     }
    
   }
+ editPizza(pizza){
+   this.router.navigateByUrl(`/pizza/edit/${pizza.id}`)
+ }
   removePizza(pizza: Pizza) {
     this.pizzaSvc
       .removePizza(pizza)
