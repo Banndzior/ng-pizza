@@ -36,7 +36,6 @@ export class PizzaComponent implements OnInit {
     this.page=1;
     this.totalRows=1;
       this.pizzaSvc.getPizzas(this.pageSize,this.page-1).subscribe((pizzaResponse) => {
-        console.log(pizzaResponse)
         this.pizzas=pizzaResponse.value.filter(el=>el.name.includes(name))
       });
 
