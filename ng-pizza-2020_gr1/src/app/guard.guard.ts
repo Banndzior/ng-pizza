@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import {observable, Observable} from 'rxjs';
-import { PizzaService} from "./pizza.service";
-import { map } from "rxjs/operators";
+import { PizzaService} from './pizza.service';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,7 @@ export class GuardGuard implements CanActivate {
   constructor(
     private service: PizzaService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,
@@ -23,7 +22,8 @@ export class GuardGuard implements CanActivate {
         if (resp) {
           return true;
         } else {
-          this.router.navigate(['pizzas']);
+          // this.router.navigate(['']);
+          return false;
         }
       })
     );

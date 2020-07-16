@@ -23,7 +23,6 @@ export class PizzaSearchComponent implements OnInit {
   name = '';
   pizzas: Pizza[];
   selectedId = [];
-  pizzaName = '';
 
   constructor(
     private pizzaSvc: PizzaService,
@@ -40,21 +39,18 @@ export class PizzaSearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pizzaSvc.onChange
-      .subscribe(() => {
-        this.getPizzas();
-      });
+    this.pizzaSvc.onChange.subscribe(() => this.getPizzas() );
   }
 
   getPizzas() {
-    if (this.name) {
-      this.pizzaSvc.getAllPizzas()
-        .subscribe( response => {
+    this.pizzaSvc.getAllPizzas()
+      .subscribe( response => {
+        if (this.name) {
           this.pizzas = response.value.filter( pizza => pizza.name.toLowerCase().includes(this.name.toLowerCase()) );
-        });
-    } else {
-     this.pizzaSvc.getAllPizzas().subscribe( resp => this.pizzas = resp.value );
-    }
+        } else {
+          this.pizzas = response.value;
+        }
+      });
   }
 
   handleClick(id: number) {
@@ -66,6 +62,6 @@ export class PizzaSearchComponent implements OnInit {
   }
 
   handleSubmit(value, form) {
-    this.router.navigate(['pizzas/search/', value.pizzaName]);
+    this.router.navigate(['pizzas/search/', value.name]);
   }
 }

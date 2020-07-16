@@ -11,7 +11,7 @@
         <div class="card-title custom-title">{{ pizza?.name}}</div>
         <div class="card-text">
         <p >{{ pizza?.description }}</p>
-          {{ pizza?.id }}
+          <span style="font-size: 0.7rem">{{ pizza?.id }}</span>
         </div>
     </div>
   </div>
@@ -24,8 +24,14 @@
             ngModel #photoUrl="ngModel"
             class="col-sm-4 custom-input"
             placeholder="Edit photo url"
+            required
           />
-          <button type="submit" class="btn btn-outline-dark col-sm-1">Ok</button>
+          <button
+            type="submit"
+            [disabled]="modifyForm.invalid"
+            class="btn btn-outline-dark col-sm-1">
+              Ok
+          </button>
           <button type="button" (click)="remove()" class="btn btn-outline-dark custom-button">usuń pizzę</button>
         </div>
       </form>

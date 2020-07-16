@@ -28,7 +28,8 @@ export class PizzaItemComponent implements OnInit {
   ngOnInit() {}
 
   remove() {
-    this.pizzaService.removePizza(this.pizza).subscribe( () => this.pizzaService.onChange.emit() );
+    this.pizzaService.removePizza(this.pizza)
+      .subscribe( () => this.pizzaService.onChange.emit() );
   }
 
   onError() {
