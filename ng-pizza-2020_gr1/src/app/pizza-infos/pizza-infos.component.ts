@@ -34,13 +34,11 @@ export class PizzaInfosComponent implements OnInit {
       (error) => console.error(error));
   }
 
-  modifyPizza(pizza: Pizza) {
-    console.log(pizza.id);
-    this.PizzaSvc.modifyPizza({
-      name: pizza.name,
-      description: pizza.description,
-      photoUrl: 'https://image.freepik.com/free-photo/pizza-with-tomatoes-spaghetti-corn-olives-mushrooms-top-view-dark-blue-background_176474-4620.jpg'
-    }).subscribe(() => this.PizzaSvc.onChangePizza.emit(),
+  modifyPizza(pizza, inputContent) {
+    pizza.photoUrl = inputContent;
+    console.log(inputContent);
+    console.log(pizza.name);
+    this.pizzaSvc.modifyPizza(this.pizza).subscribe(() => this.pizzaSvc.onChangePizza.emit(),
     (error) => console.error(error));
   }
 

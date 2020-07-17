@@ -3,7 +3,37 @@
     <img [src]="pizza.photoUrl" (error)="onError()" class="pizzaInfos_img" height="150px">
     <p>{{ pizza.description }}</p>
     <br />
-    <a (click)="removePizza(pizza)">usun</a>
     <br /> 
-    <a (click)="modifyPizza(pizza)">ustaw obrazek</a> 
+    <form (ngSubmit)="modifyPizza(pizza, form.value)">
+      <div>
+        <input
+            type="text"
+            name="photoUrl"
+            class="pizzaPhoto"
+            placeholder="change image"
+        />
+        <button type="submit" (click)="modifyPizza(pizza)">ustaw obrazek</button> 
+      </div>
+    </form>
+    <div>
+        <button (click)="removePizza(pizza)">usun</button>
+    </div>
 </div>
+
+<!-- <form #form="ngForm"(ngSubmit)="modifyPizza(pizza, form.value)">
+      <div>
+        <input
+            type="text"
+            name="photoUrl"
+            class="pizzaPhoto"
+            placeholder="change image"
+            required
+        />
+        <button type="submit" (click)="modifyPizza(pizza)">ustaw obrazek</button> 
+      </div>
+      <div>
+        <button (click)="removePizza(pizza)">usun</button>
+      </div>
+</form> -->
+
+

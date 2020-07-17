@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PizzaComponent } from './pizza/pizza.component';
 import { PizzaInfosComponent } from './pizza-infos/pizza-infos.component';
+import { SearchNameComponent } from './search-name/search-name.component';
 
 // Przyklad: https://github.com/Banndzior/ng-routing/blob/master/ng-routing_gr1/src/app/app-routing.module.ts
 // DONE 6: Stworz routing dla listy pizz: pizza component: /pizza
@@ -11,7 +12,8 @@ import { PizzaInfosComponent } from './pizza-infos/pizza-infos.component';
 const routes: Routes = [
   { path: '', redirectTo: 'pizza', pathMatch: 'full' },
   { path: 'pizzas', component: PizzaComponent },
-  { path: 'pizzas/:id', component: PizzaInfosComponent }
+  { path: 'pizzas/:id', component: PizzaInfosComponent },
+  { path: 'pizzas/name/:name', component: SearchNameComponent}
 ];
 
 @NgModule({

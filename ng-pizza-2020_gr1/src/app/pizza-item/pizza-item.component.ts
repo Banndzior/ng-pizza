@@ -17,20 +17,14 @@ export class PizzaItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  checkId(pizza:Pizza) {
+    console.log(pizza.id);
+  }
+
   removePizza(pizza: Pizza) {
     console.log(pizza.id);
     this.pizzaSvc.removePizza(pizza).subscribe(
       () => this.pizzaSvc.onChangePizza.emit(),
       (error) => console.error(error));
-  }
-
-  modifyPizza(pizza: Pizza) {
-    console.log(pizza.id);
-    this.pizzaSvc.modifyPizza({
-      name: pizza.name,
-      description: pizza.description,
-      photoUrl: 'https://image.freepik.com/free-photo/pizza-with-tomatoes-spaghetti-corn-olives-mushrooms-top-view-dark-blue-background_176474-4620.jpg'
-    }).subscribe(() => this.pizzaSvc.onChangePizza.emit(),
-    (error) => console.error(error));
   }
 }
