@@ -38,7 +38,7 @@ export class PizzaInfosComponent implements OnInit {
     pizza.photoUrl = inputContent;
     console.log(inputContent);
     console.log(pizza.name);
-    this.pizzaSvc.modifyPizza(this.pizza).subscribe(() => this.pizzaSvc.onChangePizza.emit(),
+    this.PizzaSvc.modifyPizza(this.pizza).subscribe(() => this.PizzaSvc.onChangePizza.emit(),
     (error) => console.error(error));
   }
 

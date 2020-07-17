@@ -1,14 +1,16 @@
 
-{{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
-<br />
-<div>
-    {{ pizza.description }}
-</div>
-<img [src]="pizza.photoUrl" height="100px" />
-<br />
-<div>
-    <button (click)="removePizza(pizza)">usun</button>
-    <button (click)="checkId(pizza)">sprawdź id</button>
+<div class="col container">
+  <h3 class="h3">
+     {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
+  </h3>
+  <img [src]="pizza.photoUrl" height="100px" class="img rounded mx-auto d-block"/>
+  <p class="p">
+      {{ pizza.description }}
+  </p>
+  <div class="buttons btn-group">
+    <button (click)="removePizza(pizza)" class="btn btn-secondary">usun</button>
+    <button (click)="checkId(pizza)" class="btn btn-secondary">sprawdź id</button>
+  </div>
 </div>
    
 

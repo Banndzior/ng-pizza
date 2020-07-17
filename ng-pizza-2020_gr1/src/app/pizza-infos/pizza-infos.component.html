@@ -1,22 +1,23 @@
-<div class="pizzaInfos-container">
-    <h2>pizza {{ pizza.name }}</h2>
-    <img [src]="pizza.photoUrl" (error)="onError()" class="pizzaInfos_img" height="150px">
-    <p>{{ pizza.description }}</p>
+<div class="col container">
+    <h3 class="h3">pizza {{ pizza.name }}</h3>
+    <img [src]="pizza.photoUrl" (error)="onError()" class="img rounded mx-auto d-block" height="150px">
+    <p class="p">{{ pizza.description }}</p>
     <br />
     <br /> 
-    <form (ngSubmit)="modifyPizza(pizza, form.value)">
+    <form (ngSubmit)="modifyPizza(pizza, form.value)" class="form-group">
       <div>
         <input
             type="text"
             name="photoUrl"
             class="pizzaPhoto"
             placeholder="change image"
+            class="form form-control"
         />
-        <button type="submit" (click)="modifyPizza(pizza)">ustaw obrazek</button> 
+        <button type="submit" (click)="modifyPizza(pizza)" class="btn btn-secondary">ustaw obrazek</button> 
       </div>
     </form>
     <div>
-        <button (click)="removePizza(pizza)">usun</button>
+        <button (click)="removePizza(pizza)" class="btn btn-secondary">usun</button>
     </div>
 </div>
 

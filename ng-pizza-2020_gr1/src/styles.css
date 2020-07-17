@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+/* body {
+    min-width: 300px;
+    max-width: 100vw;
+} */
+
+@import'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css';
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+ul {
+    list-style: none;
+}

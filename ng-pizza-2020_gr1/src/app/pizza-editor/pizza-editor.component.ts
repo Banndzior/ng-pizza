@@ -20,9 +20,9 @@ export class PizzaEditorComponent implements OnInit {
 
   addPizza() {
     this.pizzaSvc.addPizza({
-      name: 'Kamila Pizza',
-      description: 'Lorem ipsum dolor cośtam...',
-      photoUrl: 'https://hackernoon.com/hn-images/1*NqOyGKInDPoX4O0W_GmACw.jpeg'
+      name: 'SimpsPizza',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      photoUrl: 'https://munchies-images.vice.com/wp_upload/Homer-Simpson-Deep-dish-pizza.jpg'
     }).subscribe(() => this.ngOnInit());
   }
 }
