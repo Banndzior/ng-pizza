@@ -44,6 +44,7 @@ export class PizzaComponent implements OnInit {
   getPizza() {
     this.pizzaSvc.getPizzas().subscribe((sub) => {
       this.pizzas = sub.value;
+      console.log(this.pizzas.map((p) => p.id));
     });
   }
 

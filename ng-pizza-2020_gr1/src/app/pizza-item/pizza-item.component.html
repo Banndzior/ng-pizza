@@ -1,30 +1,48 @@
 <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
 <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-{{ (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "") }}
-<br />
-<!-- {{ getShortName(pizza.name) }}
-<br />
-{{ pizza.name | dots:0:10 }}
-<br /> -->
-<div>
-  {{ pizza.description }}
-</div>
-<!-- DONE 5: Dodaj pole opis -->
-<img [src]="pizza.photoUrl" height="100px" />
-<br />
-<!-- <app-pizza (remove)="removePizza(pizza)"></app-pizza> -->
-<button (click)="removePizza(pizza)">Usuń</button>
-<!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
-<br />
+<div style="border: 1px olive solid;">
+  <div class="display-3">
+    {{ (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "") }}
+  </div>
+  <br />
+  <div class="blockquote-footer">
+    {{
+      (pizza.description | slice: 0:20) +
+        (pizza.description.length > 20 ? "..." : "")
+    }}
+  </div>
+  <!-- DONE 5: Dodaj pole opis -->
+  <div style="text-align: center;">
+    <img [src]="pizza.photoUrl" height="100px" class="rounded" />
+    <br />
+  </div>
 
-<label class="image-upload-container btn btn-bwm">
-  <button (click)="modifyPizza(pizza)">Ustaw obrazek</button>
-  <input
-    #imageInput
-    type="file"
-    (change)="modifyPizza(pizza)"
-    accept="image/*"
-  />
-  <!-- (change)="processFile(imageInput)"> -->
-</label>
+  <button
+    (click)="removePizza(pizza)"
+    class="col py-3 px-lg-5 border"
+    style="background-color: rgba(150, 50, 50, 0.671);"
+  >
+    Usuń
+  </button>
+  <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+  <br />
+
+  <label class="col py-3 px-lg-5 border">
+    <button
+      (click)="modifyPizza(pizza)"
+      class="btn btn-secondary"
+      style="background-color: seagreen;"
+    >
+      Ustaw obrazek
+    </button>
+    <input
+      #imageInput
+      type="file"
+      (change)="modifyPizza(pizza)"
+      accept="image/*"
+    />
+    <!-- (change)="processFile(imageInput)"> -->
+  </label>
+</div>
+
 <!-- TODO 12: Obsłuż metode POST z Pizza API -->
