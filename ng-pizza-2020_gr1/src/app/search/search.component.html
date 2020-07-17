@@ -1,0 +1,10 @@
+{{pizzaNameText}}
+
+<mat-form-field class="example-full-width">
+    <mat-label><mat-icon>search</mat-icon> Search Pizza</mat-label>
+    <input type="text" class="form-control" color="primary" 
+    matInput #message maxlength="256" placeholder="Eg. Capriciosa" 
+    (keyup)="onType($event.target.value)" 
+    [(ngModel)]="pizzaNameText" (keyup.enter)="searchSubmit(false)"/>
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+</mat-form-field>

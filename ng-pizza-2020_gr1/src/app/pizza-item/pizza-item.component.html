@@ -1,1 +1,16 @@
-<p>pizza-item works!</p>
+  <!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
+  <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+
+<div class="pizza-item-conainer"  *ngIf="pizza">
+  <h2 class="pizza-title">  <span class="pizza-id">Nr.{{ pizza.id }}</span>
+    {{ (pizza.name | slice: 0:30) + (pizza.name.length > 30 ? "..." : "") }}
+  </h2>
+
+  <a [routerLink]="pizza.id" ><img class="pizza-img" [src]="pizza.photoUrl" height="50" /></a>
+  <!-- TODO 5: Dodaj pole opis -->
+  <p class="pizza-desc">{{ (pizza.description | slice: 0:250) + (pizza.description.length > 250 ? "..." : "") }} </p>
+ 
+  <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
+  <div class="pizza-button delete-pizza-button"><a (click)="removePizza(pizza)">usuń</a></div>
+</div>
+  <!-- TODO 12: Obsłuż metode POST z Pizza API -->

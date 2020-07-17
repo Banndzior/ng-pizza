@@ -1,0 +1,39 @@
+
+.app-search{
+    right: 16px;
+    position: absolute;
+}
+
+.mat-toolbar.mat-primary{
+    background: #202020;
+    border-bottom: 1px solid #B1B2B3;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+
+@media (max-width: 800px){
+    .mobile-menu{ 
+        display: initial;    
+    }
+    .mat-menu-panel{
+        max-width: 200px;
+    }
+    .desktop-menu{
+        display: none;
+    }
+    .mat-button{
+        width: 100%;
+        text-align: left;
+        padding: 10px;
+        padding-left: 15px;
+        font-size: 18px;
+    }
+    .mat-icon{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+    
+}

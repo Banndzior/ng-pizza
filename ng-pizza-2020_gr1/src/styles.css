@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Piedra&display=swap');
+
+body{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(34, 34, 34);
+  background-image: url("assets/images/pizza-background.jpeg");
+  background-size: 100% auto;
+  font-family: 'Mukta', sans-serif;
+}
+h1{
+  text-align: center;
+  color: white;
+  text-shadow: 5px 5px #242424 ;
+  font-size: 100px;
+  font-family: 'Piedra', cursive;
+  margin: 20px;
+}
+.ngx-pagination a{
+  background: white;
+}
+.ngx-pagination .current{
+  background: #DF4A1C !important;
+}
+.ngx-pagination .disabled{
+  background: grey;
+}
+.ngx-pagination .disabled:hover{
+  background: grey !important;
+}
+html { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

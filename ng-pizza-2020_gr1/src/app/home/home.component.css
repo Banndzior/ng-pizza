@@ -1,0 +1,50 @@
+h2{
+    text-shadow: 1px 1px 10px red;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content{
+    margin: 20px;
+    text-align: center;
+    width: 100%;
+    color: black;
+    background-image: linear-gradient(-45deg, rgba(150, 150, 150, 0.9), rgba(200, 200, 200, 0.9));
+}
+  .pizza-button{
+    margin-bottom: 20px;
+  }
+  .pizza-button a:hover{
+    cursor: pointer;
+  }
+  .pizza-button a{
+    text-decoration: none;
+    border: 1px solid rgb(148, 148, 148);
+    background: rgb(32, 32, 32);
+    padding: 10px 30px;
+    border-radius: 3px;
+    margin: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: white;
+    transition: 0.3s;
+  }
+  .go-pizza-button a:hover{
+    font-weight: solid;
+    font-size: 1.2rem;
+    background:green;
+    cursor: pointer;
+  }
+  .go-pizza-button:focus {
+    outline: none;
+  }
+  .hero-img{
+    max-width: 700px;
+    width:100%;
+    /* margin: 20px; */
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 1px 1px 10px red;
+   }

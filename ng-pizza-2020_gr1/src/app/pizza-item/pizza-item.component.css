@@ -1,0 +1,96 @@
+h3 {
+  margin: 10px;
+}
+
+p {
+  margin: 20px 10px;
+}
+.pizza-img{
+  width: auto;
+  max-width: 100%;
+  min-height: 180px;
+  height: 200px;
+  max-height: 200px;
+  transition: 0.4s;
+  border-radius: 3px;
+}
+
+.pizza-title{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.pizza-button{
+  margin-bottom: 20px;
+}
+.pizza-button a{
+  text-decoration: none;
+  border: 1px solid rgb(148, 148, 148);
+  background: rgb(32, 32, 32);
+  width: 180px;
+  padding: 10px 100px;
+  border-radius: 3px;
+  margin: 10px;
+  text-align: center;
+  color: white;
+  transition: 0.3s;
+  width:50%;
+}
+.pizza-button{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+.pizza-button a:hover{
+  cursor: pointer;
+}
+.delete-pizza-button a:hover{
+  font-weight: solid;
+  font-size: 1.2rem;
+  background:rgb(231, 2, 2);
+  cursor: pointer;
+}
+.back-pizza-button a:hover{
+  font-weight: solid;
+  font-size: 1.2rem;
+  background:green;
+  cursor: pointer;
+}
+.pizza-button:focus {
+  outline: none;
+}
+
+.pizza-id{
+  font-size: 18px;
+  background:rgb(233, 233, 233);
+  padding: 0 5px;
+  border: solid 1px #DF4A1C;
+  color: #DF4A1C;
+}
+.pizza-desc{
+  text-align: left;;
+}
+.pizza-item-conainer{
+  width: 95%;
+  margin: 0 auto;
+  min-height: 430px;
+  color: black;
+  background-image: linear-gradient(-45deg, rgba(150, 150, 150, 0.9), rgba(200, 200, 200, 0.9)); 
+  position: relative;
+  border-radius: 3px;
+  padding: 10px;
+  vertical-align: top;
+  text-align: center;
+  transition: 0.4s;
+}
+.pizza-item-conainer:hover{
+  transform: scale(1.05);
+  transition: 0.4s;
+  text-shadow: 1px 1px 10px red;
+}
+.pizza-item-conainer:hover .pizza-img{
+  transform: rotate(3deg);
+  transition: 0.4s;
+  filter: drop-shadow(1px 1px 10px red);
+}

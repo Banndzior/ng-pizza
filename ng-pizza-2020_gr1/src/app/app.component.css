@@ -1,0 +1,6 @@
+h1:focus {
+    outline: initial;
+}
+h1{
+    cursor: pointer;
+}

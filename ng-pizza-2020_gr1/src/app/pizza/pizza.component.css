@@ -1,0 +1,39 @@
+ul {
+  list-style-type: none;
+}
+.pizza-container{
+  text-align: center;
+  padding: 0;
+}
+.pizza-container > li{
+  display: inline-block;
+  width: 30%;  
+  margin: 1%;
+}
+.pizza-element{
+  width: 95%;
+  display: inline-block;
+  min-height: 450px;
+  color: black;
+  border: 1px solid #B1B2B3;
+  border-radius: 3px;
+  padding: 10px;
+  vertical-align: top;
+}
+
+.marked{
+  background: rgba(235, 233, 233, 0.9);
+}
+@media (max-width: 1200px){
+  .pizza-container > li{
+    display: inline-block;
+    width: 47%;  
+    margin: 1%;
+  }
+}
+@media (max-width: 800px){
+  .pizza-container > li{
+    display: inline-block;
+    width: 97%;  
+  }
+}

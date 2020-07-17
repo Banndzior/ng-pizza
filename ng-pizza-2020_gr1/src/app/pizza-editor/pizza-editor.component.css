@@ -1,0 +1,45 @@
+.field-required{
+    color: red;
+    font-size: 0.9rem;
+}
+.form-container{
+    background-image: linear-gradient(-45deg,  rgba(10, 10, 10, 0.9), rgba(12, 12, 12, 0.9));
+    border-radius: 3px;
+    width: 500px;
+    max-width: 90%;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    color: white;
+}
+.form-container label{
+    display: block;    
+}
+.form-container input, .form-container textarea{
+    text-align: center;
+    width: 400px;
+    max-width: 100%;
+
+}
+.form-container textarea{
+    height: 300px;
+}
+.form-container h2{
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+.form-container button{
+    font-size: 16px;
+    margin: 15px;
+    padding: 10px 35px;
+    transition: 0.4s;
+    border: none;
+}
+.mat-raised-button.mat-primary:hover{
+    background: rgb(4, 84, 28);
+    color: white;
+    transition: 0.4s;
+    border: none;
+}

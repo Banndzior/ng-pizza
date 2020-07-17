@@ -1,22 +1,21 @@
-<ul>
-    <li *ngFor="let pizza of pizzas">
-        <!-- TODO 3: Wydziel zawartosc html do komponentu pizza-item -->
-        <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") https://github.com/Banndzior/ng-pokedex/commit/ec48877aaa0ee6724c8d1d091152b7613aa70c95 -->
-        {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "" ) }}
-        <br />
-        <!-- {{ getShortName(pizza.name) }}
-        <br />
-        {{ pizza.name | dots:0:10 }}
-        <br /> -->
-        <div>
-            {{ pizza.description }}
-        </div>
-        <!-- TODO 5: Dodaj pole opis -->
-        <img [src]="pizza.photoUrl" height="100px" />
-        <a (click)="removePizza()">usun</a> <!-- TODO 6: Obsłuż metode DELETE z Pizza API -->
-        <a (click)="modifyPizza()">ustaw obrazek</a> <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+<ul class="pizza-container" [class.fix]="pizzas.length === 1">
+  <ng-container *ngIf="!pizzaText">
+    <li  *ngFor="let pizza of (pizzas | paginate: {itemsPerPage: pageSize, currentPage: page, totalItems: total })">
+      <app-pizza-item
+        [pizza]="pizza"
+        (click)="handleClick(pizza.id)" 
+        [className]="markedId===pizza.id ? 'marked pizza-element' : 'pizza-element'">
+      </app-pizza-item>
     </li>
-    <!-- TODO 11: Dodajemy komponent stronnicowania -->
-</ul>
+    <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem) -->
+  </ng-container>
+  </ul>
 
-<app-pizza-editor></app-pizza-editor>
+    <!-- TODO 11: Dodajemy komponent stronnicowania -->
+
+  <pagination-controls class="pizza-paginator"
+  (pageChange)="onPageChange($event)"
+  previousLabel="Poprzednie"
+  autoHide="true"
+  maxSize="3"
+  nextLabel="Następne"></pagination-controls>

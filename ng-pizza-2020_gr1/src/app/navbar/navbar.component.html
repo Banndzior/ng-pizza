@@ -1,0 +1,20 @@
+
+<mat-toolbar color="primary" class="mat-elevation-z8">
+<div class="desktop-menu">
+  <a mat-button routerLink="/">Home</a>
+  <a mat-button routerLink="pizzas">Pizza</a>
+  <a mat-button routerLink="new">New Pizza</a>
+</div>
+<div class="mobile-menu">
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <a mat-button routerLink="/"><mat-icon>home</mat-icon>Home</a>
+    <a mat-button routerLink="pizzas"><mat-icon>donut_small</mat-icon>Pizza</a>
+    <a mat-button routerLink="new"><mat-icon>alarm_add</mat-icon>New Pizza</a>
+  </mat-menu>
+</div>
+<app-search class="app-search"></app-search>
+</mat-toolbar>
+
