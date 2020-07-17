@@ -31,11 +31,15 @@ export class PizzaDetailsSearchedComponent implements OnInit {
   }
 
   getSearchedByName(name) {
-    // this.PizzaSvc.getPizzaName(name).subscribe((resp) => {
-    //   this.pizza = resp;
-    // });
-    this.PizzaSvc.getPizzas().subscribe((resp) => {
-      this.pizzas = resp.value.filter((pizza) => pizza.name.includes(name));
+    this.PizzaSvc.getPizzas().subscribe((response) => {
+      if (name) {
+        this.pizzas = response.value.filter((pizza) =>
+          pizza.name.toLowerCase().includes(name.toLowerCase())
+        );
+        this.pizza = this.pizzas[0];
+      } else {
+        this.pizzas = response.value;
+      }
     });
   }
 }

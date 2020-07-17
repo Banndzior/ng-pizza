@@ -21,10 +21,6 @@ export class PizzaService {
     return this.http.get<Pizza>(`${this.url}/api/pizzas/${id}`);
   }
 
-  getPizzaName(name: string): Observable<Pizza> {
-    return this.http.get<Pizza>(`${this.url}/api/pizzas/${name}`);
-  }
-
   addPizza(pizza: Pizza): Observable<Pizza> {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, pizza);
   }
@@ -33,7 +29,7 @@ export class PizzaService {
     return this.http.delete(`${this.url}/api/pizzas/${pizza.id}`);
   }
 
-  modPizza(pizza: Pizza, data: File) {
-    return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, data);
+  modPizza(pizza: Pizza) {
+    return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, pizza);
   }
 }
