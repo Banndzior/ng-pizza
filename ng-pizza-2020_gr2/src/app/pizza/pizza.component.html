@@ -16,12 +16,33 @@
     <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
 
     <br />
-    <a>ustaw obrazek</a>
-    <!-- TODO 12: Obsłuż metode PUT/update z Pizza API -->
+    <!-- <a>ustaw obrazek</a> -->
+    <!-- DONE 12: Obsłuż metode PUT/update z Pizza API -->
     <br />
-    <a href="#" (click)="removePizza(pizza.id)">usun</a>
+    <button href="#" (click)="removePizza(pizza.id)">usun</button>
   </li>
+
+  <table>
+    <tr
+      *ngFor="
+        let item of items
+          | slice: (page - 1) * pageSize:(page - 1) * pageSize + pageSize
+      "
+    >
+      <!-- content here -->
+      <ngb-pagination
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="totalRows"
+        (pageChange)="onChangePage()"
+      ></ngb-pagination>
+    </tr>
+  </table>
+
   <!-- TODO 11: Dodajemy komponent stronicowania -->
+  <!-- <div class="card-footer pb-0 pt-3">
+    <jw-pagination [pizzas]="pizzas" (changePage)="onChangePage($event)"></jw-pagination>
+</div> -->
 </ul>
 
 <app-pizza-editor></app-pizza-editor>

@@ -12,8 +12,8 @@ export class PizzaService {
   constructor(private http: HttpClient) {}
   onChange: EventEmitter<any> = new EventEmitter<any>();
 
-  getPizzas(pageIndex: number): Observable<PizzaResponse> {
-    const limit = 5;
+  getPizzas(pageSize: number, pageIndex: number): Observable<PizzaResponse> {
+    const limit = pageSize;
     const offset = pageIndex * limit;
 
     return this.http.get<PizzaResponse>(
@@ -25,11 +25,15 @@ export class PizzaService {
     return this.http.get<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
   }
 
-  addPizza(pizza: Pizza) {
-    return this.http.post<Pizza>(`${this.apiUrl}/api/pizzas`, pizza);
+  addPizza(newPizza: Pizza) {
+    return this.http.post<Pizza>(`${this.apiUrl}/api/pizzas`, newPizza);
   }
 
   removePizza(pizzaId: number) {
     return this.http.delete<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
+  }
+
+  updatePizza(pizza: Pizza): Observable<Pizza> {
+    return this.http.put<Pizza>(`${this.apiUrl}/api/pizzas/${pizza}`, pizza);
   }
 }

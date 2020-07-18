@@ -24,6 +24,9 @@ export class ThreeDotsPipe implements PipeTransform {
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  pageSize: number;
+  page: number;
+  totalRows: number;
   pageIndex: number = 0;
 
   constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
@@ -36,12 +39,21 @@ export class PizzaComponent implements OnInit {
     this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
   }
 
+  onChangePage() {
+    this.loadPizzas();
+  }
+
   loadPizzas() {
-    this.pizzaSvc.getPizzas(this.pageIndex).subscribe((response) => {
-      this.pizzas = response.value.filter(
-        (pizza) => pizza.name.includes(this.name) || !this.name
-      );
-    });
+    this.pizzaSvc.getPizzas(this.pageSize, this.page - 1).subscribe(
+      (response) => {
+        this.pizzas = response.value;
+        this.totalRows = response.size;
+        // .filter((pizza) => pizza.name.includes(this.name) || !this.name);
+      },
+      (error) => {
+        console.log("error", error);
+      }
+    );
   }
 
   removePizza(pizzaId: number) {
@@ -51,7 +63,24 @@ export class PizzaComponent implements OnInit {
     );
   }
 
-  updatePizza(pizzaId: number) {
-    // ... http.put
+  updatePizza(pizza: Pizza) {
+    this.pizzaSvc.updatePizza(pizza).subscribe(
+      () => this.ngOnInit(),
+      (error) => console.error(error)
+    );
   }
+
+  // getPizza() {
+  //   this.pageSize = 4;
+  //   this.page = 1;
+  //   this.pizzaSvc.getPizzas(this.pageSize, this.page - 1).subscribe(
+  //     (response) => {
+  //       this.pizzas = response.value;
+  //       this.totalRows = response.size;
+  //     },
+  //     (error) => {
+  //       console.log("error", error);
+  //     }
+  //   );
+  // }
 }

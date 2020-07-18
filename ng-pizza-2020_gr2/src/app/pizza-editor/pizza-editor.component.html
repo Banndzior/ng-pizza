@@ -2,10 +2,57 @@
 <!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
 <!-- https://github.com/Banndzior/ng-form/tree/master/ng-fb-form_gr2/src/app/registration -->
 <form #myForm="ngForm" (ngSubmit)="addPizza(myForm)">
-  <input type="text" ngModel name="name" required />
-  <button>Dodaj pizze</button>
-  <div *ngIf="myForm.controls?.name?.errors?.required" class="error-msg">
-    To pole jest wymagane
-  </div>
-  <textarea name="pizzaDescription" ngModel></textarea>
+  <fieldset>
+    <legend>Dodawanie pizzy</legend>
+    <label>
+      Nazwa Pizzy
+      <input
+        type="text"
+        #name="ngModel"
+        ngModel
+        name="name"
+        required
+        minlength="4"
+      />
+      <!-- <button>Dodaj pizze</button> -->
+    </label>
+    <div class="error" *ngIf="name.hasError('required') && name.touched">
+      Pole jest wymagane
+    </div>
+    <!-- <label>
+      <br />
+      Opis Pizzy: -->
+    <!-- <textarea name="pizzaDescription" ngModel></textarea> -->
+    <!-- <div *ngIf="myForm.controls?.name?.errors?.required" class="error-msg">
+
+      </div> -->
+    <!-- </label> -->
+    <br />
+    <label>
+      Url do zdjęcia:
+
+      <input
+        type="text"
+        class="form-control"
+        name="imageUrl"
+        ngModel
+        required
+        minlength="3"
+      />
+    </label>
+    <br />
+    <label>
+      Opis:
+
+      <input
+        type="text"
+        name="description"
+        class="form-control"
+        ngModel
+        description
+      />
+    </label>
+    <br />
+    <button (click)="addPizza()">Zapisz pizzę</button>
+  </fieldset>
 </form>

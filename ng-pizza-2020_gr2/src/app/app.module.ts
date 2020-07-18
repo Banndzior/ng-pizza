@@ -1,6 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
+import { JwPaginationComponent } from "jw-angular-pagination";
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,8 +22,15 @@ import { SlicePipe } from "@angular/common";
     PizzaItemComponent,
     PizzaEditorComponent,
     ThreeDotsPipe,
+    JwPaginationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    NgbModule,
+  ],
   providers: [SlicePipe],
   bootstrap: [AppComponent],
 })
