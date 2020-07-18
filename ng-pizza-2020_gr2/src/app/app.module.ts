@@ -11,6 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 import { SlicePipe } from "@angular/common";
+import { PizzaNavigatorComponent } from './pizza-navigator/pizza-navigator.component';
+import { PizzaCommentsComponent } from './pizza-comments/pizza-comments.component';
 
 // DONE 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // DONE 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
@@ -23,6 +25,8 @@ import { SlicePipe } from "@angular/common";
     PizzaEditorComponent,
     ThreeDotsPipe,
     JwPaginationComponent,
+    PizzaNavigatorComponent,
+    PizzaCommentsComponent,
   ],
   imports: [
     BrowserModule,

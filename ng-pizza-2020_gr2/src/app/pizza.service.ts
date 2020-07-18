@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { PizzaResponse, Pizza } from "./pizza";
 import { Observable } from "rxjs";
+import { CommentResponse } from "./comment";
 
 @Injectable({
   providedIn: "root",
@@ -21,12 +22,19 @@ export class PizzaService {
     );
   }
 
+  getComments(): Observable<CommentResponse> {
+    return this.http.get<CommentResponse>(`${this.apiUrl}/api/comments`);
+  }
   getPizza(pizzaId: number): Observable<Pizza> {
     return this.http.get<Pizza>(`${this.apiUrl}/api/pizzas/${pizzaId}`);
   }
 
   addPizza(newPizza: Pizza) {
     return this.http.post<Pizza>(`${this.apiUrl}/api/pizzas`, newPizza);
+  }
+
+  addComment(newComment: Comment) {
+    return this.http.post<Comment>(`${this.apiUrl}/api/comments`, newComment);
   }
 
   removePizza(pizzaId: number) {

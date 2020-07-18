@@ -25,17 +25,20 @@
   <table>
     <tr
       *ngFor="
-        let item of items
+        let item of pizzas
           | slice: (page - 1) * pageSize:(page - 1) * pageSize + pageSize
       "
     >
       <!-- content here -->
-      <ngb-pagination
-        [(page)]="page"
-        [pageSize]="pageSize"
-        [collectionSize]="totalRows"
-        (pageChange)="onChangePage()"
-      ></ngb-pagination>
+
+      <div id="pagination">
+        <ngb-pagination
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [collectionSize]="totalRows"
+          (pageChange)="onChangePage()"
+        ></ngb-pagination>
+      </div>
     </tr>
   </table>
 
