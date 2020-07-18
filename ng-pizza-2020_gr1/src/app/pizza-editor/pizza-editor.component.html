@@ -1,1 +1,64 @@
-<button (click)="(PizzaComp.addPizza())">Dodaj pizzę</button>
+<button (click)="addPizza()">Dodaj pizzę</button>
+<div>
+  <form class="form-group" #form="ngForm" (ngSubmit)="modPizza(form.value)">
+    <div class="form-group">
+      <label
+        style="min-width: 500px;"
+        class="col py-3 px-lg-5 border"
+        class="shadow-sm p-3 mb-5 bg-white rounded"
+        >Pizza name:</label
+      >
+      <input
+        type="text"
+        name="name"
+        ngModel
+        #name="ngModel"
+        required
+        class="col-sm-8"
+        class="shadow-none p-3 mb-5 bg-light rounded"
+      />
+    </div>
+    <div class="form-group">
+      <label
+        style="min-width: 500px;"
+        class="col py-3 px-lg-5 border"
+        class="shadow-sm p-3 mb-5 bg-white rounded"
+        >Description:</label
+      >
+      <input
+        type="text"
+        name="desc"
+        ngModel
+        #desc="ngModel"
+        required
+        class="col-sm-8"
+        class="shadow-none p-3 mb-5 bg-light rounded"
+      />
+    </div>
+    <div class="form-group">
+      <label
+        style="min-width: 500px;"
+        class="col py-3 px-lg-5 border"
+        class="shadow-sm p-3 mb-5 bg-white rounded"
+        >Image:</label
+      >
+      <input
+        type="text"
+        name="image"
+        ngModel
+        #image="ngModel"
+        required
+        class="col-sm-8"
+        class="shadow-none p-3 mb-5 bg-light rounded"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-secondary"
+      style="background-color: seagreen;"
+      [disabled]="form.invalid"
+    >
+      Dodaj swoją pizzę
+    </button>
+  </form>
+</div>

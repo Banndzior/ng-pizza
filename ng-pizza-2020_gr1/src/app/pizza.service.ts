@@ -29,7 +29,7 @@ export class PizzaService {
     return this.http.delete(`${this.url}/api/pizzas/${pizza.id}`);
   }
 
-  modPizza(pizza: Pizza) {
-    return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, pizza);
-  }
+  // modPizza(pizza: Pizza) {
+  //   return this.http.post(`${this.url}/api/pizzas/${pizza.id}`, pizza);
+  // }
 }

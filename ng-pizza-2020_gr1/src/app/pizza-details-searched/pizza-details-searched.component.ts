@@ -22,6 +22,11 @@ export class PizzaDetailsSearchedComponent implements OnInit {
     this.pizzaId != 0
       ? this.getSearchedById(this.pizzaId)
       : this.getSearchedByName(this.pizzaName);
+    this.PizzaSvc.pizzaChange.subscribe(() => {
+      this.pizzaId != 0
+        ? this.getSearchedById(this.pizzaId)
+        : this.getSearchedByName(this.pizzaName);
+    });
   }
 
   getSearchedById(id) {
@@ -31,14 +36,14 @@ export class PizzaDetailsSearchedComponent implements OnInit {
   }
 
   getSearchedByName(name) {
-    this.PizzaSvc.getPizzas().subscribe((response) => {
+    this.PizzaSvc.getPizzas().subscribe((resp) => {
       if (name) {
-        this.pizzas = response.value.filter((pizza) =>
+        this.pizzas = resp.value.filter((pizza) =>
           pizza.name.toLowerCase().includes(name.toLowerCase())
         );
         this.pizza = this.pizzas[0];
       } else {
-        this.pizzas = response.value;
+        this.pizzas = resp.value;
       }
     });
   }

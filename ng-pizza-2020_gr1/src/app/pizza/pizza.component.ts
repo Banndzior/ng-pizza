@@ -22,6 +22,7 @@ export class ThreeDotsPipe implements PipeTransform {
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   pizza: Pizza;
+  clicked: boolean;
 
   constructor(private pizzaSvc: PizzaService) {}
 
@@ -39,6 +40,15 @@ export class PizzaComponent implements OnInit {
     this.pizzaSvc.pizzaChange.subscribe(() => {
       this.getPizza();
     });
+    this.clicked = false;
+  }
+
+  onClick() {
+    if (this.clicked === false) {
+      this.clicked = true;
+    } else if (this.clicked === true) {
+      this.clicked = false;
+    }
   }
 
   getPizza() {
@@ -48,22 +58,22 @@ export class PizzaComponent implements OnInit {
     });
   }
 
-  addPizza() {
-    this.pizzaSvc
-      .addPizza({
-        name: "Pizzusheen",
-        description: "To jest kot pizzy",
-        photoUrl:
-          "https://www.pngkey.com/png/detail/5-50650_clipart-pizza-png-clipart-pusheen-eating-pizza.png",
-      })
-      .subscribe(() => this.ngOnInit());
-  }
+  // addPizza() {
+  //   this.pizzaSvc
+  //     .addPizza({
+  //       name: "Pizzusheen",
+  //       description: "To jest kot pizzy",
+  //       photoUrl:
+  //         "https://www.pngkey.com/png/detail/5-50650_clipart-pizza-png-clipart-pusheen-eating-pizza.png",
+  //     })
+  //     .subscribe(() => this.ngOnInit());
+  // }
 
-  modifyPizza() {
-    this.pizzaSvc.modPizza({
-      name: this.pizza.name,
-      description: this.pizza.description,
-      photoUrl: this.pizza.photoUrl,
-    });
-  }
+  // modifyPizza() {
+  //   this.pizzaSvc.modPizza({
+  //     name: this.pizza.name,
+  //     description: this.pizza.description,
+  //     photoUrl: this.pizza.photoUrl,
+  //   });
+  // }
 }

@@ -1,4 +1,4 @@
-<ul class="row mx-lg-n5">
+<ul class="row mx-lg-n5" (click)="onClick()">
   <li *ngFor="let pizza of pizzas">
     <app-pizza-item [pizza]="pizza"></app-pizza-item>
   </li>
