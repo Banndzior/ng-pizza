@@ -1,5 +1,5 @@
-<ul>
-    <li *ngFor="let pizza of pizzas">
+<ul class="row row-cols-2">
+    <li *ngFor="let pizza of pizzas" class="col">
         <app-pizza-item [pizza]="pizza"></app-pizza-item>
     </li>
 </ul>

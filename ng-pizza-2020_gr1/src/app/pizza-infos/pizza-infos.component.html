@@ -4,12 +4,13 @@
     <p class="p">{{ pizza.description }}</p>
     <br />
     <br /> 
-    <form (ngSubmit)="modifyPizza(pizza, form.value)" class="form-group">
+    <form #form="ngForm" (ngSubmit)="modifyPizza(pizza, form.value)" class="form-group">
       <div>
         <input
             type="text"
             name="photoUrl"
             class="pizzaPhoto"
+            ngModel  #image="ngModel"
             placeholder="change image"
             class="form form-control"
         />
@@ -20,21 +21,5 @@
         <button (click)="removePizza(pizza)" class="btn btn-secondary">usun</button>
     </div>
 </div>
-
-<!-- <form #form="ngForm"(ngSubmit)="modifyPizza(pizza, form.value)">
-      <div>
-        <input
-            type="text"
-            name="photoUrl"
-            class="pizzaPhoto"
-            placeholder="change image"
-            required
-        />
-        <button type="submit" (click)="modifyPizza(pizza)">ustaw obrazek</button> 
-      </div>
-      <div>
-        <button (click)="removePizza(pizza)">usun</button>
-      </div>
-</form> -->
 
 

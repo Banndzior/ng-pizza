@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm } from "@angular/forms";
 import { PizzaService } from '../pizza.service';
 import { Pizza } from '../pizza';
 
@@ -13,32 +14,35 @@ export class PizzaInfosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private PizzaSvc: PizzaService
+    private pizzaSvc: PizzaService
   ) { }
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.getPizza(id);
+    this.pizzaSvc.onChangePizza.subscribe(() => {
+      this.getPizza(id);
+    })
   }
 
   getPizza(id) {
-    this.PizzaSvc.getPizza(id).subscribe(resp => {
+    this.pizzaSvc.getPizza(id).subscribe(resp => {
       this.pizza = resp;
     })
   }
 
   removePizza(pizza: Pizza) {
     console.log(pizza.id);
-    this.PizzaSvc.removePizza(pizza).subscribe(
-      () => this.PizzaSvc.onChangePizza.emit(),
+    this.pizzaSvc.removePizza(pizza).subscribe(
+      () => this.pizzaSvc.onChangePizza.emit(),
       (error) => console.error(error));
   }
 
-  modifyPizza(pizza, inputContent) {
-    pizza.photoUrl = inputContent;
-    console.log(inputContent);
+  modifyPizza(pizza, formContent) {
+    pizza.photoUrl = formContent.image;
+    console.log(formContent);
     console.log(pizza.name);
-    this.PizzaSvc.modifyPizza(this.pizza).subscribe(() => this.PizzaSvc.onChangePizza.emit(),
+    this.pizzaSvc.modifyPizza(this.pizza).subscribe(() => this.pizzaSvc.onChangePizza.emit(),
     (error) => console.error(error));
   }
 

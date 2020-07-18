@@ -9,7 +9,7 @@ import { Pizza } from '../pizza';
   styleUrls: ['./search-name.component.css']
 })
 export class SearchNameComponent implements OnInit {
-  searchName: '';
+  searchName: String;
   pizzas: Pizza[];
   pizza: Pizza
 
@@ -22,7 +22,9 @@ export class SearchNameComponent implements OnInit {
   ngOnInit() {
     this.searchName = this.route.snapshot.paramMap.get('name');
     this.getPizzas();
-    console.log(this.searchName);
+    this.PizzaSvc.onChangePizza.subscribe(() => {
+      this.getPizzas();
+    })
   }
 
   getPizzas() {
