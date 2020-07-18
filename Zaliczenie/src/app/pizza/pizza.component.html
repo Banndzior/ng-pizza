@@ -1,0 +1,44 @@
+<!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
+<!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+<app-pizza-nav></app-pizza-nav>
+<div class="center">
+  <div class="container-fluid">
+    <div class="row row-cols-5  ">
+      <div *ngFor=" let pizza of pizzas
+            | paginate: { itemsPerPage: 8, currentPage: pageIndex }" (clickOutside)="inactive(pizza)"
+        (click)="active(pizza)" class="card" [ngClass]="pizza.active ? 'active' : ''">
+        <!-- <div *ngIf="pizza.photoUrl; else noPhoto"> -->
+        <img class="card-img-top" [src]="pizza.photoUrl" alt="Photo unavailable" />
+        <!-- </div> -->
+        <!-- <ng-template #noPhoto>
+          <img class="card-img-top" src="https://media.gettyimages.com/vectors/-vector-id975791326?s=2048x2048"
+            alt="Photo unavailable" />
+        </ng-template> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ pizza.name | dots }}</h5>
+          <p class="card-text">{{
+            (pizza.description | slice: 0:30) +
+              (pizza.description.length > 30 ? "..." : "")
+          }}</p>
+        </div>
+        <button (click)="removePizza(pizza.id)" type="button" class="btn btn-danger">Usuń</button>
+      </div>
+    </div>
+    <div class="pages">
+      <pagination-controls (pageChange)="pageIndex = $event"></pagination-controls>
+    </div>
+    <div class="toggle-button">
+      <button (click)="showEditor()" type="button" class="btn btn-primary">Compose your own PIZZA</button>
+    </div>
+    <div class="toggle-editor">
+      <div *ngIf="visableEditor">
+        <app-pizza-editor></app-pizza-editor>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
+<!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
+<!-- TODO 11: Dodajemy komponent stronnicowania -->
+<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
