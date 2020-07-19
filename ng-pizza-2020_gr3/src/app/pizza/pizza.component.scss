@@ -1,6 +1,3 @@
-.active {
-    color: red;
-}
 
 :host {
     ::ng-deep {
@@ -29,14 +26,14 @@
                 align-items: center;
                 justify-content: center;
                 width: 4rem;
-                border: 1px solid gray;
+                border: 1px solid #ad8605;
             }
 
             .first-item,
             .last-item,
             .previous-item,
             .next-item {
-                background-color: lime;
+                background-color: #F1BA04;
             }
 
         }
