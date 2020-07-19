@@ -3,6 +3,7 @@ import { PizzaService } from "../pizza.service";
 import { Pizza } from "../pizza";
 import { SlicePipe } from "@angular/common";
 import { ActivatedRoute } from "@angular/router";
+import { isNullOrUndefined } from "util";
 
 @Pipe({ name: "dots" })
 export class ThreeDotsPipe implements PipeTransform {
@@ -29,7 +30,11 @@ export class PizzaComponent implements OnInit {
   totalRows: number;
   pageIndex: number = 0;
 
-  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
+  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {
+    this.pageSize = 4;
+    this.page = 1;
+    this.totalRows = 1;
+  }
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get("name");
@@ -37,6 +42,19 @@ export class PizzaComponent implements OnInit {
 
     this.loadPizzas();
     this.pizzaSvc.onChange.subscribe(() => this.loadPizzas());
+
+    this.route.params.subscribe((params) => (this.name = params.name));
+    this.pageSize = 4;
+    this.page = 1;
+    if (!isNullOrUndefined(this.name)) {
+      this.pizzaSvc
+        .getPizzas(this.pageSize, this.page - 1)
+        .subscribe((pizzaResponse) => {
+          return (this.pizzas = pizzaResponse.value.filter(
+            (el) => el.name === this.name
+          ));
+        });
+    }
   }
 
   onChangePage() {
