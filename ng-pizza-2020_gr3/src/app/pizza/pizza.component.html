@@ -7,7 +7,7 @@
     <div
       *ngFor="
         let pizza of pizzas
-          | paginate: { itemsPerPage: 10, currentPage: pageIndex }
+          | paginate: { itemsPerPage: 5, currentPage: pageIndex }
       "
       class="field"
       (clickOutside)="inactive(pizza)"
@@ -22,7 +22,19 @@
           {{ pizza.name | dots }}
         </div>
       </div>
-      <img class="item-img" [src]="pizza.photoUrl" alt="Missing photo" />
+      <div class="item-img-new" *ngIf="pizza.photoUrl; else noPhoto">
+        <img class="item-img" [src]="pizza.photoUrl" alt="Missing photo" />
+      </div>
+      <ng-template #noPhoto>
+        <div class="item-img-new">
+          <img
+            class="item-img"
+            src="https://42kmandmore.files.wordpress.com/2012/11/42kmandmore-20121110-1622img_0441-800px.jpg"
+            alt="Missing photo"
+          />
+        </div>
+      </ng-template>
+      <!-- <img class="item-img" [src]="pizza.photoUrl" alt="Missing photo" /> -->
       <div class="content">
         <p>
           {{

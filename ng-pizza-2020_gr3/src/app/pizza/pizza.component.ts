@@ -14,7 +14,11 @@ export class PizzaComponent implements OnInit {
   id: string;
   pageIndex: number = 1;
 
-  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private pizzaSvc: PizzaService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get("name");
@@ -28,10 +32,19 @@ export class PizzaComponent implements OnInit {
   getPizzas() {
     this.pizzaSvc.getPizzas().subscribe((response) => {
       this.pizzas = this.name
-        ? response.value.filter((pizza) => pizza.name.includes(this.name))
+        ? response.value.filter((pizza) =>
+            pizza.name.toLowerCase().includes(this.name.toLowerCase())
+          )
         : response.value;
     });
   }
+
+  // getPizza(name) {
+  //   this.pizzaSvc.getPizza(name).subscribe((response) => {
+  //     this.router.navigate(["pizzas/", response.name]);
+  //     this.pizza = resp;
+  //   });
+  // }
 
   removePizza(pizzaId: number) {
     this.pizzaSvc.removePizza(pizzaId).subscribe(

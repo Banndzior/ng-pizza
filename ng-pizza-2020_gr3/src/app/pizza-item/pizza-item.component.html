@@ -1,1 +1,32 @@
-<p>pizza-item works!</p>
+<!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
+<!-- TODO 3: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
+
+<div class="wrapper">
+  <app-pizza-nav></app-pizza-nav>
+  <div class="container">
+    <div class="field">
+      <div class="item">
+        <div>
+          {{ pizza.name | dots }}
+        </div>
+      </div>
+      <img class="item-img" [src]="pizza.photoUrl" alt="Missing photo" />
+      <div class="content">
+        <p>
+          {{
+            (pizza.description | slice: 0:70) +
+              (pizza.description.length > 70 ? "..." : "")
+          }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <app-pizza-editor></app-pizza-editor>
+</div>
+
+<!-- TODO 5: Obsłuż metode DELETE z Pizza API -->
+<!-- TODO 5+: Obsłuż metode PUT/update z Pizza API -->
+<!-- TODO 11: Dodajemy komponent stronnicowania -->
+
+<!-- TODO 8: Przenies obsługe przycisku do komponentu pizza-editor -->
+<!-- TODO 9: Zaimplementuj formularz dodawania pizzy (nazwa, adres obrazka, opis) w oddzielnym komponencie PizzaEditor z uwzglednieniem walidacji -->
