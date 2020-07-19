@@ -1,0 +1,30 @@
+<div class="input-bar">
+  <form
+    #searchForm="ngForm"
+    (ngSubmit)="handleSubmit(searchForm.value, searchForm)"
+  >
+    <div class="input-group is-invalid form">
+      <input
+        type="text"
+        name="pizzaName"
+        [(ngModel)]="pizzaName"
+        placeholder="Search"
+      />
+      <div class="input-group-append">
+        <button type="submit" class="btn btn-outline-secondary">Go</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="container">
+  <div class="row" *ngIf="pizzas">
+    <div *ngFor="let pizza of pizzas" class="col-sm-4">
+      <app-pizza-item
+        [pizza]="pizza"
+        [selectedId]="selectedId"
+        (click)="handleClick(pizza.id)"
+      >
+      </app-pizza-item>
+    </div>
+  </div>
+</div>

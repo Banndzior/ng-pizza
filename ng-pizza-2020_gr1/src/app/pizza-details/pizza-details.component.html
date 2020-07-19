@@ -1,0 +1,60 @@
+<div>
+  <div>
+    <div class="button-wrapper">
+      <a
+        mat-raised-button
+        color="primary"
+        [routerLink]="['../']"
+        class="nav-item"
+        >Home</a
+      >
+    </div>
+    <mat-card class="wrapper">
+      <div class="card-container">
+        <div class="card-img">
+          <img mat-card-lg-image [src]="pizza?.photoUrl" (error)="onError()" />
+        </div>
+        <div class="card-content">
+          <div class="content-wrapper">
+            <div>
+              <mat-card-title class="card-title">
+                {{ pizza?.name }}</mat-card-title
+              >
+              <mat-card-subtitle class="card-subtitle"
+                >Id: {{ pizza?.id }}</mat-card-subtitle
+              >
+            </div>
+            <div>
+              <mat-card-content>
+                <p>{{ pizza?.description }}</p>
+              </mat-card-content>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+    <div>
+      <form
+        #modifyForm="ngForm"
+        (ngSubmit)="modify(modifyForm.value, modifyForm)"
+      >
+        <div>
+          <label>Photo Url: </label>
+          <input
+            type="text"
+            name="photoUrl"
+            ngModel
+            #photoUrl="ngModel"
+            placeholder="Edit photo url"
+          />
+          <button type="submit">
+            Confirm
+          </button>
+          <button type="button" (click)="remove()">
+            Remove
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

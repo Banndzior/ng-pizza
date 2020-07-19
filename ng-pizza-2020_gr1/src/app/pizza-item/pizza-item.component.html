@@ -1,15 +1,70 @@
 <!-- DONE 3: Wydziel zawartosc html do komponentu pizza-item -->
 <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-<div *ngIf="pizza">
+<!-- DONE 5: Dodaj pole opis -->
+<!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
+<!-- TODO 12: Obsłuż metode POST z Pizza API -->
+<!-- <div *ngIf="pizza">
   <p>{{ pizza.id }}</p>
   <h3>
     {{ (pizza.name | slice: 0:10) + (pizza.name.length > 10 ? "..." : "") }}
-  </h3>
-  <!-- DONE 5: Dodaj pole opis -->
-  <p>{{ pizza.description }}</p>
+  </h3> -->
+
+<!-- <p>{{ pizza.description }}</p>
   <img [src]="pizza.photoUrl" height="100px" />
-  <a (click)="removePizza(pizza)">usun</a>
-  <!-- DONE 6: Obsłuż metode DELETE z Pizza API -->
-  <!-- <a href="#" (click)="modifyPizza()">ustaw obrazek</a> -->
-  <!-- TODO 12: Obsłuż metode POST z Pizza API -->
+  <a (click)="removePizza(pizza)">usun</a> -->
+
+<!-- <a href="#" (click)="modifyPizza()">ustaw obrazek</a> -->
+
+<!-- </div> -->
+<div class="container">
+  <mat-card class="wrapper">
+    <div
+      [ngClass]="
+        selectedId && selectedId.includes(pizza.id)
+          ? 'bg-warning text-white'
+          : ''
+      "
+      class="card-container"
+    >
+      <mat-card-title class="card-title">
+        <a
+          [routerLink]="['/pizzas', pizza.id]"
+          class="text-decoration-none text-reset"
+          >{{ pizza?.name | dots: 14 }}</a
+        ></mat-card-title
+      >
+      <mat-card-subtitle class="card-subtitle"
+        ><span style="font-size: 0.7rem;"
+          >Id: {{ pizza?.id }}</span
+        ></mat-card-subtitle
+      >
+      <img
+        mat-card-lg-image
+        [src]="pizza.photoUrl"
+        (error)="onError()"
+        class="card-img"
+        height="200"
+      />
+      <mat-card-content class="card-content">
+        <p class="card-text">{{ pizza.description | dots: 20 }}</p>
+      </mat-card-content>
+      <mat-card-actions class="card-footer d-flex justify-content-around">
+        <button
+          mat-raised-button
+          class="card-button"
+          color="primary"
+          (click)="removePizza()"
+        >
+          Delete
+        </button>
+        <a
+          mat-raised-button
+          class="card-button"
+          color="primary"
+          [routerLink]="['/pizzas/', pizza.id]"
+          >Edit</a
+        >
+      </mat-card-actions>
+    </div>
+  </mat-card>
 </div>

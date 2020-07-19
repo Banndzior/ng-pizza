@@ -1,0 +1,23 @@
+a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid white;
+  transition: 0.3s;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.card-nav {
+  background-color: #673ab7;
+}
+
+nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+a:hover {
+  color: #673ab7;
+  background-color: white;
+}

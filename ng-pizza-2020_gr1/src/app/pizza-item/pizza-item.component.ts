@@ -1,9 +1,6 @@
-import { Component, OnInit, Input, Output } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { Pizza } from "../pizza";
 import { PizzaService } from "../pizza.service";
-import { ActivatedRoute } from "@angular/router";
-import { isNullOrUndefined } from "util";
-import { EventEmitter } from "protractor";
 
 @Component({
   selector: "app-pizza-item",
@@ -14,30 +11,30 @@ export class PizzaItemComponent implements OnInit {
   @Input()
   pizza: Pizza;
 
-  // @Output()
-  // removePizza = new EventEmitter();
+  @Input()
+  selectedId: [number];
 
-  constructor(private route: ActivatedRoute, private pizzaSvc: PizzaService) {}
+  constructor(private pizzaSvc: PizzaService) {}
 
-  ngOnInit() {
-    const id = this.route.snapshot.paramMap.get("id");
+  // ngOnInit() {
+  //   const id = this.route.snapshot.paramMap.get("id");
 
-    if (!isNullOrUndefined(id)) {
-      this.pizzaSvc
-        .getPizza(parseInt(id, 10))
-        .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
-    }
-  }
+  //   if (!isNullOrUndefined(id)) {
+  //     this.pizzaSvc
+  //       .getPizza(parseInt(id, 10))
+  //       .subscribe((pizzaResponse) => (this.pizza = pizzaResponse));
+  //   }
+  // }
 
-  removePizza(pizza: Pizza) {
-    console.log(pizza.id);
+  ngOnInit() {}
 
+  removePizza() {
     this.pizzaSvc
-      .removePizza(pizza)
+      .removePizza(this.pizza)
       .subscribe(() => this.pizzaSvc.onPizzaChange.emit());
   }
 
-  // modifyPizza() {
-  //   // ? update obrazka
-  // }
+  onError() {
+    this.pizza.photoUrl = "../assets.pizza.png";
+  }
 }

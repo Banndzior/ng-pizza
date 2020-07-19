@@ -1,8 +1,24 @@
-<ul>
-  <li *ngFor="let pizza of pizzas">
-    <app-pizza-item [pizza]="pizza"></app-pizza-item>
-  </li>
-  <!-- TODO 11: Dodajemy komponent stronnicowania -->
-</ul>
-
-<app-pizza-editor></app-pizza-editor>
+<div>
+  <div>
+    <div
+      *ngFor="
+        let pizza of pizzas
+          | paginate
+            : { itemsPerPage: pageSize, currentPage: page, totalItems: total }
+      "
+    >
+      <app-pizza-item
+        [pizza]="pizza"
+        [selectedId]="selectedId"
+        (click)="handleClick(pizza.id)"
+      ></app-pizza-item>
+    </div>
+  </div>
+  <div class="paggination-container">
+    <pagination-controls
+      class="paggination-bar"
+      (pageChange)="onPageChange($event)"
+    ></pagination-controls>
+  </div>
+</div>
+<!-- DONE 11: Dodajemy komponent stronnicowania -->

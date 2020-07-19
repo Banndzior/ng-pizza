@@ -13,6 +13,13 @@ export class PizzaService {
 
   constructor(private http: HttpClient) {}
 
+  getAllPizzas(pageIndex: number, pageSize: number): Observable<PizzaResponse> {
+    const offset = pageSize * (pageIndex - 1);
+    return this.http.get<PizzaResponse>(
+      `${this.url}/api/pizzas?offset=${offset}&limit=${pageSize}`
+    );
+  }
+
   getPizzas(): Observable<PizzaResponse> {
     return this.http.get<PizzaResponse>(`${this.url}/api/pizzas`);
   }
@@ -23,6 +30,14 @@ export class PizzaService {
 
   addPizza(pizza: Pizza): Observable<Pizza> {
     return this.http.post<Pizza>(`${this.url}/api/pizzas`, pizza);
+  }
+
+  // modifyPizza(pizzaId: number, image: object): Observable<any> {
+  //   return this.http.put<Pizza>(`${this.url}/api/pizzas/${pizzaId}`, image);
+  // }
+
+  modifyPizza(pizza: Pizza): Observable<Pizza> {
+    return this.http.put<Pizza>(`${this.url}/api/pizzas/${pizza.id}`, pizza);
   }
 
   removePizza(pizza: Pizza): Observable<Pizza> {
