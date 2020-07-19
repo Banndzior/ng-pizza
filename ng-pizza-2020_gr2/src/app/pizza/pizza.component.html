@@ -1,15 +1,20 @@
 <ul>
-  <li *ngFor="let pizza of pizzas">
+  <li
+    *ngFor="
+      let pizza of pizzas
+        | slice: (page - 1) * pageSize:(page - 1) * pageSize + pageSize
+    "
+  >
     <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
     <!-- DONE 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-    {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
+    {{ pizza.name.substr(0, 20) + (pizza.name.length > 20 ? "..." : "") }}
     <br />
     <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
         <br />
         {{ pizza.name | dots:0:10 }}
         <br /> -->
     <!-- DONE 5: Dodaj pole opis -->
-    <div>
+    <div class="menu-bar">
       {{ pizza.description }}
     </div>
     <img [src]="pizza.photoUrl" height="50px" />
@@ -21,31 +26,15 @@
     <br />
     <button href="#" (click)="removePizza(pizza.id)">usun</button>
   </li>
-
-  <table>
-    <tr
-      *ngFor="
-        let item of pizzas
-          | slice: (page - 1) * pageSize:(page - 1) * pageSize + pageSize
-      "
-    >
-      <!-- content here -->
-
-      <div id="pagination">
-        <ngb-pagination
-          [(page)]="page"
-          [pageSize]="pageSize"
-          [collectionSize]="totalRows"
-          (pageChange)="onChangePage()"
-        ></ngb-pagination>
-      </div>
-    </tr>
-  </table>
-
-  <!-- TODO 11: Dodajemy komponent stronicowania -->
-  <!-- <div class="card-footer pb-0 pt-3">
-    <jw-pagination [pizzas]="pizzas" (changePage)="onChangePage($event)"></jw-pagination>
-</div> -->
 </ul>
+
+<div id="pagination">
+  <ngb-pagination
+    [(page)]="page"
+    [pageSize]="pageSize"
+    [collectionSize]="totalRows"
+    (pageChange)="onChangePage()"
+  ></ngb-pagination>
+</div>
 
 <app-pizza-editor></app-pizza-editor>

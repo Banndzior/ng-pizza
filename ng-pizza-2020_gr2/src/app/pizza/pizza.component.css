@@ -1,0 +1,12 @@
+ngb-pagination {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.menu-bar {
+  text-align: center;
+  font-family: "Baloo Bhai 2", cursive;
+  background-color: white;
+  color: brown;
+}
