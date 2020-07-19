@@ -1,0 +1,27 @@
+.active {
+    color: #F1BA04;
+}
+
+.activeHome {
+    color: #F1BA04;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+
+    &--list {
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        width: 20%;
+        justify-content: space-between;
+
+        &>li a {
+            text-decoration: solid;
+        }
+
+        &-home {}
+    }
+}

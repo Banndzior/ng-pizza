@@ -6,11 +6,13 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 @Component({
   selector: "app-pizza",
   templateUrl: "./pizza.component.html",
-  styleUrls: ["./pizza.component.css"],
+  styleUrls: ["./pizza.component.scss"],
 })
 export class PizzaComponent implements OnInit {
   pizzas: Pizza[];
   name: string;
+  pageOfItems: Array<any>;
+  selectedId: any;
 
   constructor(
     private pizzaSvc: PizzaService,
@@ -22,21 +24,24 @@ export class PizzaComponent implements OnInit {
 
   ngOnInit() {
     this.name = this.route.snapshot.paramMap.get("name");
-    // console.log(this.name);
 
     this.getPizza();
     this.pizzaSvc.pizzaEmitter.subscribe((msg) => {
       this.getPizza();
+    });
+
+    this.pizzaSvc.onPizzaChanged.subscribe((pizzaId) => {
+      this.selectPizza(pizzaId);
     });
   }
 
   getPizza() {
     this.pizzaSvc.getPizzas().subscribe(
       (response) => {
-        // this.pizzas = r
-        if (this.name.length > 0) {
-          console.log(this.name);
-          this.pizzas = response.value.filter((pizza) => pizza.name.includes(this.name));
+        if (this.name && this.name.length > 0) {
+          this.pizzas = response.value.filter((pizza) => {
+            return pizza.name.toLowerCase().includes(decodeURI(this.name));
+          });
         } else {
           this.pizzas = response.value;
         }
@@ -54,5 +59,18 @@ export class PizzaComponent implements OnInit {
         description: " Salami, salad XD",
       })
       .subscribe(() => this.getPizza());
+  }
+
+  selectPizza(id) {
+    console.log(id);
+    
+    this.pizzas.forEach((pizza) => {
+      console.log(pizza.id);
+      pizza.id == id? pizza.isSelected = true : pizza.isSelected = false;
+    });
+  }
+
+  onChangePage(pageOfItems: Array<any>) {
+    this.pageOfItems = pageOfItems;
   }
 }

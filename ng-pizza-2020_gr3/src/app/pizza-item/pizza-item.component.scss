@@ -1,0 +1,68 @@
+
+
+.pizzaItem {
+    display: flex;
+    flex-direction: row;
+
+    width: 40rem;
+    height: 13rem;
+    margin: 1rem;
+    background-color: #F4F4F4;
+    list-style-type: none;
+    overflow: hidden;
+    box-shadow: 13px 11px 28px -6px rgba(189, 189, 189, 0.84);
+    border: 1px solid #e3e3e3;
+
+    &--active{
+        background-color: red;
+
+        .pizzaItem__desc--button--select{
+            font-weight: bold;
+        }
+    }
+
+    &__img {
+        width: 20rem;
+        margin-right: 2.5rem;
+
+        // -webkit-box-shadow: 13px 0px 20px 0px rgba(227, 227, 227, 1);
+        // -moz-box-shadow: 13px 0px 20px 0px rgba(227, 227, 227, 1);
+        // box-shadow: 13px 0px 20px 0px rgba(227, 227, 227, 1);
+    }
+
+    &__desc {
+        flex: 1;
+        flex-shrink: 1;
+        flex-direction: column;
+        overflow: hidden;
+
+        &--name {
+            flex: 1;
+            flex-shrink: 1;
+            font-family: "Poppins";
+            font-size: 2rem;
+            font-weight: 400;
+            color: #F1BA04;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            line-height: 4rem;
+        }
+
+        &--desc {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            padding-right: 1rem;
+        }
+
+        &--button--select,
+        &--button--remove{
+            margin-right: 1rem;
+            &:hover {
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+}

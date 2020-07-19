@@ -1,14 +1,14 @@
 <h1>PIZZA</h1>
 <ul>
-    <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
-    <li *ngFor="let pizza of pizzas">
-   <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
+  <!-- TODO 15: Zrobic zaznaczanie pizzy (wyroznianie kolorem: zielonym tlo) -->
+  <li *ngFor="let pizza of pizzas">
+    <!-- TODO Wydziel zawartosc html do komponentu pizza-item -->
     <!-- TODO 4: Uzyj pipe skracajacy nazwe pizzy jak jest za dluga (10 znaków + "…") -->
-        
+
     <!-- {{ pizza.name }} -->
     {{ pizza.name.substr(0, 10) + (pizza.name.length > 10 ? "..." : "") }}
     <br />
-     <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
+    <!-- {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
         <br />
         {{ pizza.name | dots:0:10 }}
         <br /> -->
@@ -27,7 +27,6 @@
     <!-- <a href="#" (click)="removePizza(pizza.id)">usun</a> -->
   </li>
   <!-- TODO 11: Dodajemy komponent stronicowania -->
-
 </ul>
 
 <button (click)="addPizza()">Dodaj pizze</button>

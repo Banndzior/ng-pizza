@@ -12,6 +12,7 @@ export class PizzaService {
   private url = 'https://ng-pizza.azurewebsites.net';
 
   pizzaEmitter = new EventEmitter();
+  onPizzaChanged = new EventEmitter();
 
   constructor(private http: HttpClient) {}
 
@@ -31,4 +32,5 @@ export class PizzaService {
     this.pizzaEmitter.emit("pizza list changed");
     return this.http.delete<Pizza>(`${this.url}/api/pizzas/${pizza.id}`);
   }
+
 }

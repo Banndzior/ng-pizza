@@ -1,0 +1,46 @@
+.active {
+    color: red;
+}
+
+:host {
+    ::ng-deep {
+
+        .pizzaList {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            list-style-type: none;
+        }
+
+        .pagination {
+            display: flex;
+            flex-direction: row;
+            align-content: space-between;
+            height: 2rem;
+            background-color: lightgray;
+            // list-style-type: none;
+
+            .first-item,
+            .last-item,
+            .previous-item,
+            .next-item,
+            .number-item {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 4rem;
+                border: 1px solid gray;
+            }
+
+            .first-item,
+            .last-item,
+            .previous-item,
+            .next-item {
+                background-color: lime;
+            }
+
+        }
+
+
+    }
+}

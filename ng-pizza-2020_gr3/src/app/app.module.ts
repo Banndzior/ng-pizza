@@ -8,6 +8,12 @@ import { PizzaComponent } from "./pizza/pizza.component";
 import { PizzaItemComponent } from "./pizza-item/pizza-item.component";
 import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
 
+import { JwPaginationComponent } from 'jw-angular-pagination';
+import { PizzaPaginationComponent } from './pizza-pagination/pizza-pagination.component';
+import { PizzaNavbarComponent } from './pizza-navbar/pizza-navbar.component';
+import { PizzaSearchComponent } from './pizza-search/pizza-search.component';
+import { PizzaHomeComponent } from './views/pizza-home/pizza-home.component';
+
 
 // TODO 1: Dodaj komponent PizzaItem za pomoca Angular CLI: ng g c pizza-item
 // TODO 2: Dodaj komponent PizzaEditor za pomoca Angular CLI: ng g c pizza-editor
@@ -18,6 +24,11 @@ import { PizzaEditorComponent } from "./pizza-editor/pizza-editor.component";
     PizzaComponent,
     PizzaItemComponent,
     PizzaEditorComponent,
+    JwPaginationComponent,
+    PizzaPaginationComponent,
+    PizzaNavbarComponent,
+    PizzaSearchComponent,
+    PizzaHomeComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

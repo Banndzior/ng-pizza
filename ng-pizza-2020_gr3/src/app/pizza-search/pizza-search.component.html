@@ -1,0 +1,15 @@
+<app-pizza-navbar></app-pizza-navbar>
+
+<div class="search">
+  <input
+    type="text"
+    placeholder="Search pizza..."
+    #searchInput
+    class="search--input"
+  />
+  <button class="search--button" (click)="searchPizza(searchInput.value)">
+    Search
+  </button>
+</div>
+
+<app-pizza></app-pizza>

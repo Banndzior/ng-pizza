@@ -6,7 +6,7 @@ import { NgForm }   from '@angular/forms';
 @Component({
   selector: 'app-pizza-editor',
   templateUrl: './pizza-editor.component.html',
-  styleUrls: ['./pizza-editor.component.css']
+  styleUrls: ['./pizza-editor.component.scss']
 })
 export class PizzaEditorComponent implements OnInit {
 

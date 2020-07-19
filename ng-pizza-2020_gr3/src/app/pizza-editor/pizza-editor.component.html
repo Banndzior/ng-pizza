@@ -1,11 +1,11 @@
+<app-pizza-navbar></app-pizza-navbar>
 
-  <form #pizzaEditor="ngForm" (ngSubmit)="addPizza(pizzaEditor)">
-    <label>Picyckowa nazwa</label>
-    <input type="text" ngModel name="name" required/>
-    <label>Picyckowy opis</label>
-    <input type="text" ngModel name="description" required/>
-    <label>Picyckowy obrazek</label>
-    <input type="text" ngModel name="image" required/>
-    <button>Dodaj picyckę</button>
-  </form>
-
+<form #pizzaEditor="ngForm" (ngSubmit)="addPizza(pizzaEditor)">
+  <label>Picyckowa nazwa</label>
+  <input type="text" ngModel name="name" required />
+  <label>Picyckowy opis</label>
+  <input type="text" ngModel name="description" required />
+  <label>Picyckowy obrazek</label>
+  <input type="text" ngModel name="image" required />
+  <button>Dodaj picyckę</button>
+</form>

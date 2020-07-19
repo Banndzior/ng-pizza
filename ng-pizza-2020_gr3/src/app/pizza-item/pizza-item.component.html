@@ -1,12 +1,21 @@
 <p *ngIf="pizza == null">Brak takiej pizzy</p>
 
-<div *ngIf="pizza">
-    {{ (pizza.name | slice:0:10) + (pizza.name.length > 10 ? "..." : "") }}
+<div *ngIf="pizza" class="pizzaItem" [ngClass]="{ 'pizzaItem--active': pizza.isSelected }">
+  <img src="{{ pizza.photoUrl }}" class="pizzaItem__img" />
+  <div class="pizzaItem__desc">
+    <span class="pizzaItem__desc--name">{{
+      (pizza.name | slice: 0:16) + (pizza.name.length > 16 ? "..." : "")
+    }}</span>
     <br />
-    <code>{{ pizza.description }}</code>
+    <p class="pizzaItem__desc--desc">{{ pizza.description }}</p>
     <br />
-    <img src="{{ pizza.photoUrl }}" height="100px" />
-    <a (click)="removePizza(pizza)">usun</a>
+    <a (click)="selectPizza(pizza)" class="pizzaItem__desc--button--select"
+      >select</a
+    >
+    <a (click)="removePizza(pizza)" class="pizzaItem__desc--button--remove"
+      >delete</a
+    >
+  </div>
 </div>
 
 <!-- TODO 7: Wydziel zawartosc html do komponentu pizza-item -->
